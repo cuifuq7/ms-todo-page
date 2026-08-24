@@ -15,6 +15,74 @@
         @keyframes spin { to { transform: rotate(360deg); } }
     </style>
     <script>
+        // ========== i18n 国际化（中文 / English / Русский / Français）==========
+        const i18n = {
+            zh: {
+                title: 'Microsoft OAuth 回调',
+                noCode: '❌ 未检测到授权码',
+                visitOfficial: '访问 MS ToDo 官网',
+                success: '✅ 授权成功！',
+                notifying: '正在通知插件，此页面将自动关闭...',
+                returning: '正在返回插件...',
+                redirectFail: '自动跳转失败，请手动操作',
+                backToExtension: '点击返回插件',
+                pleaseWait: '正在通知插件，请稍候...',
+                processing: '正在处理授权结果...'
+            },
+            en: {
+                title: 'Microsoft OAuth Callback',
+                noCode: '❌ Authorization code not detected',
+                visitOfficial: 'Visit MS ToDo Website',
+                success: '✅ Authorization Successful!',
+                notifying: 'Notifying the extension, this page will close automatically...',
+                returning: 'Returning to the extension...',
+                redirectFail: 'Auto-redirect failed, please manually',
+                backToExtension: 'Click to return to extension',
+                pleaseWait: 'Notifying the extension, please wait...',
+                processing: 'Processing authorization result...'
+            },
+            ru: {
+                title: 'Microsoft OAuth — Обратный вызов',
+                noCode: '❌ Код авторизации не обнаружен',
+                visitOfficial: 'Посетить сайт MS ToDo',
+                success: '✅ Авторизация успешна!',
+                notifying: 'Уведомляем расширение, эта страница закроется автоматически...',
+                returning: 'Возврат к расширению...',
+                redirectFail: 'Автоматический переход не удался, вручную',
+                backToExtension: 'Нажмите, чтобы вернуться к расширению',
+                pleaseWait: 'Уведомляем расширение, подождите...',
+                processing: 'Обработка результата авторизации...'
+            },
+            fr: {
+                title: 'Microsoft OAuth — Rappel',
+                noCode: '❌ Code d\'autorisation non détecté',
+                visitOfficial: 'Visiter le site MS ToDo',
+                success: '✅ Autorisation réussie !',
+                notifying: 'Notification de l\'extension, cette page se fermera automatiquement...',
+                returning: 'Retour à l\'extension...',
+                redirectFail: 'Redirection automatique échouée, manuellement',
+                backToExtension: 'Cliquez pour revenir à l\'extension',
+                pleaseWait: 'Notification de l\'extension, veuillez patienter...',
+                processing: 'Traitement du résultat d\'autorisation...'
+            }
+        };
+
+        // 根据浏览器语言环境判断语种（zh / en / ru / fr）
+        function detectLang() {
+            const nav = (navigator.language || 'en').toLowerCase();
+            if (nav.startsWith('zh')) return 'zh';
+            if (nav.startsWith('ru')) return 'ru';
+            if (nav.startsWith('fr')) return 'fr';
+            return 'en';
+        }
+
+        const lang = detectLang();
+        const t = i18n[lang];
+
+        // 设置页面标题和初始内容
+        document.title = t.title;
+        document.documentElement.lang = lang;
+
         document.addEventListener("DOMContentLoaded", () => {
             const params = new URLSearchParams(window.location.search);
             const code = params.get("code");
@@ -23,8 +91,8 @@
             if (!code) {
                 document.body.innerHTML = `
                     <div class="container">
-                        <h2>❌ 未检测到授权码</h2>
-                        <a class="cta" href="https://mstodo.dpdns.org" target="_blank">访问 MS ToDo 官网</a>
+                        <h2>${t.noCode}</h2>
+                        <a class="cta" href="https://mstodo.dpdns.org" target="_blank">${t.visitOfficial}</a>
                     </div>`;
                 return;
             }
@@ -44,9 +112,9 @@
                 // ========== Firefox：background.js 会自动检测 URL 并关闭此标签页 ==========
                 document.body.innerHTML = `
                     <div class="container">
-                        <h2>✅ 授权成功！</h2>
+                        <h2>${t.success}</h2>
                         <div class="spinner"></div>
-                        <p>正在通知插件，此页面将自动关闭...</p>
+                        <p>${t.notifying}</p>
                     </div>`;
                 // 不需要做任何通信，background.js 的 tabs.onUpdated 会自动处理
                 return;
@@ -59,12 +127,12 @@
 
                 document.body.innerHTML = `
                     <div class="container">
-                        <h2>✅ 授权成功！</h2>
-                        <p>正在返回插件...</p>
+                        <h2>${t.success}</h2>
+                        <p>${t.returning}</p>
                     </div>`;
 
-            
                 window.location.href = targetUrl;
+
                 // 兜底：2秒后如果重定向失败
                 setTimeout(() => {
                     try {
@@ -74,9 +142,9 @@
                     } catch (e) {}
                     document.body.innerHTML = `
                         <div class="container">
-                            <h2>✅ 授权成功！</h2>
-                            <p>自动跳转失败，请手动操作</p>
-                            <button class="btn" onclick="window.location.href='${targetUrl}'">点击返回插件</button>
+                            <h2>${t.success}</h2>
+                            <p>${t.redirectFail}</p>
+                            <button class="btn" onclick="window.location.href='${targetUrl}'">${t.backToExtension}</button>
                         </div>`;
                 }, 2000);
                 return;
@@ -91,8 +159,8 @@
 
             document.body.innerHTML = `
                 <div class="container">
-                    <h2>✅ 授权成功！</h2>
-                    <p>正在通知插件，请稍候...</p>
+                    <h2>${t.success}</h2>
+                    <p>${t.pleaseWait}</p>
                 </div>`;
 
             setTimeout(() => { try { window.close(); } catch(e) {} }, 4000);
@@ -100,6 +168,7 @@
     </script>
 </head>
 <body>
-<h2>正在处理授权结果...</h2>
+<h2 id="initial-msg"></h2>
+<script>document.getElementById('initial-msg').textContent = i18n[detectLang()].processing;</script>
 </body>
 </html>
