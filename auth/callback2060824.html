@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Microsoft OAuth 回调</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const code = params.get("code");
+            const state = params.get("state");
+
+            if (!code) {
+                document.body.innerHTML = `
+                    <h2>❌ 未检测到授权码</h2>
+                    <a class="cta" href="https://mstodo.dpdns.org" target="_blank" id="cta">
+                        访问 MS ToDo 官网
+                    </a>`;
+                return;
+            }
+
+            // 🔑 优先：解析 state 中的 redirect URL，直接重定向回扩展（Firefox 兼容）
+            if (state) {
+                try {
+                    const stateObj = JSON.parse(decodeURIComponent(state));
+                    if (stateObj && stateObj.redirect) {
+                        document.body.innerHTML = `<h2>✅ 授权成功！正在跳转回插件...</h2>`;
+                        const redirectUrl = stateObj.redirect + '?code=' + encodeURIComponent(code);
+                        window.location.href = redirectUrl;
+                        return;
+                    }
+                } catch (e) {
+                    console.warn("⚠️ state 解析失败:", e);
+                }
+            }
+
+            // 兜底：opener.postMessage（Chrome 旧流程）
+            try {
+                if (window.opener && !window.opener.closed) {
+                    window.opener.postMessage({type: "oauth_code", code}, "*");
+                    console.log("📡 postMessage 已发送");
+                }
+            } catch (e) {
+                console.warn("⚠️ postMessage 失败:", e);
+            }
+
+            document.body.innerHTML = `
+        <h2>✅ 授权成功！</h2>
+        <p>正在通知插件，请稍候...</p>
+        <a class="cta" href="https://mstodo.dpdns.org" target="_blank" id="cta">访问 MS ToDo 官网</a>`;
+
+            setTimeout(() => {
+                try {
+                    if (window.opener && !window.opener.closed) {
+                        window.opener.postMessage({type: "oauth_code", code}, "*");
+                    }
+                } catch (e) {
+                }
+                try {
+                    window.close();
+                } catch {
+                }
+            }, 4000);
+        });
+    </script>
+</head>
+<body>
+<h2>正在处理授权结果...</h2>
+</body>
+</html>

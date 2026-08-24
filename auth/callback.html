@@ -3,51 +3,83 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Microsoft OAuth 回调</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #f5f5f5; }
+        .container { text-align: center; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); max-width: 400px; }
+        h2 { margin: 0 0 12px; }
+        p { color: #666; margin: 8px 0; }
+        .cta { color: #6366f1; text-decoration: none; }
+    </style>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const params = new URLSearchParams(window.location.search);
             const code = params.get("code");
+            const state = params.get("state");
 
             if (!code) {
                 document.body.innerHTML = `
-                    <h2>❌ 未检测到授权码</h2>
-                    <a class="cta" href="https://mstodo.dpdns.org" target="_blank" id="cta">
-                        访问 MS ToDo 官网
-                    </a>`;
+                    <div class="container">
+                        <h2>❌ 未检测到授权码</h2>
+                        <a class="cta" href="https://mstodo.dpdns.org" target="_blank">访问 MS ToDo 官网</a>
+                    </div>`;
                 return;
             }
 
-            // 1. 尝试 opener.postMessage（大概率失败，但保留）
+            // 🔑 解析 state 参数，获取扩展重定向 URL
+            let redirectUrl = null;
+            if (state) {
+                try {
+                    const stateData = JSON.parse(decodeURIComponent(state));
+                    if (stateData.redirect) {
+                        redirectUrl = stateData.redirect;
+                    }
+                } catch (e) {
+                    // state 不是 JSON，忽略
+                }
+            }
+
+            // 🔑 优先模式：重定向回扩展（Firefox 兼容 + 更可靠）
+            if (redirectUrl) {
+                const separator = redirectUrl.includes('?') ? '&' : '?';
+                const targetUrl = redirectUrl + separator + 'code=' + encodeURIComponent(code);
+
+                document.body.innerHTML = `
+                    <div class="container">
+                        <h2>✅ 授权成功！</h2>
+                        <p>正在返回插件...</p>
+                    </div>`;
+
+                // 短暂延迟后重定向，让用户看到成功提示
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 800);
+                return;
+            }
+
+            // 兜底模式：postMessage（Chrome 原有逻辑）
             try {
                 if (window.opener && !window.opener.closed) {
                     window.opener.postMessage({type: "oauth_code", code}, "*");
-                    console.log("📡 postMessage 已发送");
                 }
             } catch (e) {
                 console.warn("⚠️ postMessage 失败:", e);
             }
 
-            // 2. 显示成功信息，延迟关闭（给插件轮询检测留出时间）
             document.body.innerHTML = `
-        <h2>✅ 授权成功！</h2>
-        <p>正在通知插件，请稍候...</p>
-        <a class="cta" href="https://mstodo.dpdns.org" target="_blank" id="cta">访问 MS ToDo 官网</a>`;
+                <div class="container">
+                    <h2>✅ 授权成功！</h2>
+                    <p>正在通知插件，请稍候...</p>
+                    <a class="cta" href="https://mstodo.dpdns.org" target="_blank">访问 MS ToDo 官网</a>
+                </div>`;
 
-
-            // 🔑 关键：延迟 4 秒再尝试关闭，让插件轮询能检测到 URL
+            // 延迟关闭（给 postMessage 留出时间）
             setTimeout(() => {
                 try {
-                    // 再次尝试通知
                     if (window.opener && !window.opener.closed) {
                         window.opener.postMessage({type: "oauth_code", code}, "*");
                     }
-                } catch (e) {
-                }
-                // 尝试关闭窗口
-                try {
-                    window.close();
-                } catch {
-                }
+                } catch (e) {}
+                try { window.close(); } catch {}
             }, 4000);
         });
     </script>
