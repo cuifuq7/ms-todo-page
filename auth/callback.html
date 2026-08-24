@@ -42,7 +42,53 @@
                 }
             }
 
-            // 🔑 方式1（优先）：重定向回扩展（Chrome 兼容）
+            // 🔑 检测是否为 Firefox（不支持 moz-extension:// 导航）
+            const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+
+            if (isFirefox && extensionId) {
+                // ========== Firefox 路径：直接使用 chrome.runtime.sendMessage ==========
+                document.body.innerHTML = `
+                    <div class="container">
+                        <h2>✅ 授权成功！</h2>
+                        <p>正在通知插件...</p>
+                    </div>`;
+
+                try {
+                    chrome.runtime.sendMessage(extensionId, {
+                        type: "oauth_code",
+                        code: code,
+                        region: region
+                    }, (response) => {
+                        if (chrome.runtime.lastError) {
+                            console.warn("⚠️ runtime.sendMessage 失败:", chrome.runtime.lastError.message);
+                            // 兜底：显示手动按钮
+                            if (redirectUrl) {
+                                const targetUrl = redirectUrl + '?code=' + encodeURIComponent(code);
+                                showManualFallback(targetUrl);
+                            } else {
+                                showErrorMessage();
+                            }
+                        } else {
+                            document.body.innerHTML = `
+                                <div class="container">
+                                    <h2>✅ 授权成功！</h2>
+                                    <p>已通知插件，正在登录...</p>
+                                </div>`;
+                            setTimeout(() => { try { window.close(); } catch(e) {} }, 2000);
+                        }
+                    });
+                } catch (e) {
+                    console.warn("⚠️ chrome.runtime.sendMessage 异常:", e);
+                    if (redirectUrl) {
+                        showManualFallback(redirectUrl + '?code=' + encodeURIComponent(code));
+                    } else {
+                        showErrorMessage();
+                    }
+                }
+                return;
+            }
+
+            // ========== Chrome 路径：重定向回扩展 ==========
             if (redirectUrl) {
                 const separator = redirectUrl.includes('?') ? '&' : '?';
                 const targetUrl = redirectUrl + separator + 'code=' + encodeURIComponent(code);
@@ -53,52 +99,22 @@
                         <p>正在返回插件...</p>
                     </div>`;
 
-                // 尝试重定向
+                // Chrome 直接重定向
                 window.location.href = targetUrl;
 
-                // 800ms 后检查：如果重定向被阻止（Firefox），尝试其他方式
+                // 兜底：如果重定向失败（2秒后仍在当前页）
                 setTimeout(() => {
-                    // 🔑 方式2：chrome.runtime.sendMessage（Firefox 消息通信）
-                    if (extensionId) {
-                        try {
-                            chrome.runtime.sendMessage(extensionId, {
-                                type: "oauth_code",
-                                code: code,
-                                region: region
-                            }, (response) => {
-                                if (chrome.runtime.lastError) {
-                                    console.warn("⚠️ runtime.sendMessage 失败:", chrome.runtime.lastError.message);
-                                    showManualFallback(redirectUrl + '?code=' + encodeURIComponent(code));
-                                } else {
-                                    document.body.innerHTML = `
-                                        <div class="container">
-                                            <h2>✅ 授权成功！</h2>
-                                            <p>已通知插件，正在登录...</p>
-                                        </div>`;
-                                    // 尝试关闭当前标签页
-                                    setTimeout(() => { try { window.close(); } catch(e) {} }, 2000);
-                                }
-                            });
-                            return;
-                        } catch (e) {
-                            console.warn("⚠️ chrome.runtime.sendMessage 异常:", e);
-                        }
-                    }
-
-                    // 🔑 方式3：opener.postMessage（Chrome 旧流程兜底）
                     try {
                         if (window.opener && !window.opener.closed) {
                             window.opener.postMessage({type: "oauth_code", code}, "*");
                         }
                     } catch (e) {}
-
-                    // 显示手动操作按钮
                     showManualFallback(targetUrl);
-                }, 800);
+                }, 2000);
                 return;
             }
 
-            // 没有 redirectUrl，使用 postMessage 兜底
+            // ========== 无 redirectUrl，使用 postMessage 兜底 ==========
             try {
                 if (window.opener && !window.opener.closed) {
                     window.opener.postMessage({type: "oauth_code", code}, "*");
@@ -120,10 +136,18 @@
                 document.body.innerHTML = `
                     <div class="container">
                         <h2>✅ 授权成功！</h2>
-                        <p>正在尝试连接插件...</p>
+                        <p>自动跳转失败，请手动操作</p>
                         <button class="btn" onclick="window.location.href='${autoUrl}'">
                             点击返回插件
                         </button>
+                    </div>`;
+            }
+
+            function showErrorMessage() {
+                document.body.innerHTML = `
+                    <div class="container">
+                        <h2>✅ 授权成功！</h2>
+                        <p>请手动关闭此页面，回到插件窗口</p>
                     </div>`;
             }
         });
