@@ -11,6 +11,8 @@
         .cta { color: #6366f1; text-decoration: none; }
         .btn { display: inline-block; margin-top: 16px; padding: 10px 24px; background: #6366f1; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; }
         .btn:hover { background: #4f46e5; }
+        .spinner { width: 24px; height: 24px; border: 3px solid #e5e7eb; border-top-color: #6366f1; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 12px auto; }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -27,68 +29,30 @@
                 return;
             }
 
-            // 解析 state 参数
+            // 解析 state 参数（用于 Chrome 重定向兜底）
             let redirectUrl = null;
-            let extensionId = null;
-            let region = null;
             if (state) {
                 try {
                     const stateData = JSON.parse(decodeURIComponent(state));
                     redirectUrl = stateData.redirect || null;
-                    extensionId = stateData.extensionId || null;
-                    region = stateData.region || null;
-                } catch (e) {
-                    // state 不是 JSON，忽略
-                }
+                } catch (e) {}
             }
 
-            // 🔑 检测是否为 Firefox（不支持 moz-extension:// 导航）
             const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
 
-            if (isFirefox && extensionId) {
-                // ========== Firefox 路径：直接使用 chrome.runtime.sendMessage ==========
+            if (isFirefox) {
+                // ========== Firefox：background.js 会自动检测 URL 并关闭此标签页 ==========
                 document.body.innerHTML = `
                     <div class="container">
                         <h2>✅ 授权成功！</h2>
-                        <p>正在通知插件...</p>
+                        <div class="spinner"></div>
+                        <p>正在通知插件，此页面将自动关闭...</p>
                     </div>`;
-
-                try {
-                    chrome.runtime.sendMessage(extensionId, {
-                        type: "oauth_code",
-                        code: code,
-                        region: region
-                    }, (response) => {
-                        if (chrome.runtime.lastError) {
-                            console.warn("⚠️ runtime.sendMessage 失败:", chrome.runtime.lastError.message);
-                            // 兜底：显示手动按钮
-                            if (redirectUrl) {
-                                const targetUrl = redirectUrl + '?code=' + encodeURIComponent(code);
-                                showManualFallback(targetUrl);
-                            } else {
-                                showErrorMessage();
-                            }
-                        } else {
-                            document.body.innerHTML = `
-                                <div class="container">
-                                    <h2>✅ 授权成功！</h2>
-                                    <p>已通知插件，正在登录...</p>
-                                </div>`;
-                            setTimeout(() => { try { window.close(); } catch(e) {} }, 2000);
-                        }
-                    });
-                } catch (e) {
-                    console.warn("⚠️ chrome.runtime.sendMessage 异常:", e);
-                    if (redirectUrl) {
-                        showManualFallback(redirectUrl + '?code=' + encodeURIComponent(code));
-                    } else {
-                        showErrorMessage();
-                    }
-                }
+                // 不需要做任何通信，background.js 的 tabs.onUpdated 会自动处理
                 return;
             }
 
-            // ========== Chrome 路径：重定向回扩展 ==========
+            // ========== Chrome：重定向回扩展 ==========
             if (redirectUrl) {
                 const separator = redirectUrl.includes('?') ? '&' : '?';
                 const targetUrl = redirectUrl + separator + 'code=' + encodeURIComponent(code);
@@ -99,17 +63,21 @@
                         <p>正在返回插件...</p>
                     </div>`;
 
-                // Chrome 直接重定向
                 window.location.href = targetUrl;
 
-                // 兜底：如果重定向失败（2秒后仍在当前页）
+                // 兜底：2秒后如果重定向失败
                 setTimeout(() => {
                     try {
                         if (window.opener && !window.opener.closed) {
                             window.opener.postMessage({type: "oauth_code", code}, "*");
                         }
                     } catch (e) {}
-                    showManualFallback(targetUrl);
+                    document.body.innerHTML = `
+                        <div class="container">
+                            <h2>✅ 授权成功！</h2>
+                            <p>自动跳转失败，请手动操作</p>
+                            <button class="btn" onclick="window.location.href='${targetUrl}'">点击返回插件</button>
+                        </div>`;
                 }, 2000);
                 return;
             }
@@ -125,31 +93,9 @@
                 <div class="container">
                     <h2>✅ 授权成功！</h2>
                     <p>正在通知插件，请稍候...</p>
-                    <a class="cta" href="https://mstodo.dpdns.org" target="_blank">访问 MS ToDo 官网</a>
                 </div>`;
 
-            setTimeout(() => {
-                try { window.close(); } catch(e) {}
-            }, 4000);
-
-            function showManualFallback(autoUrl) {
-                document.body.innerHTML = `
-                    <div class="container">
-                        <h2>✅ 授权成功！</h2>
-                        <p>自动跳转失败，请手动操作</p>
-                        <button class="btn" onclick="window.location.href='${autoUrl}'">
-                            点击返回插件
-                        </button>
-                    </div>`;
-            }
-
-            function showErrorMessage() {
-                document.body.innerHTML = `
-                    <div class="container">
-                        <h2>✅ 授权成功！</h2>
-                        <p>请手动关闭此页面，回到插件窗口</p>
-                    </div>`;
-            }
+            setTimeout(() => { try { window.close(); } catch(e) {} }, 4000);
         });
     </script>
 </head>
