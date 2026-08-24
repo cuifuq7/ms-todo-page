@@ -9,6 +9,8 @@
         h2 { margin: 0 0 12px; }
         p { color: #666; margin: 8px 0; }
         .cta { color: #6366f1; text-decoration: none; }
+        .btn { display: inline-block; margin-top: 16px; padding: 10px 24px; background: #6366f1; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; }
+        .btn:hover { background: #4f46e5; }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -25,20 +27,22 @@
                 return;
             }
 
-            // 🔑 解析 state 参数，获取扩展重定向 URL
+            // 解析 state 参数
             let redirectUrl = null;
+            let extensionId = null;
+            let region = null;
             if (state) {
                 try {
                     const stateData = JSON.parse(decodeURIComponent(state));
-                    if (stateData.redirect) {
-                        redirectUrl = stateData.redirect;
-                    }
+                    redirectUrl = stateData.redirect || null;
+                    extensionId = stateData.extensionId || null;
+                    region = stateData.region || null;
                 } catch (e) {
                     // state 不是 JSON，忽略
                 }
             }
 
-            // 🔑 优先模式：重定向回扩展（Firefox 兼容 + 更可靠）
+            // 🔑 方式1（优先）：重定向回扩展（Chrome 兼容）
             if (redirectUrl) {
                 const separator = redirectUrl.includes('?') ? '&' : '?';
                 const targetUrl = redirectUrl + separator + 'code=' + encodeURIComponent(code);
@@ -49,21 +53,57 @@
                         <p>正在返回插件...</p>
                     </div>`;
 
-                // 短暂延迟后重定向，让用户看到成功提示
+                // 尝试重定向
+                window.location.href = targetUrl;
+
+                // 800ms 后检查：如果重定向被阻止（Firefox），尝试其他方式
                 setTimeout(() => {
-                    window.location.href = targetUrl;
+                    // 🔑 方式2：chrome.runtime.sendMessage（Firefox 消息通信）
+                    if (extensionId) {
+                        try {
+                            chrome.runtime.sendMessage(extensionId, {
+                                type: "oauth_code",
+                                code: code,
+                                region: region
+                            }, (response) => {
+                                if (chrome.runtime.lastError) {
+                                    console.warn("⚠️ runtime.sendMessage 失败:", chrome.runtime.lastError.message);
+                                    showManualFallback(redirectUrl + '?code=' + encodeURIComponent(code));
+                                } else {
+                                    document.body.innerHTML = `
+                                        <div class="container">
+                                            <h2>✅ 授权成功！</h2>
+                                            <p>已通知插件，正在登录...</p>
+                                        </div>`;
+                                    // 尝试关闭当前标签页
+                                    setTimeout(() => { try { window.close(); } catch(e) {} }, 2000);
+                                }
+                            });
+                            return;
+                        } catch (e) {
+                            console.warn("⚠️ chrome.runtime.sendMessage 异常:", e);
+                        }
+                    }
+
+                    // 🔑 方式3：opener.postMessage（Chrome 旧流程兜底）
+                    try {
+                        if (window.opener && !window.opener.closed) {
+                            window.opener.postMessage({type: "oauth_code", code}, "*");
+                        }
+                    } catch (e) {}
+
+                    // 显示手动操作按钮
+                    showManualFallback(targetUrl);
                 }, 800);
                 return;
             }
 
-            // 兜底模式：postMessage（Chrome 原有逻辑）
+            // 没有 redirectUrl，使用 postMessage 兜底
             try {
                 if (window.opener && !window.opener.closed) {
                     window.opener.postMessage({type: "oauth_code", code}, "*");
                 }
-            } catch (e) {
-                console.warn("⚠️ postMessage 失败:", e);
-            }
+            } catch (e) {}
 
             document.body.innerHTML = `
                 <div class="container">
@@ -72,15 +112,20 @@
                     <a class="cta" href="https://mstodo.dpdns.org" target="_blank">访问 MS ToDo 官网</a>
                 </div>`;
 
-            // 延迟关闭（给 postMessage 留出时间）
             setTimeout(() => {
-                try {
-                    if (window.opener && !window.opener.closed) {
-                        window.opener.postMessage({type: "oauth_code", code}, "*");
-                    }
-                } catch (e) {}
-                try { window.close(); } catch {}
+                try { window.close(); } catch(e) {}
             }, 4000);
+
+            function showManualFallback(autoUrl) {
+                document.body.innerHTML = `
+                    <div class="container">
+                        <h2>✅ 授权成功！</h2>
+                        <p>正在尝试连接插件...</p>
+                        <button class="btn" onclick="window.location.href='${autoUrl}'">
+                            点击返回插件
+                        </button>
+                    </div>`;
+            }
         });
     </script>
 </head>
