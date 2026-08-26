@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API Proxy</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 60px auto; padding: 0 20px; color: #333; }
+        h1 { font-size: 20px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+        .endpoint { margin: 16px 0; padding: 12px 16px; background: #f9f9f9; border-radius: 8px; border-left: 3px solid #4a90d9; }
+        .endpoint strong { color: #4a90d9; }
+        .status { margin-top: 30px; padding: 10px; background: #e8f5e9; border-radius: 6px; color: #2e7d32; }
+    </style>
+</head>
+<body>
+    <h1>🌤 Weather API Proxy</h1>
+    <p>此页面作为天气 API 代理，所有请求经由此服务器转发至第三方接口。</p>
+
+    <div class="endpoint">
+        <strong>GET /weather-proxy/?action=forecast</strong><br>
+        转发至 Open-Meteo Forecast API<br>
+        参数：<code>latitude</code> <code>longitude</code> <code>current</code> <code>daily</code> <code>timezone</code> <code>forecast_days</code>
+    </div>
+
+    <div class="endpoint">
+        <strong>GET /weather-proxy/?action=search</strong><br>
+        转发至 Open-Meteo Geocoding API<br>
+        参数：<code>name</code> <code>count</code> <code>language</code> <code>format</code>
+    </div>
+
+    <div class="endpoint">
+        <strong>GET /weather-proxy/?action=reverse</strong><br>
+        转发至 BigDataCloud Reverse Geocoding API<br>
+        参数：<code>latitude</code> <code>longitude</code> <code>localityLanguage</code>
+    </div>
+
+    <div class="status" id="status">✅ 代理服务就绪</div>
+
+    <script>
+    /**
+     * ============================================================================
+     * Weather API Proxy - 静态页面代理转发
+     * 部署方式：将此页面部署到你的服务器，如 https://your-domain.com/weather-proxy/
+     * 客户端调用：?action=forecast|search|reverse + 原始参数
+     * ============================================================================
+     */
+    (function () {
+        // 上游 API 地址（可按需替换）
+        const UPSTREAM = {
+            forecast: 'https://api.open-meteo.com/v1/forecast',
+            search: 'https://geocoding-api.open-meteo.com/v1/search',
+            reverse: 'https://api.bigdatacloud.net/data/reverse-geocode-client'
+        };
+
+        // 各 action 允许转发的参数白名单
+        const ALLOWED_PARAMS = {
+            forecast: ['latitude', 'longitude', 'current', 'daily', 'timezone', 'forecast_days', 'past_days', 'wind_speed_unit', 'temperature_unit'],
+            search: ['name', 'count', 'language', 'format'],
+            reverse: ['latitude', 'longitude', 'localityLanguage']
+        };
+
+        /**
+         * 从请求 URL 中提取白名单内的参数，构建转发用的 URLSearchParams
+         */
+        function buildUpstreamParams(action, sourceParams) {
+            const allowed = ALLOWED_PARAMS[action] || [];
+            const params = new URLSearchParams();
+            allowed.forEach(key => {
+                const val = sourceParams.get(key);
+                if (val !== null && val !== undefined && val !== '') {
+                    params.set(key, val);
+                }
+            });
+            return params;
+        }
+
+        /**
+         * 返回 JSON 响应
+         */
+        function respond(status, data) {
+            // 页面模式下通过 document 展示，API 模式下通过 fetch 获取
+            document.getElementById('status').textContent =
+                '📡 ' + new Date().toLocaleTimeString() + ' | action=' + (data.action || 'unknown') + ' | HTTP ' + status;
+            return data;
+        }
+
+        /**
+         * 核心代理逻辑
+         */
+        async function handleProxy() {
+            const params = new URLSearchParams(window.location.search);
+            const action = params.get('action');
+
+            if (!action || !UPSTREAM[action]) {
+                respond(400, { action: action, error: 'Invalid action. Use: forecast, search, reverse' });
+                return;
+            }
+
+            const upstreamUrl = UPSTREAM[action];
+            const upstreamParams = buildUpstreamParams(action, params);
+            const targetUrl = upstreamUrl + '?' + upstreamParams.toString();
+
+            try {
+                const response = await fetch(targetUrl);
+                const contentType = response.headers.get('content-type') || '';
+                let data;
+                if (contentType.includes('application/json') || contentType.includes('application/geo+json')) {
+                    data = await response.json();
+                } else {
+                    data = { text: await response.text() };
+                }
+                respond(response.status, { action: action, proxy: true, data: data });
+            } catch (err) {
+                respond(502, { action: action, proxy: true, error: 'Upstream request failed: ' + err.message });
+            }
+        }
+
+        // 页面加载时自动处理（URL 带参数时）
+        if (window.location.search) {
+            handleProxy();
+        }
+
+        // 导出供 fetch 调用（同域场景）
+        window.WeatherProxy = {
+            /**
+             * 代理请求封装（供客户端 JS 调用）
+             * @param {string} proxyBase - 代理页面地址，如 '/weather-proxy/'
+             * @param {string} action - forecast | search | reverse
+             * @param {Object} params - 原始参数对象
+             * @returns {Promise<Object>} 上游 API 返回的 JSON
+             */
+            async request(proxyBase, action, params) {
+                const query = new URLSearchParams({ action: action, ...params });
+                const url = proxyBase + '?' + query.toString();
+                const response = await fetch(url);
+                const result = await response.json();
+                if (result.error) throw new Error(result.error);
+                return result.data;
+            }
+        };
+    })();
+    </script>
+</body>
+</html>
