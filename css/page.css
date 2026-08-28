@@ -10,6 +10,7 @@
     --primary-dark: #1d4ed8;
     --chrome-color: #4285f4;
     --edge-color: #0078d7;
+    --firefox-color: #ff7139;
     --text-dark: #1e293b;
     --text-light: #64748b;
     --bg-light: #f8fafc;
@@ -235,6 +236,10 @@ nav {
 
 .btn-edge {
     background: var(--edge-color);
+}
+
+.btn-firefox {
+    background: var(--firefox-color);
 }
 
 .stats-bar {
