@@ -1,13 +1,13 @@
-# 🌟 MS-ToDo (Microsoft To Do)
+# 🌟 MS-ToDo · New Tab, New Start, New World
 
-### The Most Stunning Microsoft To Do Chrome Extension
+### Task Manager · Desktop New Tab · RSS Reader — All-in-One Productivity Tool
 
-> **The most impressive Microsoft To Do Sync Assistant ｜ A lightweight, efficient, and intelligent offline task manager**
+> **The most impressive New Tab productivity extension ｜ Lightweight, efficient, and intelligent**
 
-Manage your tasks seamlessly right from a new browser tab —  
-turn every new tab into a starting point for **productivity**.
+Manage tasks, customize your new tab, and aggregate RSS feeds — all in one browser extension.
+Turn every new tab into a starting point for **productivity**.
 
-A powerful and beautifully designed Microsoft To Do browser extension that provides a smooth, integrated task management experience — directly within your browser.
+A powerful and beautifully designed browser extension that integrates task management, desktop new tab, and RSS reader into one seamless experience.
 
 ---
 
@@ -30,7 +30,9 @@ Manage all your tasks efficiently, directly from your new browser tab.
 
 ## ✨ Core Highlights
 
-### 🎯 Smart Sync, Seamless Switching
+### 📋 Task Manager
+
+#### 🎯 Smart Sync, Seamless Switching
 1. **Two-way real-time sync:** Automatically syncs online, fully functional offline.  
 2. **Intelligent conflict resolution:** Timestamp-based smart merging keeps your data safe.  
 3. **Operation-level sync:** Syncs only modified data — efficient and bandwidth-friendly.
@@ -51,19 +53,35 @@ Manage all your tasks efficiently, directly from your new browser tab.
 
 ---
 
-### ⚡ Powerful Feature Set
-1. **Tasks + Subtasks:** Easily break down complex projects.  
-2. **Flexible sorting:** Sort by creation date, importance, or due date.  
-3. **Quick operations:** Add, edit, complete, or delete tasks instantly.  
-4. **Private list lock:** Hide and protect sensitive task lists with one click.
+### 🖥️ Desktop New Tab
+
+#### 🌅 Bing Daily Wallpaper / Custom Background
+1. Auto-refreshing Bing daily picks  
+2. Custom background with adjustable transparency
+
+#### 🔍 Multi-Engine Search + Weather & Clock
+1. One-click search engine switching  
+2. Real-time weather and customizable clock widget
+
+#### 🎯 Website Grid Navigation
+1. Favorite sites as beautiful icon grid  
+2. Tag grouping, adjustable icon size and spacing
 
 ---
 
-### 🔄 Thoughtful Design Details
-1. **Bilingual support:** Instantly switch between English and Chinese (auto-saves preference).  
-2. **Network status indicator:** Clearly displays online/offline mode.  
-3. **Anti-duplicate mechanism:** Smart debounce prevents repeated submissions.  
-4. **Performance optimized:** Handles large task sets smoothly without lag.
+### 📡 RSS Reader
+
+#### 📰 Three-Column Reader
+1. Feeds / Article list / Article detail in clean layout  
+2. Favorites, unread filter, multiple sorting options
+
+#### 🔎 One-Click RSS Detection
+1. Automatically detects RSS feeds on web pages  
+2. One-click to subscribe
+
+#### ☁️ Feed Cloud Sync
+1. Sync subscriptions via Microsoft To Do lists  
+2. Seamless switching between devices
 
 ---
 
