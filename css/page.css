@@ -274,6 +274,27 @@ nav {
     letter-spacing: 1px;
 }
 
+.hero-image {
+    margin-top: 3rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-image img {
+    max-width: 90%;
+    width: auto;
+    max-height: 420px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+}
+
+.hero-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+}
+
 .slogan-waterfall {
     background: linear-gradient(90deg, #f1f5f9 0%, #ffffff 20%, #ffffff 80%, #f1f5f9 100%);
     padding: 2.8rem 10% 2.2rem;
@@ -937,6 +958,7 @@ footer {
     #dynamic-slogan { font-size: 2.2rem; }
     .features { grid-template-columns: 1fr; }
     .carousel-btn { width: 36px; height: 36px; font-size: 1.2rem; }
+    .hero-image img { max-height: 280px; }
 }
 
 /* ==================== 新增功能展示区样式 ==================== */
