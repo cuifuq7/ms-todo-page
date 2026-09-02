@@ -282,9 +282,9 @@ nav {
 }
 
 .hero-image img {
-    max-width: 90%;
+    max-width: 100%;
     width: auto;
-    max-height: 420px;
+    max-height: 560px;
     border-radius: 20px;
     box-shadow: var(--shadow-lg);
     transition: var(--transition);
@@ -958,7 +958,7 @@ footer {
     #dynamic-slogan { font-size: 2.2rem; }
     .features { grid-template-columns: 1fr; }
     .carousel-btn { width: 36px; height: 36px; font-size: 1.2rem; }
-    .hero-image img { max-height: 280px; }
+    .hero-image img { max-height: 380px; }
 }
 
 /* ==================== 新增功能展示区样式 ==================== */
