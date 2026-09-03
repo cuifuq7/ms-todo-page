@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>MS-ToDo · 新标签，新起点，新世界</title>
+    <title>MS-ToDo Hub · 新标签，新起点，新世界</title>
     <meta name="description" content="待办任务管理 · 桌面新标签页 · RSS 阅读器，三合一效率工具。Local-First 离线优先，微软 To Do 双向同步。">
     <meta name="keywords" content="微软待办, Microsoft To Do, 新标签页, RSS阅读器, 桌面模式, 离线同步, 思维导图">
-    <meta property="og:title" content="MS-ToDo · 新标签，新起点，新世界">
+    <meta property="og:title" content="MS-ToDo Hub · 新标签，新起点，新世界">
     <meta property="og:description" content="待办 · 桌面 · RSS 三合一 · 移动办公效率神器 · Local-First">
     <meta property="og:image" content="img/logo/logo.png">
 <!--    <meta name="google-adsense-account" content="ca-pub-5532146792919781">-->
@@ -21,8 +21,8 @@
 <nav>
     <div class="logo">
         <a href="/">
-            <img src="img/logo/logo.png" alt="MS-ToDo Logo">
-            MS-ToDo
+            <img src="img/logo/logo.png" alt="MS-ToDo Hub Logo">
+            MS-ToDo Hub
         </a>
     </div>
     <div class="nav-links">
@@ -78,8 +78,9 @@
             <div class="stat-label" data-i18n="stat-offline">离线可用</div>
         </div>
     </div>
-    <div class="hero-image">
-        <img src="img/xiaoT/xiaoT-info.webp" alt="MS-ToDo xiaoT">
+    <div class="hero-image" onclick="toggleVideoModal(true)" style="cursor:pointer;">
+        <div class="hero-play-btn"><i class="fa-solid fa-circle-play"></i></div>
+        <img src="img/xiaoT/xiaoT-info.webp" alt="MS-ToDo Hub xiaoT">
     </div>
 </section>
 
@@ -171,11 +172,11 @@
     <div class="showcase-grid">
         <div class="carousel-container" id="carousel1">
             <div class="carousel-slides" id="slides1">
-                <div class="carousel-slide"><img src="img/page/family-pc.png" alt="MS-ToDo 主界面"></div>
+                <div class="carousel-slide"><img src="img/page/family-pc.png" alt="MS-ToDo Hub 主界面"></div>
 <!--                <div class="carousel-slide"><img src="img/page/desktop.png" alt="MS-ToDo 桌面"></div>-->
 <!--                <div class="carousel-slide"><img src="img/page/rss.jpg" alt="MS-ToDo rss"></div>-->
-                <div class="carousel-slide"><img src="img/page/Universities-list-zh.png" alt="MS-ToDo 待办列表中文"></div>
-                <div class="carousel-slide"><img src="img/page/Universities-list-en.png" alt="MS-ToDo 待办列表英文"></div>
+                <div class="carousel-slide"><img src="img/page/Universities-list-zh.png" alt="MS-ToDo Hub 待办列表中文"></div>
+                <div class="carousel-slide"><img src="img/page/Universities-list-en.png" alt="MS-ToDo Hub 待办列表英文"></div>
             </div>
             <button class="carousel-btn btn-prev" onclick="prevSlide('carousel1')">‹</button>
             <button class="carousel-btn btn-next" onclick="nextSlide('carousel1')">›</button>
@@ -221,9 +222,9 @@
         </div>
         <div class="carousel-container" id="carousel2">
             <div class="carousel-slides" id="slides2">
-                <div class="carousel-slide"><img src="img/page/Universities-mind-en.png" alt="MS-ToDo 思维导图英文" style="height: 450px;"></div>
-                <div class="carousel-slide"><img src="img/page/Universities-mind-zh.png" alt="MS-ToDo 思维导图中文" style="height: 450px;"></div>
-                <div class="carousel-slide"><img src="img/page/family-pc-mind.png" alt="MS-ToDo 思维导图总览" style="height: 450px;"></div>
+                <div class="carousel-slide"><img src="img/page/Universities-mind-en.png" alt="MS-ToDo Hub 思维导图英文" style="height: 450px;"></div>
+                <div class="carousel-slide"><img src="img/page/Universities-mind-zh.png" alt="MS-ToDo Hub 思维导图中文" style="height: 450px;"></div>
+                <div class="carousel-slide"><img src="img/page/family-pc-mind.png" alt="MS-ToDo Hub 思维导图总览" style="height: 450px;"></div>
             </div>
             <button class="carousel-btn btn-prev" onclick="prevSlide('carousel2')">‹</button>
             <button class="carousel-btn btn-next" onclick="nextSlide('carousel2')">›</button>
@@ -480,7 +481,7 @@
 <section class="highlight" id="privacy">
     <div class="highlight-content">
         <h2 data-i18n="p-title">隐私与安全，我们的核心原则</h2>
-        <p class="desc" data-i18n="p-desc">我们深知待办事项往往包含个人敏感信息。MS-ToDo 采用以下技术保障您的数据安全：</p>
+        <p class="desc" data-i18n="p-desc">我们深知待办事项往往包含个人敏感信息。MS-ToDo Hub 采用以下技术保障您的数据安全：</p>
         <div class="privacy-list">
             <div class="privacy-item"><i class="fa-solid fa-circle-check"></i>
                 <div><strong data-i18n="p1-t">数据自主控制：</strong><span data-i18n="p1-d">所有敏感数据存储在本地 IndexedDB，不上传任何第三方服务器存储。</span></div>
@@ -521,12 +522,12 @@
     <h2 class="section-title" data-i18n="faq-title">常见问题</h2>
     <p class="section-subtitle" data-i18n="faq-subtitle">你可能想了解的</p>
     <div class="faq-grid">
-        <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq1-q">MS-ToDo 是免费的吗？</span></h4>
+        <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq1-q">MS-ToDo Hub 是免费的吗？</span></h4>
             <p data-i18n="faq1-a">完全免费开源，所有核心功能均可永久免费使用。打赏仅用于支持作者维护域名和持续开发，完全自愿。</p></div>
         <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq2-q">需要注册微软账号吗？</span></h4>
-            <p data-i18n="faq2-a">是的，MS-ToDo 是微软待办的增强插件，需要登录微软账号同步您的任务数据。所有数据仍归属于您的微软账户。</p></div>
+            <p data-i18n="faq2-a">是的，MS-ToDo Hub 是微软待办的增强插件，需要登录微软账号同步您的任务数据。所有数据仍归属于您的微软账户。</p></div>
         <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq3-q">离线时能正常使用吗？</span></h4>
-            <p data-i18n="faq3-a">完全可以！MS-ToDo 采用 Local-First 架构，离线时所有操作（增删改查）均正常工作，联网后自动同步到云端。</p></div>
+            <p data-i18n="faq3-a">完全可以！MS-ToDo Hub 采用 Local-First 架构，离线时所有操作（增删改查）均正常工作，联网后自动同步到云端。</p></div>
         <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq4-q">如何切换中英文？</span></h4>
             <p data-i18n="faq4-a">点击页面右下角的语言切换按钮即可在中文和英文之间切换。插件内的语言设置可在设置菜单中调整。</p></div>
         <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq5-q">数据会同步到官方 App 吗？</span></h4>
@@ -547,6 +548,15 @@
     </div>
 </section>
 
+<div class="modal-overlay" id="videoModal" onclick="if(event.target == this) toggleVideoModal(false)">
+    <div class="video-modal-content">
+        <button class="modal-close" onclick="toggleVideoModal(false)">&times;</button>
+        <video id="xiaoTVideo" controls autoplay style="width:100%;max-width:900px;border-radius:16px;outline:none;">
+            <source src="video/xiaoT.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
 <div class="modal-overlay" id="privacyModal" onclick="if(event.target == this) togglePrivacyModal(false)">
     <div class="modal-content">
         <button class="modal-close" onclick="togglePrivacyModal(false)">&times;</button>
@@ -562,7 +572,7 @@
     <div class="modal-content">
         <button class="modal-close" onclick="toggleSponsorModal(false)">&times;</button>
         <h2 style="margin-bottom: 1rem;" data-i18n="s-title">资助作者</h2>
-        <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 2rem;" data-i18n="s-desc">如果你觉得 MS-ToDo 提升了你的效率，欢迎请作者喝杯咖啡 ☕️ 所有打赏将用于域名维护和持续开发。</p>
+        <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 2rem;" data-i18n="s-desc">如果你觉得 MS-ToDo Hub 提升了你的效率，欢迎请作者喝杯咖啡 ☕️ 所有打赏将用于域名维护和持续开发。</p>
         <div class="qr-container">
             <div class="qr-item"><img src="img/pay/wechat-qrcode.png" alt="微信支付">
                 <p style="color:#07c160"><i class="fa-brands fa-weixin"></i> WeChat Pay</p></div>
@@ -583,7 +593,7 @@
         <span onclick="togglePrivacyModal(true)"><i class="fa-solid fa-lock"></i> <span data-i18n="footer-privacy">隐私政策</span></span>
         <a href="https://github.com/cuifuq7" target="_blank"><i class="fa-solid fa-user"></i> <span data-i18n="footer-contact">联系作者</span></a>
     </div>
-    <p class="footer-copyright">&copy; 2026 MS-ToDo Project. <span data-i18n="footer-copy">基于 Microsoft To Do 官方 API 构建，与微软公司无附属关系。</span></p>
+    <p class="footer-copyright">&copy; 2026 MS-ToDo Hub. <span data-i18n="footer-copy">基于 Microsoft To Do 官方 API 构建，与微软公司无附属关系。</span></p>
     <p class="footer-copyright" style="margin-top: 0.5rem;" data-i18n="footer-version">当前版本 v5.2.1 | 更新于 2026-05-14</p>
 </footer>
 
@@ -676,7 +686,7 @@
             'mobile-sub': '电脑上随手记，手机端实时同步，移动办公效率倍增',
             'mobile-footnote': '所有数据均通过微软官方API与手机App无缝打通，无第三方存储',
             'p-title': '隐私与安全，我们的核心原则',
-            'p-desc': '我们深知待办事项往往包含个人敏感信息。MS-ToDo 采用以下技术保障您的数据安全：',
+            'p-desc': '我们深知待办事项往往包含个人敏感信息。MS-ToDo Hub 采用以下技术保障您的数据安全：',
             'p1-t': '数据自主控制：',
             'p1-d': '所有敏感数据存储在本地 IndexedDB，不上传任何第三方服务器存储。',
             'p2-t': '透明同步流向：',
@@ -695,12 +705,12 @@
             'tech-5': '安全认证',
             'faq-title': '常见问题',
             'faq-subtitle': '你可能想了解的',
-            'faq1-q': 'MS-ToDo 是免费的吗？',
+            'faq1-q': 'MS-ToDo Hub 是免费的吗？',
             'faq1-a': '完全免费开源，所有核心功能均可永久免费使用。打赏仅用于支持作者维护域名和持续开发，完全自愿。',
             'faq2-q': '需要注册微软账号吗？',
-            'faq2-a': '是的，MS-ToDo 是微软待办的增强插件，需要登录微软账号同步您的任务数据。所有数据仍归属于您的微软账户。',
+            'faq2-a': '是的，MS-ToDo Hub 是微软待办的增强插件，需要登录微软账号同步您的任务数据。所有数据仍归属于您的微软账户。',
             'faq3-q': '离线时能正常使用吗？',
-            'faq3-a': '完全可以！MS-ToDo 采用 Local-First 架构，离线时所有操作（增删改查）均正常工作，联网后自动同步到云端。',
+            'faq3-a': '完全可以！MS-ToDo Hub 采用 Local-First 架构，离线时所有操作（增删改查）均正常工作，联网后自动同步到云端。',
             'faq4-q': '如何切换中英文？',
             'faq4-a': '点击页面右下角的语言切换按钮即可在中文和英文之间切换。插件内的语言设置可在设置菜单中调整。',
             'faq5-q': '数据会同步到官方 App 吗？',
@@ -711,7 +721,7 @@
             'cta-title': '你的新标签页，不止于待办',
             'cta-desc': '任务管理 · 桌面美化 · RSS 阅读，一个插件全搞定。让每次打开浏览器都成为效率的起点。',
             's-title': '资助作者',
-            's-desc': '如果你觉得 MS-ToDo 提升了你的效率，欢迎请作者喝杯咖啡 ☕️ 所有打赏将用于域名维护和持续开发。',
+            's-desc': '如果你觉得 MS-ToDo Hub 提升了你的效率，欢迎请作者喝杯咖啡 ☕️ 所有打赏将用于域名维护和持续开发。',
             's-footer': '感谢每一位支持者的付出 🙏',
             'footer-repo': '代码仓库',
             'footer-issue': '提交 Issue',
@@ -854,7 +864,7 @@
             'mobile-sub': 'Jot down on PC, sync instantly on mobile — double your mobile office efficiency',
             'mobile-footnote': 'All data flows through official Microsoft API to your phone app. No third-party storage.',
             'p-title': 'Privacy & Security, Our Core Principles',
-            'p-desc': 'We know to-dos often contain personal info. MS-ToDo uses these technologies to protect your data:',
+            'p-desc': 'We know to-dos often contain personal info. MS-ToDo Hub uses these technologies to protect your data:',
             'p1-t': 'Local Control: ',
             'p1-d': 'All sensitive data stored in local IndexedDB, never uploaded to any third-party server.',
             'p2-t': 'Transparent Sync: ',
@@ -873,10 +883,10 @@
             'tech-5': 'OAuth 2.0',
             'faq-title': 'Frequently Asked Questions',
             'faq-subtitle': 'You might want to know',
-            'faq1-q': 'Is MS-ToDo free?',
+            'faq1-q': 'Is MS-ToDo Hub free?',
             'faq1-a': 'Completely free and open-source. All core features are free forever. Donations only support maintenance and development, entirely voluntary.',
             'faq2-q': 'Do I need a Microsoft account?',
-            'faq2-a': 'Yes, MS-ToDo is an enhancement for Microsoft To-Do. You need to sign in with your Microsoft account to sync tasks. All data remains in your Microsoft account.',
+            'faq2-a': 'Yes, MS-ToDo Hub is an enhancement for Microsoft To-Do. You need to sign in with your Microsoft account to sync tasks. All data remains in your Microsoft account.',
             'faq3-q': 'Does it work offline?',
             'faq3-a': 'Absolutely! With Local-First architecture, all operations work normally offline. Changes sync automatically when back online.',
             'faq4-q': 'How to switch between Chinese and English?',
@@ -889,7 +899,7 @@
             'cta-title': 'Your New Tab, More Than Just To-Do',
             'cta-desc': 'Task management · Desktop customization · RSS reading — all in one extension. Make every browser open a productivity boost.',
             's-title': 'Sponsor the Author',
-            's-desc': 'If MS-ToDo boosts your efficiency, feel free to buy the author a coffee ☕️ All donations support server maintenance and ongoing development.',
+            's-desc': 'If MS-ToDo Hub boosts your efficiency, feel free to buy the author a coffee ☕️ All donations support server maintenance and ongoing development.',
             's-footer': 'Thanks to every supporter 🙏',
             'footer-repo': 'Repository',
             'footer-issue': 'Submit Issue',
@@ -996,6 +1006,20 @@
         currentLang = currentLang === 'zh' ? 'en' : 'zh';
         updateContent();
     }
+
+    function toggleVideoModal(show) {
+        const modal = document.getElementById('videoModal');
+        const video = document.getElementById('xiaoTVideo');
+        modal.style.display = show ? 'flex' : 'none';
+        document.body.style.overflow = show ? 'hidden' : '';
+        if (show) {
+            video.play();
+        } else {
+            video.pause();
+            video.currentTime = 0;
+        }
+    }
+    window.toggleVideoModal = toggleVideoModal;
 
     function toggleSponsorModal(show) {
         const modal = document.getElementById('sponsorModal');
@@ -1111,6 +1135,7 @@
         if (e.key === 'Escape') {
             toggleSponsorModal(false);
             togglePrivacyModal(false);
+            toggleVideoModal(false);
         }
     });
 </script>

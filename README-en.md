@@ -1,4 +1,4 @@
-# 🌟 MS-ToDo · New Tab, New Start, New World
+# 🌟 MS-ToDo Hub · New Tab, New Start, New World
 
 ### Task Manager · Desktop New Tab · RSS Reader — All-in-One Productivity Tool
 
@@ -23,7 +23,7 @@ A powerful and beautifully designed browser extension that integrates task manag
 
 ## 🚀 Overview
 
-**MS-ToDo** — a minimalist yet powerful Microsoft To Do manager that perfectly combines advanced cloud sync with a clean and intuitive design.  
+**MS-ToDo Hub** — a minimalist yet powerful Microsoft To Do manager that perfectly combines advanced cloud sync with a clean and intuitive design.  
 Manage all your tasks efficiently, directly from your new browser tab.
 
 ---
@@ -160,4 +160,4 @@ Special thanks to all contributors and testers who helped make this project bett
 
 ---
 
-**🧩 MS-ToDo — Lightweight · Secure · Productive**
+**🧩 MS-ToDo Hub — Lightweight · Secure · Productive**
