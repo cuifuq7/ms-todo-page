@@ -1,10 +1,10 @@
 # 🌟 MS-ToDo Hub · New Tab, New Start, New World
 
-### Task Manager · Desktop New Tab · RSS Reader — All-in-One Productivity Tool
+### Task Manager · Desktop New Tab · RSS Reader · Mind Map · Data Dashboard — All-in-One Productivity Tool
 
 > **The most impressive New Tab productivity extension ｜ Lightweight, efficient, and intelligent**
 
-Manage tasks, customize your new tab, and aggregate RSS feeds — all in one browser extension.
+Manage tasks, customize your new tab, aggregate RSS feeds, visualize ideas with mind maps, and track your productivity — all in one browser extension.
 Turn every new tab into a starting point for **productivity**.
 
 A powerful and beautifully designed browser extension that integrates task management, desktop new tab, and RSS reader into one seamless experience.
@@ -60,7 +60,7 @@ Manage all your tasks efficiently, directly from your new browser tab.
 2. Custom background with adjustable transparency
 
 #### 🔍 Multi-Engine Search + Weather & Clock
-1. One-click search engine switching  
+1. One-click search engine switching (Bing, Google, ChatGPT, DeepSeek, etc.)  
 2. Real-time weather and customizable clock widget
 
 #### 🎯 Website Grid Navigation
@@ -73,7 +73,8 @@ Manage all your tasks efficiently, directly from your new browser tab.
 
 #### 📰 Three-Column Reader
 1. Feeds / Article list / Article detail in clean layout  
-2. Favorites, unread filter, multiple sorting options
+2. Supports RSS / Atom / OPML formats  
+3. Favorites, unread filter, multiple sorting options
 
 #### 🔎 One-Click RSS Detection
 1. Automatically detects RSS feeds on web pages  
@@ -85,12 +86,39 @@ Manage all your tasks efficiently, directly from your new browser tab.
 
 ---
 
+### 🧠 Mind Map — Visualize Your Ideas
+1. **One-click conversion:** Turn tasks into mind maps instantly, with Markdown syntax support.  
+2. **Interactive canvas:** Freely drag nodes, zoom the canvas, and export as images.  
+3. **Multi-level display:** Task and subtask hierarchy clearly presented.
+
+---
+
+### 📊 Data Dashboard — Full Control
+1. **Visual analytics:** Task completion rate, 7-day trend chart, list distribution — all data visualized.  
+2. **Efficiency insights:** Review progress and discover bottlenecks at a glance.
+
+---
+
+### 🎆 Holiday Easter Eggs — Warm Every Day
+1. **Auto-detection:** Recognizes international holidays and Chinese lunar calendar festivals automatically.  
+2. **Fireworks & greetings:** Exclusive fireworks effects and greeting cards add a sense of ritual to your new tab.  
+3. **Custom dates:** Set your own important dates so no special day is forgotten.
+
+---
+
+### 🌍 Bilingual — Switch Freely
+1. **Full Chinese & English support** with auto-follow system language.  
+2. **Manual switching** with auto-save preference.
+
+---
+
 ## 🧭 Perfect For
 
 - ✅ Personal tasks, study plans, and shopping lists  
 - 🧑‍💼 Team projects and progress tracking  
 - 🔒 Private notes and personal plans  
 - 🌍 Offline work or mobile environments  
+- 🖥️ New tab customization and information aggregation
 
 ---
 
@@ -160,4 +188,4 @@ Special thanks to all contributors and testers who helped make this project bett
 
 ---
 
-**🧩 MS-ToDo Hub — Lightweight · Secure · Productive**
+**🧩 MS-ToDo Hub — Lightweight · Secure · Productive · Mind Map · Dashboard**
