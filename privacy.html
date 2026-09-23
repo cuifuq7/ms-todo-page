@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Privacy Policy / 隐私权政策 · MS-ToDo Hub</title>
+    <meta name="description" content="MS-ToDo Hub Privacy Policy - Learn about how we protect your data and privacy.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="img/logo/logo.png">
+    <link rel="apple-touch-icon" href="img/logo/logo.png">
+    <link rel="stylesheet" href="css/awesome-6.7.2.css">
+    <link rel="stylesheet" href="css/page.css">
+    <style>
+        .privacy-page-hero {
+            padding: 4rem 10% 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f8fafc 100%);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .privacy-page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .privacy-page-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e40af, var(--primary-color), #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .privacy-page-hero .meta {
+            color: var(--text-light);
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .privacy-page-hero .meta span {
+            margin: 0 0.8rem;
+        }
+        .privacy-page-hero .shield-icon {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.08);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+        }
+        .privacy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+        .privacy-lang-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 3rem;
+            background: var(--gray-100);
+            border-radius: 50px;
+            padding: 4px;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid var(--gray-200);
+        }
+        .privacy-lang-tab {
+            flex: 1;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-light);
+            border: none;
+            background: transparent;
+        }
+        .privacy-lang-tab.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        .privacy-lang-tab:hover:not(.active) {
+            color: var(--primary-color);
+        }
+        .privacy-section {
+            display: none;
+        }
+        .privacy-section.active {
+            display: block;
+        }
+        .privacy-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 3rem 0 1.2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        .privacy-section h2:first-child {
+            margin-top: 0;
+        }
+        .privacy-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 2rem 0 0.8rem;
+        }
+        .privacy-section h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 1.5rem 0 0.6rem;
+        }
+        .privacy-section p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .privacy-section ul {
+            margin: 0.5rem 0 1.2rem 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        .privacy-section ul li {
+            margin-bottom: 0.4rem;
+        }
+        .privacy-section strong {
+            color: var(--text-dark);
+        }
+        .privacy-section code {
+            background: var(--gray-100);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            color: var(--primary-color);
+        }
+        .privacy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .privacy-table thead {
+            background: linear-gradient(135deg, var(--primary-color), #1e40af);
+            color: white;
+        }
+        .privacy-table th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .privacy-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .privacy-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .privacy-table tbody tr:nth-child(even) {
+            background: var(--gray-100);
+        }
+        .privacy-table tbody tr:hover {
+            background: rgba(37, 99, 235, 0.04);
+        }
+        .privacy-note {
+            background: rgba(37, 99, 235, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1rem 0;
+        }
+        .privacy-note p {
+            margin-bottom: 0;
+            color: var(--text-dark);
+        }
+        .privacy-contact-box {
+            background: linear-gradient(135deg, #eff6ff, #f8fafc);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .privacy-contact-box a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .privacy-contact-box a:hover {
+            text-decoration: underline;
+        }
+        .toc {
+            background: var(--bg-light);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .toc h3 {
+            margin: 0 0 1rem;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 1.5rem;
+            color: var(--text-light);
+            line-height: 2;
+        }
+        .toc ol li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .toc ol li a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .privacy-page-hero { padding: 3rem 5% 2rem; }
+            .privacy-page-hero h1 { font-size: 2rem; }
+            .privacy-container { padding: 2rem 1.2rem 3rem; }
+            .privacy-table { font-size: 0.85rem; }
+            .privacy-table th, .privacy-table td { padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="logo">
+        <a href="/">
+            <img src="img/logo/logo.png" alt="MS-ToDo Hub Logo">
+            MS-ToDo Hub
+        </a>
+    </div>
+    <div class="nav-links">
+        <a href="/#features"><i class="fa-solid fa-star"></i> <span data-i18n="nav-features">功能</span></a>
+        <a href="/#showcase"><i class="fa-solid fa-eye"></i> <span data-i18n="nav-showcase">预览</span></a>
+        <a href="/#faq"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+        <div class="nav-lang" onclick="toggleLanguage()">
+            <i class="fa-solid fa-globe"></i>
+            <span id="lang-btn-text">English</span>
+        </div>
+    </div>
+</nav>
+
+<section class="privacy-page-hero">
+    <div class="shield-icon"><i class="fa-solid fa-shield-halved"></i></div>
+    <h1 data-i18n="privacy-page-title">隐私权政策</h1>
+    <div class="meta">
+        <span><i class="fa-regular fa-calendar"></i> <span data-i18n="privacy-page-effective">生效日期：2026年9月18日</span></span>
+        <span><i class="fa-regular fa-clock"></i> <span data-i18n="privacy-page-updated">最后更新：2026年9月18日</span></span>
+    </div>
+</section>
+
+<div class="privacy-container">
+    <div class="privacy-lang-tabs">
+        <button class="privacy-lang-tab active" onclick="switchPrivacyLang('zh')">中文</button>
+        <button class="privacy-lang-tab" onclick="switchPrivacyLang('en')">English</button>
+    </div>
+
+    <!-- 中文目录 -->
+    <div class="toc" id="toc-zh">
+        <h3><i class="fa-solid fa-list"></i> 目录</h3>
+        <ol>
+            <li><a href="#zh-1">引言</a></li>
+            <li><a href="#zh-2">我们收集的数据</a></li>
+            <li><a href="#zh-3">我们不收集的数据</a></li>
+            <li><a href="#zh-4">使用的权限</a></li>
+            <li><a href="#zh-5">第三方服务</a></li>
+            <li><a href="#zh-6">数据安全</a></li>
+            <li><a href="#zh-7">数据保留与删除</a></li>
+            <li><a href="#zh-8">政策变更</a></li>
+            <li><a href="#zh-9">联系方式</a></li>
+        </ol>
+    </div>
+
+    <!-- 英文目录 -->
+    <div class="toc" id="toc-en" style="display:none;">
+        <h3><i class="fa-solid fa-list"></i> Table of Contents</h3>
+        <ol>
+            <li><a href="#en-1">Introduction</a></li>
+            <li><a href="#en-2">Data We Collect</a></li>
+            <li><a href="#en-3">Data We Do NOT Collect</a></li>
+            <li><a href="#en-4">Permissions Used</a></li>
+            <li><a href="#en-5">Third-Party Services</a></li>
+            <li><a href="#en-6">Data Security</a></li>
+            <li><a href="#en-7">Data Retention & Deletion</a></li>
+            <li><a href="#en-8">Changes to This Policy</a></li>
+            <li><a href="#en-9">Contact</a></li>
+        </ol>
+    </div>
+
+    <!-- ==================== 中文内容 ==================== -->
+    <div class="privacy-section active" id="privacy-zh">
+        <h2 id="zh-1">1. 引言</h2>
+        <p>MS-ToDo Hub（以下简称"本扩展"）是一款浏览器扩展，提供 Microsoft To-Do 任务管理、桌面新标签页（含网站书签导航）、RSS 信息聚合阅读、思维导图、数据看板、番茄钟计时器、便签和天气小组件功能。本隐私权政策说明我们收集哪些数据、如何使用这些数据，以及我们如何保护您的隐私。</p>
+
+        <h2 id="zh-2">2. 我们收集的数据</h2>
+
+        <h3>2.1 Microsoft 账户信息（用户主动操作，可选）</h3>
+        <p>当您选择使用 Microsoft 账户登录时，我们通过 Microsoft Graph API 访问以下信息：</p>
+        <ul>
+            <li><strong>电子邮箱地址</strong>（mail）</li>
+            <li><strong>显示名称</strong>（displayName）</li>
+            <li><strong>名字和姓氏</strong>（givenName、surname）</li>
+            <li><strong>手机号码</strong>（mobilePhone）</li>
+            <li><strong>个人头像</strong></li>
+        </ul>
+        <p><strong>用途：</strong>用于身份认证及在扩展内展示您的用户资料。</p>
+        <p><strong>存储：</strong>这些信息缓存在您的浏览器本地（IndexedDB 和 chrome.storage.local），以便离线使用。</p>
+
+        <h3>2.2 Microsoft To-Do 任务数据（用户主动操作，可选）</h3>
+        <p>登录后，扩展会同步您的 Microsoft To-Do 数据，包括：</p>
+        <ul>
+            <li>待办列表、任务及子任务（标题、状态、截止日期等）</li>
+        </ul>
+        <p><strong>用途：</strong>提供具有云端同步功能的任务管理服务。</p>
+        <p><strong>存储：</strong>任务数据存储在本地 IndexedDB 中以便离线使用，并与 Microsoft Graph API 服务器进行双向同步。</p>
+
+        <h3>2.3 用户信息同步（用户主动操作，可选）</h3>
+        <p>每天一次（登录时，或已登录状态下打开插件的新标签页/桌面页时），以下用户信息会同步到我们的后端服务器（<code>api.mstodo.dpdns.org</code>）：</p>
+        <ul>
+            <li>电子邮箱地址</li>
+            <li>显示名称</li>
+            <li>名字和姓氏</li>
+            <li>手机号码</li>
+            <li>扩展版本号</li>
+        </ul>
+        <p><strong>用途：</strong>用于维护用户记录和提供版本支持。该同步每天最多执行一次，且仅在您已登录时进行。</p>
+        <div class="privacy-note">
+            <p><strong>数据控制方：</strong>后端服务器由扩展开发者运营。数据安全存储，不会与第三方共享。</p>
+        </div>
+
+        <h3>2.4 RSS 订阅（仅本地，可选）</h3>
+        <p>RSS 订阅数据（订阅源 URL、标题、标签、描述）存储在您的浏览器本地。如果您已登录，这些数据可能会同步到您 Microsoft To-Do 账户中的 "Todo-RSS" 列表下，以实现跨设备同步。</p>
+
+        <h3>2.5 使用统计（仅本地）</h3>
+        <p>扩展在本地追踪匿名使用统计，包括：</p>
+        <ul>
+            <li>操作次数（列表/任务/子任务的新增、编辑、删除、完成）</li>
+            <li>API 请求次数</li>
+            <li>链接点击次数</li>
+        </ul>
+        <p><strong>用途：</strong>用于在数据看板中展示您的使用效率洞察。</p>
+        <div class="privacy-note">
+            <p><strong>存储：</strong>所有统计数据仅存储在您的浏览器本地存储（chrome.storage.local）中。<strong>不会将任何使用统计数据传输到任何服务器。</strong></p>
+        </div>
+
+        <h3>2.6 天气数据（可选）</h3>
+        <p>如果您启用了桌面天气小组件，扩展会直接通过 Open-Meteo API（一个免费的开放天气服务）请求天气预报数据，需要使用您的大致地理坐标（经度/纬度）。城市名称查询使用 BigDataCloud 反向地理编码 API。</p>
+        <p><strong>用途：</strong>用于在桌面模式顶栏显示本地天气预报。</p>
+        <p><strong>说明：</strong>地理坐标直接发送至 Open-Meteo 和 BigDataCloud API。我们不会在我们的服务器上收集、存储或处理您的位置数据。天气数据在浏览器本地缓存最多 2 小时，以减少 API 请求。</p>
+
+        <h3>2.7 桌面模式数据（仅本地，可选）</h3>
+        <p>桌面模式在浏览器本地存储以下数据：</p>
+        <ul>
+            <li>收藏网站（名称、URL、标签、图标、排序）</li>
+            <li>搜索引擎偏好</li>
+            <li>背景图片设置</li>
+            <li>小组件显示偏（天气、时钟、每日一言、番茄钟、便签）</li>
+            <li>空闲特效设置（雪花、下雨、樱花、萤火虫）</li>
+        </ul>
+        <p><strong>存储：</strong>如果您已登录，收藏网站会同步到您 Microsoft To-Do 账户中的「Todo-Desktop」列表下，以实现跨设备同步。其他所有桌面设置仅存储在您的浏览器本地存储中。</p>
+
+        <h3>2.8 便签（仅本地，可选）</h3>
+        <p>便签（文本内容和图片）存储在浏览器本地的专用 IndexedDB 数据库（<code>StickyNotesDB</code>）中。图片以 Blob 数据形式与文本分离存储。</p>
+        <p><strong>存储：</strong>便签数据不会离开您的浏览器，也不会同步到任何服务器。</p>
+
+        <h3>2.9 番茄钟（仅本地，可选）</h3>
+        <p>番茄钟计时器状态（运行状态、剩余时间、每日完成次数）存储在浏览器本地的 localStorage 中。</p>
+        <p><strong>存储：</strong>番茄钟数据不会离开您的浏览器。</p>
+
+        <h3>2.10 数据看板（仅本地）</h3>
+        <p>数据看板基于您的任务数据展示使用效率洞察。所有统计数据（概览计数、完成趋势、状态分布、列表分布）均从 IndexedDB 本地数据实时计算得出。</p>
+        <p><strong>存储：</strong>看板统计数据实时从本地数据计算，不会传输到任何服务器。任务完成日志存储在本地 IndexedDB 中，用于趋势图的精确统计。</p>
+
+        <h3>2.11 版本检测（可选）</h3>
+        <p>当您打开桌面设置面板时，桌面模式页面会将当前扩展版本号发送至我们的后端服务器（<code>api.mstodo.dpdns.org</code>），用于检测当前版本是否仍受支持（多版本白名单比对）。不会发送任何用户标识、账户信息或其他个人数据。</p>
+        <p><strong>用途：</strong>在有新版本可用时提醒您更新扩展。</p>
+        <p><strong>说明：</strong>本次检测不会在服务器存储版本号。检测仅在您打开桌面设置时执行，不会进行任何自动后台检测。</p>
+
+        <h2 id="zh-3">3. 我们不收集的数据</h2>
+        <ul>
+            <li>我们<strong>不</strong>收集您的浏览历史</li>
+            <li>我们<strong>不</strong>读取或传输您访问的网页内容（内容脚本仅扫描 RSS 订阅源的 <code>&lt;link&gt;</code> 标签）</li>
+            <li>我们<strong>不</strong>收集 13 岁以下儿童的个人数据</li>
+            <li>我们<strong>不</strong>将您的数据出售或分享给第三方用于广告</li>
+            <li>我们<strong>不</strong>将您的数据用于本政策所述以外的任何目的</li>
+        </ul>
+
+        <h2 id="zh-4">4. 使用的权限</h2>
+        <table class="privacy-table">
+            <thead><tr><th>权限</th><th>用途</th></tr></thead>
+            <tbody>
+                <tr><td><code>identity</code></td><td>Microsoft OAuth 2.0 登录认证</td></tr>
+                <tr><td><code>storage</code></td><td>在本地存储任务、设置和令牌</td></tr>
+                <tr><td><code>alarms</code></td><td>安排任务到期提醒</td></tr>
+                <tr><td><code>notifications</code></td><td>显示任务提醒通知</td></tr>
+                <tr><td><code>content_scripts</code></td><td>在网页上检测 RSS 订阅源（仅只读扫描 <code>&lt;link&gt;</code> 标签）</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="zh-5">5. 第三方服务</h2>
+        <p>本扩展仅在使用相应功能时与以下第三方服务交互：</p>
+        <table class="privacy-table">
+            <thead><tr><th>服务</th><th>使用时机</th><th>共享数据</th></tr></thead>
+            <tbody>
+                <tr><td>Microsoft Graph API</td><td>登录与任务同步</td><td>OAuth 令牌、任务数据</td></tr>
+                <tr><td>Microsoft 登录 (login.microsoftonline.com)</td><td>登录时</td><td>OAuth 授权信息</td></tr>
+                <tr><td>Open-Meteo API</td><td>天气小组件（直连，无代理）</td><td>地理坐标</td></tr>
+                <tr><td>BigDataCloud API</td><td>反向地理编码（城市名称查询）</td><td>地理坐标</td></tr>
+                <tr><td>Google Favicon 服务</td><td>网站图标（通过我们的代理）</td><td>网站域名</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="zh-6">6. 数据安全</h2>
+        <ul>
+            <li>OAuth 令牌（Access Token、Refresh Token）存储在您的浏览器本地，除 Microsoft 认证端点和我们的 OAuth 代理 Worker 外，不会传输到任何其他服务器。</li>
+            <li>所有 API 通信均使用 HTTPS 加密。</li>
+            <li>我们的后端服务器（<code>api.mstodo.dpdns.org</code>）使用 HMAC-SHA256 签名验证来确保请求完整性。</li>
+        </ul>
+
+        <h2 id="zh-7">7. 数据保留与删除</h2>
+        <p>所有本地存储的数据（任务、令牌、设置、统计）均存储在您的浏览器中，您可以随时通过以下方式删除：</p>
+        <ul>
+            <li>卸载本扩展</li>
+            <li>使用扩展内的"退出登录"功能（将清除所有本地数据）</li>
+            <li>清除该扩展的浏览器数据</li>
+        </ul>
+        <p>服务器端的用户记录可通过联系我们申请删除（见第 9 条）。</p>
+
+        <h2 id="zh-8">8. 政策变更</h2>
+        <p>我们可能会不时更新本隐私权政策。更新后的版本将在扩展商店页面和/或我们的项目仓库中发布。</p>
+
+        <h2 id="zh-9">9. 联系方式</h2>
+        <p>如果您对本隐私权政策有任何疑问，或希望申请删除您的数据，请通过以下方式联系我们：</p>
+        <div class="privacy-contact-box">
+            <p><i class="fa-brands fa-github"></i> GitHub Issues: <a href="https://github.com/cuifuq7/ms-todo-page/issues" target="_blank">https://github.com/cuifuq7/ms-todo-page/issues</a></p>
+        </div>
+    </div>
+
+    <!-- ==================== English Content ==================== -->
+    <div class="privacy-section" id="privacy-en">
+        <h2 id="en-1">1. Introduction</h2>
+        <p>MS-ToDo Hub ("the Extension") is a browser extension that provides Microsoft To-Do task management, desktop new tab page with website bookmarks, RSS feed reader, mind map, data dashboard, pomodoro timer, sticky notes, and weather widget. This Privacy Policy explains what data we collect, how we use it, and how we protect your privacy.</p>
+
+        <h2 id="en-2">2. Data We Collect</h2>
+
+        <h3>2.1 Microsoft Account Information (User-Initiated, Optional)</h3>
+        <p>When you choose to log in with your Microsoft account, we access the following information through the Microsoft Graph API:</p>
+        <ul>
+            <li><strong>Email address</strong> (mail)</li>
+            <li><strong>Display name</strong> (displayName)</li>
+            <li><strong>Given name and surname</strong> (givenName, surname)</li>
+            <li><strong>Mobile phone number</strong> (mobilePhone)</li>
+            <li><strong>Profile photo</strong></li>
+        </ul>
+        <p><strong>Purpose:</strong> To authenticate your identity and display your user profile within the extension.</p>
+        <p><strong>Storage:</strong> This information is cached locally in your browser (IndexedDB and chrome.storage.local) for offline access.</p>
+
+        <h3>2.2 Microsoft To-Do Task Data (User-Initiated, Optional)</h3>
+        <p>When logged in, the extension synchronizes your Microsoft To-Do data, including:</p>
+        <ul>
+            <li>Todo lists, tasks, and subtasks (titles, statuses, due dates, etc.)</li>
+        </ul>
+        <p><strong>Purpose:</strong> To provide task management functionality with cloud synchronization.</p>
+        <p><strong>Storage:</strong> Task data is stored locally in IndexedDB for offline access and synchronized bidirectionally with Microsoft Graph API servers.</p>
+
+        <h3>2.3 User Information Sync (User-Initiated, Optional)</h3>
+        <p>Once per day (upon login, or when opening the extension's new tab / desktop pages while logged in), the following user information is synced to our backend server (<code>api.mstodo.dpdns.org</code>):</p>
+        <ul>
+            <li>Email address</li>
+            <li>Display name</li>
+            <li>Given name and surname</li>
+            <li>Mobile phone number</li>
+            <li>Extension version number</li>
+        </ul>
+        <p><strong>Purpose:</strong> To maintain user records and provide version-specific support. This sync occurs at most once per day and only when you are logged in.</p>
+        <div class="privacy-note">
+            <p><strong>Data Controller:</strong> The backend server is operated by the extension developer. Data is stored securely and is not shared with third parties.</p>
+        </div>
+
+        <h3>2.4 RSS Subscriptions (Local Only, Optional)</h3>
+        <p>RSS feed subscriptions (feed URLs, titles, tags, descriptions) are stored locally in your browser. If you are logged in, they may be synchronized to your Microsoft To-Do account under a dedicated "Todo-RSS" list for cross-device sync.</p>
+
+        <h3>2.5 Usage Statistics (Local Only)</h3>
+        <p>The extension tracks anonymous usage statistics locally, including:</p>
+        <ul>
+            <li>Counts of operations (list/task/subtask creation, editing, deletion, completion)</li>
+            <li>API request counts</li>
+            <li>Link click counts</li>
+        </ul>
+        <p><strong>Purpose:</strong> To display a user dashboard with productivity insights.</p>
+        <div class="privacy-note">
+            <p><strong>Storage:</strong> All statistics are stored exclusively in your local browser storage (chrome.storage.local). <strong>No usage statistics are transmitted to any server.</strong></p>
+        </div>
+
+        <h3>2.6 Weather Data (Optional)</h3>
+        <p>If you enable the desktop weather widget, the extension requests weather forecast data directly from the Open-Meteo API (a free, open weather service) using your approximate geographic coordinates (latitude/longitude). City name lookup uses the BigDataCloud reverse-geocode API.</p>
+        <p><strong>Purpose:</strong> To display local weather forecasts in the desktop mode top bar.</p>
+        <p><strong>Note:</strong> Location coordinates are sent directly to the Open-Meteo and BigDataCloud APIs. We do not collect, store, or process your location data on our servers. Weather data is cached locally in your browser for up to 2 hours to reduce API calls.</p>
+
+        <h3>2.7 Desktop Mode Data (Local Only, Optional)</h3>
+        <p>Desktop mode stores the following data locally in your browser:</p>
+        <ul>
+            <li>Bookmark websites (names, URLs, tags, icons, sort order)</li>
+            <li>Search engine preferences</li>
+            <li>Background image settings</li>
+            <li>Widget display preferences (weather, clock, daily quote, pomodoro, sticky notes)</li>
+            <li>Idle effect settings (snow, rain, cherry blossom, firefly)</li>
+        </ul>
+        <p><strong>Storage:</strong> If you are logged in, bookmark websites are synchronized to your Microsoft To-Do account under a dedicated "Todo-Desktop" list for cross-device sync. All other desktop settings are stored exclusively in your local browser storage.</p>
+
+        <h3>2.8 Sticky Notes (Local Only, Optional)</h3>
+        <p>Sticky notes (text content and images) are stored locally in your browser using a dedicated IndexedDB database (<code>StickyNotesDB</code>). Images are stored as Blob data separately from text.</p>
+        <p><strong>Storage:</strong> Sticky notes data never leaves your browser and is not synchronized to any server.</p>
+
+        <h3>2.9 Pomodoro Timer (Local Only, Optional)</h3>
+        <p>Pomodoro timer state (running status, remaining time, daily completion count) is stored locally in your browser's localStorage.</p>
+        <p><strong>Storage:</strong> Pomodoro data never leaves your browser.</p>
+
+        <h3>2.10 Data Dashboard (Local Only)</h3>
+        <p>The data dashboard displays productivity insights based on your task data. All statistics (overview counts, completion trends, status distribution, list distribution) are computed locally from your IndexedDB data.</p>
+        <p><strong>Storage:</strong> Dashboard statistics are computed in real-time from local data and are never transmitted to any server. Task completion logs are stored locally in IndexedDB for trend chart accuracy.</p>
+
+        <h3>2.11 Version Check (Optional)</h3>
+        <p>When you open the Desktop Settings panel, the desktop mode page sends the current extension version number to our backend server (<code>api.mstodo.dpdns.org</code>) to check whether the installed version is still supported (multi-version whitelist comparison). No user identifiers, account information, or other personal data are sent.</p>
+        <p><strong>Purpose:</strong> To notify you when a newer version is available so you can update the extension.</p>
+        <p><strong>Note:</strong> The version number is not stored on the server for this check. The check is only performed when you open Desktop Settings; no automatic background checks are performed.</p>
+
+        <h2 id="en-3">3. Data We Do NOT Collect</h2>
+        <ul>
+            <li>We do <strong>not</strong> collect your browsing history</li>
+            <li>We do <strong>not</strong> read or transmit the content of web pages you visit (the content script only scans for RSS feed <code>&lt;link&gt;</code> tags)</li>
+            <li>We do <strong>not</strong> collect personal data from children under 13</li>
+            <li>We do <strong>not</strong> sell or share your data with third parties for advertising</li>
+            <li>We do <strong>not</strong> use your data for any purpose other than those described in this policy</li>
+        </ul>
+
+        <h2 id="en-4">4. Permissions Used</h2>
+        <table class="privacy-table">
+            <thead><tr><th>Permission</th><th>Purpose</th></tr></thead>
+            <tbody>
+                <tr><td><code>identity</code></td><td>Microsoft OAuth 2.0 login</td></tr>
+                <tr><td><code>storage</code></td><td>Store tasks, settings, and tokens locally</td></tr>
+                <tr><td><code>alarms</code></td><td>Schedule task due reminders</td></tr>
+                <tr><td><code>notifications</code></td><td>Display task reminder notifications</td></tr>
+                <tr><td><code>content_scripts</code></td><td>Detect RSS feeds on web pages (read-only scan for <code>&lt;link&gt;</code> tags only)</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="en-5">5. Third-Party Services</h2>
+        <p>The extension interacts with the following third-party services only when you use corresponding features:</p>
+        <table class="privacy-table">
+            <thead><tr><th>Service</th><th>When</th><th>Data Shared</th></tr></thead>
+            <tbody>
+                <tr><td>Microsoft Graph API</td><td>Login & task sync</td><td>OAuth tokens, task data</td></tr>
+                <tr><td>Microsoft Login (login.microsoftonline.com)</td><td>Login</td><td>OAuth authorization</td></tr>
+                <tr><td>Open-Meteo API</td><td>Weather widget (direct, no proxy)</td><td>Geographic coordinates</td></tr>
+                <tr><td>BigDataCloud API</td><td>Reverse geocoding (city name lookup)</td><td>Geographic coordinates</td></tr>
+                <tr><td>Google Favicon Service</td><td>Website icons (via our proxy)</td><td>Website domain names</td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="en-6">6. Data Security</h2>
+        <ul>
+            <li>OAuth tokens (Access Token, Refresh Token) are stored locally in your browser and are never transmitted to any server other than Microsoft's authentication endpoints and our OAuth proxy worker.</li>
+            <li>All API communications use HTTPS encryption.</li>
+            <li>Our backend server (<code>api.mstodo.dpdns.org</code>) uses HMAC-SHA256 signature verification to ensure request integrity.</li>
+        </ul>
+
+        <h2 id="en-7">7. Data Retention & Deletion</h2>
+        <p>All locally stored data (tasks, tokens, settings, statistics) is stored in your browser and can be deleted at any time by:</p>
+        <ul>
+            <li>Uninstalling the extension</li>
+            <li>Using the "Logout" function within the extension (clears all local data)</li>
+            <li>Clearing browser data for the extension</li>
+        </ul>
+        <p>Server-side user records can be deleted by contacting us (see Section 9).</p>
+
+        <h2 id="en-8">8. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Updated versions will be published on the extension's store listing and/or our project repository.</p>
+
+        <h2 id="en-9">9. Contact</h2>
+        <p>If you have questions about this Privacy Policy or wish to request deletion of your data, please contact us:</p>
+        <div class="privacy-contact-box">
+            <p><i class="fa-brands fa-github"></i> GitHub Issues: <a href="https://github.com/cuifuq7/ms-todo-page/issues" target="_blank">https://github.com/cuifuq7/ms-todo-page/issues</a></p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://github.com/cuifuq7/ms-todo" target="_blank"><i class="fa-brands fa-github"></i> <span data-i18n="footer-repo">代码仓库</span></a>
+        <a href="https://github.com/cuifuq7/ms-todo/issues" target="_blank"><i class="fa-solid fa-circle-exclamation"></i> <span data-i18n="footer-issue">提交 Issue</span></a>
+        <a href="/"><i class="fa-solid fa-house"></i> <span data-i18n="footer-home">返回首页</span></a>
+        <a href="https://github.com/cuifuq7" target="_blank"><i class="fa-solid fa-user"></i> <span data-i18n="footer-contact">联系作者</span></a>
+    </div>
+    <p class="footer-copyright">&copy; 2026 MS-ToDo Hub. <span data-i18n="footer-copy">基于 Microsoft To Do 官方 API 构建，与微软公司无附属关系。</span></p>
+    <p class="footer-copyright" style="margin-top: 0.5rem;" data-i18n="footer-version">当前版本 v5.5.2.X | 更新于 2026-09-18</p>
+</footer>
+
+<script>
+    const i18n = {
+        'zh': {
+            'nav-features': '功能',
+            'nav-showcase': '预览',
+            'nav-privacy': '隐私政策',
+            'footer-repo': '代码仓库',
+            'footer-issue': '提交 Issue',
+            'footer-contact': '联系作者',
+            'footer-home': '返回首页',
+            'footer-copy': '基于 Microsoft To Do 官方 API 构建，与微软公司无附属关系。',
+            'footer-version': '当前版本 v5.5.2.X | 更新于 2026-09-18',
+            'privacy-page-title': '隐私权政策',
+            'privacy-page-effective': '生效日期：2026年9月18日',
+            'privacy-page-updated': '最后更新：2026年9月18日'
+        },
+        'en': {
+            'nav-features': 'Features',
+            'nav-showcase': 'Showcase',
+            'nav-privacy': 'Privacy Policy',
+            'footer-repo': 'Repository',
+            'footer-issue': 'Submit Issue',
+            'footer-contact': 'Contact Author',
+            'footer-home': 'Back to Home',
+            'footer-copy': 'Built on Microsoft To-Do official API. Not affiliated with Microsoft.',
+            'footer-version': 'Version v5.5.2.X | Updated 2026-09-18',
+            'privacy-page-title': 'Privacy Policy',
+            'privacy-page-effective': 'Effective Date: September 18, 2026',
+            'privacy-page-updated': 'Last Updated: September 18, 2026'
+        }
+    };
+
+    let currentLang = navigator.language.startsWith('zh') ? 'zh' : 'en';
+
+    function updateContent() {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (i18n[currentLang] && i18n[currentLang][key]) {
+                el.innerText = i18n[currentLang][key];
+            }
+        });
+        document.getElementById('lang-btn-text').innerText = currentLang === 'zh' ? 'English' : '中文';
+        // Sync privacy lang tabs
+        switchPrivacyLang(currentLang, true);
+    }
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'zh' ? 'en' : 'zh';
+        updateContent();
+    }
+
+    function switchPrivacyLang(lang, skipUpdate) {
+        currentLang = lang;
+        document.getElementById('privacy-zh').classList.toggle('active', lang === 'zh');
+        document.getElementById('privacy-en').classList.toggle('active', lang === 'en');
+        document.getElementById('toc-zh').style.display = lang === 'zh' ? 'block' : 'none';
+        document.getElementById('toc-en').style.display = lang === 'en' ? 'block' : 'none';
+        document.querySelectorAll('.privacy-lang-tab').forEach(tab => {
+            tab.classList.toggle('active', tab.textContent.trim() === (lang === 'zh' ? '中文' : 'English'));
+        });
+        document.getElementById('lang-btn-text').innerText = lang === 'zh' ? 'English' : '中文';
+        if (!skipUpdate) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[currentLang] && i18n[currentLang][key]) {
+                    el.innerText = i18n[currentLang][key];
+                }
+            });
+        }
+    }
+
+    window.switchPrivacyLang = switchPrivacyLang;
+    window.toggleLanguage = toggleLanguage;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updateContent();
+    });
+</script>
+</body>
+</html>
