@@ -327,9 +327,7 @@
         <ul>
             <li><strong>电子邮箱地址</strong>（mail）</li>
             <li><strong>显示名称</strong>（displayName）</li>
-            <li><strong>名字和姓氏</strong>（givenName、surname）</li>
             <li><strong>手机号码</strong>（mobilePhone）</li>
-            <li><strong>个人头像</strong></li>
         </ul>
         <p><strong>用途：</strong>用于身份认证及在扩展内展示您的用户资料。</p>
         <p><strong>存储：</strong>这些信息缓存在您的浏览器本地（IndexedDB 和 chrome.storage.local），以便离线使用。</p>
@@ -343,11 +341,10 @@
         <p><strong>存储：</strong>任务数据存储在本地 IndexedDB 中以便离线使用，并与 Microsoft Graph API 服务器进行双向同步。</p>
 
         <h3>2.3 用户信息同步（用户主动操作，可选）</h3>
-        <p>每天一次（登录时，或已登录状态下打开插件的新标签页/桌面页时），以下用户信息会同步到我们的后端服务器（<code>api.mstodo.dpdns.org</code>）：</p>
+        <p>（登录时，或已登录状态下打开插件的新标签页/桌面页时），以下用户信息会同步到我们的后端服务器：</p>
         <ul>
             <li>电子邮箱地址</li>
             <li>显示名称</li>
-            <li>名字和姓氏</li>
             <li>手机号码</li>
             <li>扩展版本号</li>
         </ul>
@@ -400,7 +397,7 @@
         <p><strong>存储：</strong>看板统计数据实时从本地数据计算，不会传输到任何服务器。任务完成日志存储在本地 IndexedDB 中，用于趋势图的精确统计。</p>
 
         <h3>2.11 版本检测（可选）</h3>
-        <p>当您打开桌面设置面板时，桌面模式页面会将当前扩展版本号发送至我们的后端服务器（<code>api.mstodo.dpdns.org</code>），用于检测当前版本是否仍受支持（多版本白名单比对）。不会发送任何用户标识、账户信息或其他个人数据。</p>
+        <p>当您打开桌面设置面板时，桌面模式页面会将当前扩展版本号发送至我们的后端服务器，用于检测当前版本是否仍受支持（多版本白名单比对）。不会发送任何用户标识、账户信息或其他个人数据。</p>
         <p><strong>用途：</strong>在有新版本可用时提醒您更新扩展。</p>
         <p><strong>说明：</strong>本次检测不会在服务器存储版本号。检测仅在您打开桌面设置时执行，不会进行任何自动后台检测。</p>
 
@@ -442,7 +439,6 @@
         <ul>
             <li>OAuth 令牌（Access Token、Refresh Token）存储在您的浏览器本地，除 Microsoft 认证端点和我们的 OAuth 代理 Worker 外，不会传输到任何其他服务器。</li>
             <li>所有 API 通信均使用 HTTPS 加密。</li>
-            <li>我们的后端服务器（<code>api.mstodo.dpdns.org</code>）使用 HMAC-SHA256 签名验证来确保请求完整性。</li>
         </ul>
 
         <h2 id="zh-7">7. 数据保留与删除</h2>
@@ -476,9 +472,7 @@
         <ul>
             <li><strong>Email address</strong> (mail)</li>
             <li><strong>Display name</strong> (displayName)</li>
-            <li><strong>Given name and surname</strong> (givenName, surname)</li>
             <li><strong>Mobile phone number</strong> (mobilePhone)</li>
-            <li><strong>Profile photo</strong></li>
         </ul>
         <p><strong>Purpose:</strong> To authenticate your identity and display your user profile within the extension.</p>
         <p><strong>Storage:</strong> This information is cached locally in your browser (IndexedDB and chrome.storage.local) for offline access.</p>
@@ -492,11 +486,10 @@
         <p><strong>Storage:</strong> Task data is stored locally in IndexedDB for offline access and synchronized bidirectionally with Microsoft Graph API servers.</p>
 
         <h3>2.3 User Information Sync (User-Initiated, Optional)</h3>
-        <p>Once per day (upon login, or when opening the extension's new tab / desktop pages while logged in), the following user information is synced to our backend server (<code>api.mstodo.dpdns.org</code>):</p>
+        <p>(upon login, or when opening the extension's new tab / desktop pages while logged in), the following user information is synced to our backend server (<code>api.mstodo.dpdns.org</code>):</p>
         <ul>
             <li>Email address</li>
             <li>Display name</li>
-            <li>Given name and surname</li>
             <li>Mobile phone number</li>
             <li>Extension version number</li>
         </ul>
@@ -591,7 +584,6 @@
         <ul>
             <li>OAuth tokens (Access Token, Refresh Token) are stored locally in your browser and are never transmitted to any server other than Microsoft's authentication endpoints and our OAuth proxy worker.</li>
             <li>All API communications use HTTPS encryption.</li>
-            <li>Our backend server (<code>api.mstodo.dpdns.org</code>) uses HMAC-SHA256 signature verification to ensure request integrity.</li>
         </ul>
 
         <h2 id="en-7">7. Data Retention & Deletion</h2>
