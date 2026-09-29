@@ -242,6 +242,10 @@ nav {
     background: var(--firefox-color);
 }
 
+.btn-crx {
+    background: var(--accent-green);
+}
+
 .stats-bar {
     display: flex;
     justify-content: center;
