@@ -250,23 +250,7 @@
     </style>
 </head>
 <body>
-<nav>
-    <div class="logo">
-        <a href="/">
-            <img src="img/logo/logo.png" alt="MS-ToDo Hub Logo">
-            MS-ToDo Hub
-        </a>
-    </div>
-    <div class="nav-links">
-        <a href="/#features"><i class="fa-solid fa-star"></i> <span data-i18n="nav-features">功能</span></a>
-        <a href="/#showcase"><i class="fa-solid fa-eye"></i> <span data-i18n="nav-showcase">预览</span></a>
-        <a href="/#faq"><i class="fa-solid fa-circle-question"></i> FAQ</a>
-        <div class="nav-lang" onclick="toggleLanguage()">
-            <i class="fa-solid fa-globe"></i>
-            <span id="lang-btn-text">English</span>
-        </div>
-    </div>
-</nav>
+<div id="nav-placeholder"></div>
 
 <section class="privacy-page-hero">
     <div class="shield-icon"><i class="fa-solid fa-shield-halved"></i></div>
@@ -606,92 +590,49 @@
     </div>
 </div>
 
-<footer>
-    <div class="footer-links">
-        <a href="https://github.com/cuifuq7/ms-todo" target="_blank"><i class="fa-brands fa-github"></i> <span data-i18n="footer-repo">代码仓库</span></a>
-        <a href="https://github.com/cuifuq7/ms-todo/issues" target="_blank"><i class="fa-solid fa-circle-exclamation"></i> <span data-i18n="footer-issue">提交 Issue</span></a>
-        <a href="/"><i class="fa-solid fa-house"></i> <span data-i18n="footer-home">返回首页</span></a>
-        <a href="https://github.com/cuifuq7" target="_blank"><i class="fa-solid fa-user"></i> <span data-i18n="footer-contact">联系作者</span></a>
-    </div>
-    <p class="footer-copyright">&copy; 2026 MS-ToDo Hub. <span data-i18n="footer-copy">基于 Microsoft To Do 官方 API 构建，与微软公司无附属关系。</span></p>
-    <p class="footer-copyright" style="margin-top: 0.5rem;" data-i18n="footer-version">当前版本 v5.5.2.31 | 更新于 2026-09-18</p>
-</footer>
+<div id="footer-placeholder"></div>
 
+<script src="js/common.js"></script>
 <script>
-    const i18n = {
+    extendI18n({
         'zh': {
-            'nav-features': '功能',
-            'nav-showcase': '预览',
-            'nav-privacy': '隐私政策',
-            'footer-repo': '代码仓库',
-            'footer-issue': '提交 Issue',
-            'footer-contact': '联系作者',
-            'footer-home': '返回首页',
-            'footer-copy': '基于 Microsoft To Do 官方 API 构建，与微软公司无附属关系。',
-            'footer-version': '当前版本 v5.5.2.31 | 更新于 2026-09-18',
             'privacy-page-title': '隐私权政策',
             'privacy-page-effective': '生效日期：2026年9月18日',
             'privacy-page-updated': '最后更新：2026年9月18日'
         },
         'en': {
-            'nav-features': 'Features',
-            'nav-showcase': 'Showcase',
-            'nav-privacy': 'Privacy Policy',
-            'footer-repo': 'Repository',
-            'footer-issue': 'Submit Issue',
-            'footer-contact': 'Contact Author',
-            'footer-home': 'Back to Home',
-            'footer-copy': 'Built on Microsoft To-Do official API. Not affiliated with Microsoft.',
-            'footer-version': 'Version v5.5.2.31 | Updated 2026-09-18',
             'privacy-page-title': 'Privacy Policy',
             'privacy-page-effective': 'Effective Date: September 18, 2026',
             'privacy-page-updated': 'Last Updated: September 18, 2026'
         }
-    };
-
-    let currentLang = navigator.language.startsWith('zh') ? 'zh' : 'en';
-
-    function updateContent() {
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if (i18n[currentLang] && i18n[currentLang][key]) {
-                el.innerText = i18n[currentLang][key];
-            }
-        });
-        document.getElementById('lang-btn-text').innerText = currentLang === 'zh' ? 'English' : '中文';
-        // Sync privacy lang tabs
-        switchPrivacyLang(currentLang, true);
-    }
-
-    function toggleLanguage() {
-        currentLang = currentLang === 'zh' ? 'en' : 'zh';
-        updateContent();
-    }
+    });
 
     function switchPrivacyLang(lang, skipUpdate) {
-        currentLang = lang;
         document.getElementById('privacy-zh').classList.toggle('active', lang === 'zh');
         document.getElementById('privacy-en').classList.toggle('active', lang === 'en');
         document.getElementById('toc-zh').style.display = lang === 'zh' ? 'block' : 'none';
         document.getElementById('toc-en').style.display = lang === 'en' ? 'block' : 'none';
-        document.querySelectorAll('.privacy-lang-tab').forEach(tab => {
+        document.querySelectorAll('.privacy-lang-tab').forEach(function(tab) {
             tab.classList.toggle('active', tab.textContent.trim() === (lang === 'zh' ? '中文' : 'English'));
         });
-        document.getElementById('lang-btn-text').innerText = lang === 'zh' ? 'English' : '中文';
+        var langBtn = document.getElementById('lang-btn-text');
+        if (langBtn) langBtn.innerText = lang === 'zh' ? 'English' : '中文';
         if (!skipUpdate) {
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (i18n[currentLang] && i18n[currentLang][key]) {
-                    el.innerText = i18n[currentLang][key];
-                }
-            });
+            window.currentLang = lang;
+            updateContent();
         }
     }
     window.switchPrivacyLang = switchPrivacyLang;
-    window.toggleLanguage = toggleLanguage;
-    document.addEventListener('DOMContentLoaded', () => {
-        updateContent();
-    });
+
+    window.afterUpdate = function() {
+        document.querySelectorAll('.privacy-lang-tab').forEach(function(tab) {
+            tab.classList.toggle('active', tab.textContent.trim() === (window.currentLang === 'zh' ? '中文' : 'English'));
+        });
+        document.getElementById('privacy-zh').classList.toggle('active', window.currentLang === 'zh');
+        document.getElementById('privacy-en').classList.toggle('active', window.currentLang === 'en');
+        document.getElementById('toc-zh').style.display = window.currentLang === 'zh' ? 'block' : 'none';
+        document.getElementById('toc-en').style.display = window.currentLang === 'en' ? 'block' : 'none';
+    };
 </script>
 </body>
 </html>
