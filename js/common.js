@@ -13,6 +13,14 @@
  *   4. 如需页面特有后处理，定义 window.afterUpdate = function() { ... }
  */
 
+/* ========== 访问统计配置（GoatCounter） ==========
+ * 1. site code: mstodohub（后台 https://mstodohub.goatcounter.com）
+ * 2. 后台 Settings 需开启 "Allow adding visitor counts on your website"，否则接口返回 403
+ * 3. 把 GOATCOUNTER_CODE 留空即关闭页脚访问量显示
+ * 说明：GoatCounter 不使用 Cookie、不采集个人信息，数字最多缓存 4 小时
+ */
+window.GOATCOUNTER_CODE = 'mstodohub';
+
 /* ========== 共享导航栏 HTML ========== */
 window.NAV_HTML = '<nav>' +
     '<div class="logo"><a href="/"><img src="img/logo/logo.png" alt="MS-ToDo Hub Logo"> MS-ToDo Hub</a></div>' +
@@ -53,7 +61,8 @@ window.COMMON_I18N = {
         'footer-privacy': '隐私政策',
         'footer-pricetracker': '价格跟踪',
         'footer-copy': '基于 Microsoft To Do 官方 API 构建，与微软公司无附属关系。',
-        'footer-version': '当前版本 v5.5.2.42 | 更新于 2026-10-23'
+        'footer-version': '当前版本 v5.5.2.42 | 更新于 2026-10-23',
+        'footer-visitors': '本站总访问量 {n} 次'
     },
     'en': {
         'nav-features': 'Features',
@@ -68,7 +77,8 @@ window.COMMON_I18N = {
         'footer-privacy': 'Privacy Policy',
         'footer-pricetracker': 'Price Tracker',
         'footer-copy': 'Built on Microsoft To-Do official API. Not affiliated with Microsoft.',
-        'footer-version': 'Version v5.5.2.42 | Updated 2026-10-23'
+        'footer-version': 'Version v5.5.2.42 | Updated 2026-10-23',
+        'footer-visitors': 'Total page views: {n}'
     }
 };
 
@@ -96,6 +106,62 @@ window.getCurrentLang = function() {
     return window.currentLang;
 };
 
+/* ========== 访问统计（GoatCounter） ========== */
+window.visitorCount = null;
+
+/**
+ * 在页脚插入访问量占位行
+ * 由 initCommon() 调用，index.html 与子页面共用同一套逻辑
+ */
+window.injectVisitorFooter = function() {
+    if (!window.GOATCOUNTER_CODE) return;
+    var footer = document.querySelector('footer');
+    if (!footer || document.getElementById('footer-visitors')) return;
+    var p = document.createElement('p');
+    p.className = 'footer-visitors';
+    p.id = 'footer-visitors';
+    p.innerHTML = '<i class="fa-solid fa-chart-simple"></i> <span id="footer-visitors-text"></span>';
+    footer.appendChild(p);
+    window.renderVisitorCount();
+};
+
+/** 按当前语言渲染访问量文案（语言切换时由 updateContent 触发） */
+window.renderVisitorCount = function() {
+    var text = document.getElementById('footer-visitors-text');
+    if (!text) return;
+    var tpl = (window.i18n[window.currentLang] || {})['footer-visitors'] || '本站总访问量 {n} 次';
+    text.innerText = tpl.replace('{n}', window.visitorCount == null ? '--' : window.visitorCount);
+};
+
+/** 加载 GoatCounter：图片打点记录 PV + counter/TOTAL.json 取站点总量
+ *  不引入 gc.zgo.at 官方脚本：该 CDN 在国内网络常不可达，会导致访问完全不被记录 */
+window.initVisitorCount = function() {
+    var code = window.GOATCOUNTER_CODE;
+    if (!code) return;
+
+    // 1) 记录本次访问（官方支持的无 JS 打点方式，直接请求统计域名）
+    var hit = new Image();
+    hit.src = 'https://' + code + '.goatcounter.com/count' +
+        '?p=' + encodeURIComponent(location.pathname + location.search) +
+        '&t=' + encodeURIComponent(document.title || '') +
+        '&r=' + encodeURIComponent(document.referrer || '') +
+        '&rnd=' + Date.now().toString(36);
+
+    // 2) 拉取站点总访问量
+    fetch('https://' + code + '.goatcounter.com/counter/TOTAL.json', { cache: 'no-store' })
+        .then(function(res) {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+        })
+        .then(function(data) {
+            window.visitorCount = data.count;
+            window.renderVisitorCount();
+        })
+        .catch(function() {
+            // 统计服务不可达时保持 "--"，不影响页面其他功能
+        });
+};
+
 /** 更新所有 [data-i18n] 元素的文本，末尾调用 afterUpdate 钩子 */
 window.updateContent = function() {
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
@@ -110,6 +176,7 @@ window.updateContent = function() {
     });
     var langBtn = document.getElementById('lang-btn-text');
     if (langBtn) langBtn.innerText = window.currentLang === 'zh' ? 'English' : '中文';
+    window.renderVisitorCount();
     if (typeof window.afterUpdate === 'function') {
         window.afterUpdate();
     }
@@ -130,6 +197,8 @@ window.initCommon = function() {
     if (navPlaceholder) navPlaceholder.outerHTML = window.NAV_HTML;
     var footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) footerPlaceholder.outerHTML = window.FOOTER_HTML;
+    window.injectVisitorFooter();
+    window.initVisitorCount();
     window.updateContent();
 };
 

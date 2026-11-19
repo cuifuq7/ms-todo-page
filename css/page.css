@@ -985,6 +985,21 @@ footer {
     color: var(--primary-color);
 }
 
+.footer-visitors {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    letter-spacing: 0.02em;
+}
+
+.footer-visitors i {
+    color: var(--primary-color);
+    opacity: 0.85;
+}
+
 @media (max-width: 1200px) {
     .features { grid-template-columns: repeat(2, 1fr); }
     .tech-grid { grid-template-columns: repeat(3, 1fr); }
