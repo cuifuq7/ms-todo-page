@@ -13,12 +13,17 @@
  *   4. 如需页面特有后处理，定义 window.afterUpdate = function() { ... }
  */
 
-/* ========== 访问统计配置（GoatCounter） ==========
- * 1. site code: mstodohub（后台 https://mstodohub.goatcounter.com）
- * 2. 后台 Settings 需开启 "Allow adding visitor counts on your website"，否则接口返回 403
- * 3. 把 GOATCOUNTER_CODE 留空即关闭页脚访问量显示
- * 说明：GoatCounter 不使用 Cookie、不采集个人信息，数字最多缓存 4 小时
+/* ========== 访问统计配置（双通道） ==========
+ * 1. Abacus：页脚展示的实时“总访问量”。/hit 一次请求即完成计次并返回最新值，无缓存，
+ *    清空 ABACUS_NAMESPACE 或 ABACUS_KEY 即关闭页脚访问量显示。
+ *    管理地址（重置/改值需 admin key，勿提交到仓库）：
+ *    https://abacus.jasoncameron.dev/create | /set | /reset
+ * 2. GoatCounter：只做明细分析（Pages / Referer / 设备），不参与页脚展示。
+ *    后台 https://mstodohub.goatcounter.com，留空则不发送打点。
+ * 说明：两者均不使用 Cookie、不采集个人信息
  */
+window.ABACUS_NAMESPACE = 'mstodo.dpdns.org';
+window.ABACUS_KEY = 'visits';
 window.GOATCOUNTER_CODE = 'mstodohub';
 
 /* ========== 共享导航栏 HTML ========== */
@@ -114,7 +119,7 @@ window.visitorCount = null;
  * 由 initCommon() 调用，index.html 与子页面共用同一套逻辑
  */
 window.injectVisitorFooter = function() {
-    if (!window.GOATCOUNTER_CODE) return;
+    if (!window.ABACUS_NAMESPACE || !window.ABACUS_KEY) return;
     var footer = document.querySelector('footer');
     if (!footer || document.getElementById('footer-visitors')) return;
     var p = document.createElement('p');
@@ -125,41 +130,85 @@ window.injectVisitorFooter = function() {
     window.renderVisitorCount();
 };
 
+/** 数字格式化：Abacus 返回 number，GoatCounter 返回带千分位的 string */
+window.formatVisitorCount = function(value) {
+    if (value == null || value === '') return '--';
+    var num = Number(String(value).replace(/,/g, ''));
+    if (!isFinite(num)) return String(value);
+    return num.toLocaleString(window.currentLang === 'zh' ? 'zh-CN' : 'en-US');
+};
+
 /** 按当前语言渲染访问量文案（语言切换时由 updateContent 触发） */
 window.renderVisitorCount = function() {
     var text = document.getElementById('footer-visitors-text');
     if (!text) return;
     var tpl = (window.i18n[window.currentLang] || {})['footer-visitors'] || '本站总访问量 {n} 次';
-    text.innerText = tpl.replace('{n}', window.visitorCount == null ? '--' : window.visitorCount);
+    text.innerText = tpl.replace('{n}', window.formatVisitorCount(window.visitorCount));
 };
 
-/** 加载 GoatCounter：图片打点记录 PV + counter/TOTAL.json 取站点总量
- *  不引入 gc.zgo.at 官方脚本：该 CDN 在国内网络常不可达，会导致访问完全不被记录 */
-window.initVisitorCount = function() {
+/**
+ * 拉取页脚实时总量：Abacus /hit 每次请求自增并返回最新值，刷新即可看到最新数字。
+ * 失败（超时 / 限流 / 服务不可用）时降级读 GoatCounter 总量。
+ */
+window.loadVisitorCount = function() {
+    var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function() { ctrl.abort(); }, 4000) : null;
+    function finish(value) {
+        if (timer) clearTimeout(timer);
+        if (value == null) return;
+        window.visitorCount = value;
+        window.renderVisitorCount();
+    }
+    var opts = { cache: 'no-store' };
+    if (ctrl) opts.signal = ctrl.signal;
+
+    fetch('https://abacus.jasoncameron.dev/hit/' +
+        encodeURIComponent(window.ABACUS_NAMESPACE) + '/' + encodeURIComponent(window.ABACUS_KEY), opts)
+        .then(function(res) {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+        })
+        .then(function(data) {
+            if (data && data.value != null) finish(data.value);
+            else window.loadGoatCounterTotal(finish);
+        })
+        .catch(function() {
+            if (timer) clearTimeout(timer);
+            window.loadGoatCounterTotal(finish);
+        });
+};
+
+/** 降级方案：读取 GoatCounter 站点总量（该接口约 4 小时缓存） */
+window.loadGoatCounterTotal = function(done) {
     var code = window.GOATCOUNTER_CODE;
     if (!code) return;
-
-    // 1) 记录本次访问（官方支持的无 JS 打点方式，直接请求统计域名）
-    var hit = new Image();
-    hit.src = 'https://' + code + '.goatcounter.com/count' +
-        '?p=' + encodeURIComponent(location.pathname + location.search) +
-        '&t=' + encodeURIComponent(document.title || '') +
-        '&r=' + encodeURIComponent(document.referrer || '') +
-        '&rnd=' + Date.now().toString(36);
-
-    // 2) 拉取站点总访问量
     fetch('https://' + code + '.goatcounter.com/counter/TOTAL.json', { cache: 'no-store' })
         .then(function(res) {
             if (!res.ok) throw new Error('HTTP ' + res.status);
             return res.json();
         })
         .then(function(data) {
-            window.visitorCount = data.count;
-            window.renderVisitorCount();
+            if (data && data.count != null) done(data.count);
         })
         .catch(function() {
-            // 统计服务不可达时保持 "--"，不影响页面其他功能
+            // 两个来源都不可用时保持 "--"，不影响页面其他功能
         });
+};
+
+/** 初始化访问统计：GoatCounter 打点（明细）+ Abacus 实时总量（页脚展示） */
+window.initVisitorCount = function() {
+    // 1) 明细打点：官方支持的无 JS 图片方式，不引入 gc.zgo.at（该 CDN 国内常不可达）
+    if (window.GOATCOUNTER_CODE) {
+        var hit = new Image();
+        hit.src = 'https://' + window.GOATCOUNTER_CODE + '.goatcounter.com/count' +
+            '?p=' + encodeURIComponent(location.pathname + location.search) +
+            '&t=' + encodeURIComponent(document.title || '') +
+            '&r=' + encodeURIComponent(document.referrer || '') +
+            '&rnd=' + Date.now().toString(36);
+    }
+
+    // 2) 页脚实时总量：一次请求同时完成计次与取数
+    if (window.ABACUS_NAMESPACE && window.ABACUS_KEY) window.loadVisitorCount();
 };
 
 /** 更新所有 [data-i18n] 元素的文本，末尾调用 afterUpdate 钩子 */
