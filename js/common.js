@@ -47,7 +47,7 @@ window.FOOTER_HTML = '<footer>' +
         '<a href="price-tracker.html"><i class="fa-solid fa-tags"></i> <span data-i18n="footer-pricetracker">价格跟踪</span></a>' +
         '<a href="https://github.com/cuifuq7" target="_blank"><i class="fa-solid fa-user"></i> <span data-i18n="footer-contact">联系作者</span></a>' +
     '</div>' +
-    '<p class="footer-copyright">&copy; 2026 MS-ToDo Hub. <span data-i18n="footer-copy">基于 Microsoft To Do 官方 API 构建，与微软公司无附属关系。</span></p>' +
+    '<p class="footer-copyright">&copy; 2026 MS-ToDo Hub. <span data-i18n="footer-copy">基于 Google Tasks 与 Microsoft To Do 官方 API 构建，与 Google LLC 及微软公司均无附属关系。</span></p>' +
     '<p class="footer-copyright" style="margin-top: 0.5rem;" data-i18n="footer-version">当前版本 v5.5.2.42 | 更新于 2026-10-23</p>' +
 '</footer>';
 
@@ -65,7 +65,7 @@ window.COMMON_I18N = {
         'footer-home': '返回首页',
         'footer-privacy': '隐私政策',
         'footer-pricetracker': '价格跟踪',
-        'footer-copy': '基于 Microsoft To Do 官方 API 构建，与微软公司无附属关系。',
+        'footer-copy': '基于 Google Tasks 与 Microsoft To Do 官方 API 构建，与 Google LLC 及微软公司均无附属关系。',
         'footer-version': '当前版本 v5.5.2.42 | 更新于 2026-10-23',
         'footer-visitors': '本站总访问量 {n} 次'
     },
@@ -81,7 +81,7 @@ window.COMMON_I18N = {
         'footer-home': 'Back to Home',
         'footer-privacy': 'Privacy Policy',
         'footer-pricetracker': 'Price Tracker',
-        'footer-copy': 'Built on Microsoft To-Do official API. Not affiliated with Microsoft.',
+        'footer-copy': 'Built on the official Google Tasks and Microsoft To Do APIs. Not affiliated with Google LLC or Microsoft.',
         'footer-version': 'Version v5.5.2.42 | Updated 2026-10-23',
         'footer-visitors': 'Total page views: {n}'
     }

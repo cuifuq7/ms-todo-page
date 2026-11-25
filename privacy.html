@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Privacy Policy / 隐私权政策 · MS-ToDo Hub</title>
-    <meta name="description" content="MS-ToDo Hub Privacy Policy - Learn about how we protect your data and privacy.">
+    <meta name="description" content="MS-ToDo Hub Privacy Policy - How we handle your data when you sign in with Google Tasks or Microsoft To Do, following the Google API Services User Data Policy and Limited Use requirements.">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" href="img/logo/logo.png">
     <link rel="apple-touch-icon" href="img/logo/logo.png">
@@ -256,8 +256,8 @@
     <div class="shield-icon"><i class="fa-solid fa-shield-halved"></i></div>
     <h1 data-i18n="privacy-page-title">隐私权政策</h1>
     <div class="meta">
-        <span><i class="fa-regular fa-calendar"></i> <span data-i18n="privacy-page-effective">生效日期：2026年9月18日</span></span>
-        <span><i class="fa-regular fa-clock"></i> <span data-i18n="privacy-page-updated">最后更新：2026年9月18日</span></span>
+        <span><i class="fa-regular fa-calendar"></i> <span data-i18n="privacy-page-effective">生效日期：2026年11月25日</span></span>
+        <span><i class="fa-regular fa-clock"></i> <span data-i18n="privacy-page-updated">最后更新：2026年11月25日</span></span>
     </div>
 </section>
 
@@ -276,10 +276,11 @@
             <li><a href="#zh-3">我们不收集的数据</a></li>
             <li><a href="#zh-4">使用的权限</a></li>
             <li><a href="#zh-5">第三方服务</a></li>
-            <li><a href="#zh-6">数据安全</a></li>
-            <li><a href="#zh-7">数据保留与删除</a></li>
-            <li><a href="#zh-8">政策变更</a></li>
-            <li><a href="#zh-9">联系方式</a></li>
+            <li><a href="#zh-6">Google API 服务用户数据政策与有限使用</a></li>
+            <li><a href="#zh-7">数据安全</a></li>
+            <li><a href="#zh-8">数据保留与删除</a></li>
+            <li><a href="#zh-9">政策变更</a></li>
+            <li><a href="#zh-10">联系方式</a></li>
         </ol>
     </div>
 
@@ -292,55 +293,61 @@
             <li><a href="#en-3">Data We Do NOT Collect</a></li>
             <li><a href="#en-4">Permissions Used</a></li>
             <li><a href="#en-5">Third-Party Services</a></li>
-            <li><a href="#en-6">Data Security</a></li>
-            <li><a href="#en-7">Data Retention & Deletion</a></li>
-            <li><a href="#en-8">Changes to This Policy</a></li>
-            <li><a href="#en-9">Contact</a></li>
+            <li><a href="#en-6">Google API Services User Data Policy & Limited Use</a></li>
+            <li><a href="#en-7">Data Security</a></li>
+            <li><a href="#en-8">Data Retention & Deletion</a></li>
+            <li><a href="#en-9">Changes to This Policy</a></li>
+            <li><a href="#en-10">Contact</a></li>
         </ol>
     </div>
 
     <!-- ==================== 中文内容 ==================== -->
     <div class="privacy-section active" id="privacy-zh">
         <h2 id="zh-1">1. 引言</h2>
-        <p>MS-ToDo Hub（以下简称"本扩展"）是一款浏览器扩展，提供 Microsoft To-Do 任务管理、桌面新标签页（含网站书签导航）、RSS 信息聚合阅读、思维导图、数据看板、番茄钟计时器、便签和天气小组件功能。本隐私权政策说明我们收集哪些数据、如何使用这些数据，以及我们如何保护您的隐私。</p>
+        <p>MS-ToDo Hub（以下简称"本扩展"）是一款浏览器扩展，提供 Google Tasks 与 Microsoft To Do 任务管理、桌面新标签页（含网站书签导航）、RSS 信息聚合阅读、思维导图、数据看板、番茄钟计时器、便签和天气小组件功能。本隐私权政策说明我们收集哪些数据、如何使用这些数据，以及我们如何保护您的隐私。</p>
+        <p>由于 Microsoft 已宣布 Microsoft To Do 将于 2027 年 6 月 30 日停止服务，本扩展已完成 Google Tasks 对接，Google 账户为主推登录方式；在微软服务正式关闭前，Microsoft 账户仍可继续使用。当您使用 Google 账户登录时，本扩展对 Google API 的访问遵循 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API 服务用户数据政策</a>（含有限使用要求），详见第 6 条。</p>
 
         <h2 id="zh-2">2. 我们收集的数据</h2>
 
-        <h3>2.1 Microsoft 账户信息（用户主动操作，可选）</h3>
-        <p>当您选择使用 Microsoft 账户登录时，我们通过 Microsoft Graph API 访问以下信息：</p>
+        <h3>2.1 Google 账户信息（用户主动操作，可选）</h3>
+        <p>当您选择使用 Google 账户登录时，我们通过 Google OAuth 2.0 授权与 Google 用户信息接口访问以下信息，对应的授权范围为 <code>userinfo.email</code> 与 <code>userinfo.profile</code>：</p>
         <ul>
-            <li><strong>电子邮箱地址</strong>（mail）</li>
-            <li><strong>显示名称</strong>（displayName）</li>
-            <li><strong>手机号码</strong>（mobilePhone）</li>
+            <li><strong>电子邮箱地址</strong></li>
+            <li><strong>姓名</strong></li>
+            <li><strong>个人头像</strong></li>
         </ul>
         <p><strong>用途：</strong>用于身份认证及在扩展内展示您的用户资料。</p>
         <p><strong>存储：</strong>这些信息缓存在您的浏览器本地（IndexedDB 和 chrome.storage.local），以便离线使用。</p>
 
-        <h3>2.2 Microsoft To-Do 任务数据（用户主动操作，可选）</h3>
-        <p>登录后，扩展会同步您的 Microsoft To-Do 数据，包括：</p>
+        <h3>2.2 Google Tasks 任务数据（用户主动操作，可选）</h3>
+        <p>登录后，扩展会通过 Google Tasks API（授权范围 <code>https://www.googleapis.com/auth/tasks</code>）读写您的 Google Tasks 数据，包括：</p>
         <ul>
-            <li>待办列表、任务及子任务（标题、状态、截止日期等）</li>
+            <li>任务列表</li>
+            <li>任务（标题、备注、完成状态、截止日期、排序以及父子层级/子任务）</li>
         </ul>
         <p><strong>用途：</strong>提供具有云端同步功能的任务管理服务。</p>
-        <p><strong>存储：</strong>任务数据存储在本地 IndexedDB 中以便离线使用，并与 Microsoft Graph API 服务器进行双向同步。</p>
+        <p><strong>存储：</strong>任务数据存储在本地 IndexedDB 中以便离线使用，并与 Google Tasks API 服务器进行双向同步。</p>
 
-        <h3>2.3 用户信息同步（用户主动操作，可选）</h3>
-        <p>（登录时，或已登录状态下打开插件的新标签页/桌面页时），以下用户信息会同步到我们的后端服务器：</p>
+        <h3>2.3 Microsoft 账户与 To-Do 数据（过渡期保留，用户主动操作，可选）</h3>
+        <p>在 Microsoft To Do 停止服务前，您仍可选择使用 Microsoft 账户登录。此时我们通过 Microsoft Graph API 访问您的电子邮箱地址、显示名称与个人头像；若授权结果返回手机号码，该字段仅用于本地资料展示。登录后扩展会同步您的 Microsoft To Do 任务数据（待办列表、任务及子任务）。上述数据的用途与存储方式与 2.1、2.2 相同。</p>
+        <p><strong>存储：</strong>本地缓存在 IndexedDB 与 chrome.storage.local，并与 Microsoft Graph API 服务器双向同步。</p>
+
+        <h3>2.4 用户信息同步（用户主动操作，可选）</h3>
+        <p>（登录时，或已登录状态下打开插件的新标签页/桌面页时），以下用户信息会同步到我们的后端服务器（<code>api.mstodo.dpdns.org</code>）：</p>
         <ul>
             <li>电子邮箱地址</li>
             <li>显示名称</li>
-            <li>手机号码</li>
             <li>扩展版本号</li>
         </ul>
         <p><strong>用途：</strong>用于维护用户记录和提供版本支持。该同步每天最多执行一次，且仅在您已登录时进行。</p>
         <div class="privacy-note">
-            <p><strong>数据控制方：</strong>后端服务器由扩展开发者运营。数据安全存储，不会与第三方共享。</p>
+            <p><strong>数据控制方：</strong>后端服务器由扩展开发者运营。数据安全存储，不会与第三方共享，也不会用于广告、出售或与本节所述无关的任何目的。</p>
         </div>
 
-        <h3>2.4 RSS 订阅（仅本地，可选）</h3>
-        <p>RSS 订阅数据（订阅源 URL、标题、标签、描述）存储在您的浏览器本地。如果您已登录，这些数据可能会同步到您 Microsoft To-Do 账户中的 "Todo-RSS" 列表下，以实现跨设备同步。</p>
+        <h3>2.5 RSS 订阅（仅本地，可选）</h3>
+        <p>RSS 订阅数据（订阅源 URL、标题、标签、描述）存储在您的浏览器本地。如果您已登录，这些数据可能会同步到您任务账户中的 "Todo-RSS" 列表下（Google Tasks 或 Microsoft To Do，取决于您的登录方式），以实现跨设备同步。</p>
 
-        <h3>2.5 使用统计（仅本地）</h3>
+        <h3>2.6 使用统计（仅本地）</h3>
         <p>扩展在本地追踪匿名使用统计，包括：</p>
         <ul>
             <li>操作次数（列表/任务/子任务的新增、编辑、删除、完成）</li>
@@ -352,35 +359,35 @@
             <p><strong>存储：</strong>所有统计数据仅存储在您的浏览器本地存储（chrome.storage.local）中。<strong>不会将任何使用统计数据传输到任何服务器。</strong></p>
         </div>
 
-        <h3>2.6 天气数据（可选）</h3>
+        <h3>2.7 天气数据（可选）</h3>
         <p>如果您启用了桌面天气小组件，扩展会直接通过 Open-Meteo API（一个免费的开放天气服务）请求天气预报数据，需要使用您的大致地理坐标（经度/纬度）。城市名称查询使用 BigDataCloud 反向地理编码 API。</p>
         <p><strong>用途：</strong>用于在桌面模式顶栏显示本地天气预报。</p>
         <p><strong>说明：</strong>地理坐标直接发送至 Open-Meteo 和 BigDataCloud API。我们不会在我们的服务器上收集、存储或处理您的位置数据。天气数据在浏览器本地缓存最多 2 小时，以减少 API 请求。</p>
 
-        <h3>2.7 桌面模式数据（仅本地，可选）</h3>
+        <h3>2.8 桌面模式数据（仅本地，可选）</h3>
         <p>桌面模式在浏览器本地存储以下数据：</p>
         <ul>
             <li>收藏网站（名称、URL、标签、图标、排序）</li>
             <li>搜索引擎偏好</li>
             <li>背景图片设置</li>
-            <li>小组件显示偏（天气、时钟、每日一言、番茄钟、便签）</li>
+            <li>小组件显示偏好（天气、时钟、每日一言、番茄钟、便签）</li>
             <li>空闲特效设置（雪花、下雨、樱花、萤火虫）</li>
         </ul>
-        <p><strong>存储：</strong>如果您已登录，收藏网站会同步到您 Microsoft To-Do 账户中的「Todo-Desktop」列表下，以实现跨设备同步。其他所有桌面设置仅存储在您的浏览器本地存储中。</p>
+        <p><strong>存储：</strong>如果您已登录，收藏网站会同步到您任务账户中的「Todo-Desktop」列表下（Google Tasks 或 Microsoft To Do，取决于您的登录方式），以实现跨设备同步。其他所有桌面设置仅存储在您的浏览器本地存储中。</p>
 
-        <h3>2.8 便签（仅本地，可选）</h3>
+        <h3>2.9 便签（仅本地，可选）</h3>
         <p>便签（文本内容和图片）存储在浏览器本地的专用 IndexedDB 数据库（<code>StickyNotesDB</code>）中。图片以 Blob 数据形式与文本分离存储。</p>
         <p><strong>存储：</strong>便签数据不会离开您的浏览器，也不会同步到任何服务器。</p>
 
-        <h3>2.9 番茄钟（仅本地，可选）</h3>
+        <h3>2.10 番茄钟（仅本地，可选）</h3>
         <p>番茄钟计时器状态（运行状态、剩余时间、每日完成次数）存储在浏览器本地的 localStorage 中。</p>
         <p><strong>存储：</strong>番茄钟数据不会离开您的浏览器。</p>
 
-        <h3>2.10 数据看板（仅本地）</h3>
+        <h3>2.11 数据看板（仅本地）</h3>
         <p>数据看板基于您的任务数据展示使用效率洞察。所有统计数据（概览计数、完成趋势、状态分布、列表分布）均从 IndexedDB 本地数据实时计算得出。</p>
         <p><strong>存储：</strong>看板统计数据实时从本地数据计算，不会传输到任何服务器。任务完成日志存储在本地 IndexedDB 中，用于趋势图的精确统计。</p>
 
-        <h3>2.11 版本检测（可选）</h3>
+        <h3>2.12 版本检测（可选）</h3>
         <p>当您打开桌面设置面板时，桌面模式页面会将当前扩展版本号发送至我们的后端服务器，用于检测当前版本是否仍受支持（多版本白名单比对）。不会发送任何用户标识、账户信息或其他个人数据。</p>
         <p><strong>用途：</strong>在有新版本可用时提醒您更新扩展。</p>
         <p><strong>说明：</strong>本次检测不会在服务器存储版本号。检测仅在您打开桌面设置时执行，不会进行任何自动后台检测。</p>
@@ -389,8 +396,9 @@
         <ul>
             <li>我们<strong>不</strong>收集您的浏览历史</li>
             <li>我们<strong>不</strong>读取或传输您访问的网页内容（内容脚本仅扫描 RSS 订阅源的 <code>&lt;link&gt;</code> 标签）</li>
+            <li>我们<strong>不</strong>访问您在 Gmail、Google 日历、Google 云端硬盘等其他 Google 服务中的数据，本扩展仅申请 Tasks 与基本资料授权</li>
             <li>我们<strong>不</strong>收集 13 岁以下儿童的个人数据</li>
-            <li>我们<strong>不</strong>将您的数据出售或分享给第三方用于广告</li>
+            <li>我们<strong>不</strong>将您的数据出售或分享给第三方用于广告，也不会将 Google 用户数据用于训练人工智能或机器学习模型</li>
             <li>我们<strong>不</strong>将您的数据用于本政策所述以外的任何目的</li>
         </ul>
 
@@ -398,7 +406,7 @@
         <table class="privacy-table">
             <thead><tr><th>权限</th><th>用途</th></tr></thead>
             <tbody>
-                <tr><td><code>identity</code></td><td>Microsoft OAuth 2.0 登录认证</td></tr>
+                <tr><td><code>identity</code></td><td>Google 与 Microsoft OAuth 2.0 登录认证</td></tr>
                 <tr><td><code>storage</code></td><td>在本地存储任务、设置和令牌</td></tr>
                 <tr><td><code>alarms</code></td><td>安排任务到期提醒</td></tr>
                 <tr><td><code>notifications</code></td><td>显示任务提醒通知</td></tr>
@@ -411,33 +419,60 @@
         <table class="privacy-table">
             <thead><tr><th>服务</th><th>使用时机</th><th>共享数据</th></tr></thead>
             <tbody>
-                <tr><td>Microsoft Graph API</td><td>登录与任务同步</td><td>OAuth 令牌、任务数据</td></tr>
-                <tr><td>Microsoft 登录 (login.microsoftonline.com)</td><td>登录时</td><td>OAuth 授权信息</td></tr>
+                <tr><td>Google Tasks API (tasks.googleapis.com)</td><td>Google 账户登录后的任务同步</td><td>OAuth 令牌、任务数据</td></tr>
+                <tr><td>Google 身份服务 (accounts.google.com)</td><td>Google 登录与授权</td><td>OAuth 授权信息</td></tr>
+                <tr><td>Google 用户信息接口</td><td>Google 登录后读取基本资料</td><td>OAuth 令牌（返回邮箱、姓名、头像）</td></tr>
+                <tr><td>Microsoft Graph API</td><td>Microsoft 账户登录与任务同步（过渡期）</td><td>OAuth 令牌、任务数据</td></tr>
+                <tr><td>Microsoft 登录 (login.microsoftonline.com)</td><td>Microsoft 账户登录时</td><td>OAuth 授权信息</td></tr>
                 <tr><td>Open-Meteo API</td><td>天气小组件（直连，无代理）</td><td>地理坐标</td></tr>
                 <tr><td>BigDataCloud API</td><td>反向地理编码（城市名称查询）</td><td>地理坐标</td></tr>
                 <tr><td>Google Favicon 服务</td><td>网站图标（通过我们的代理）</td><td>网站域名</td></tr>
             </tbody>
         </table>
+        <div class="privacy-note">
+            <p><strong>说明：</strong>通过 Google API 获取的用户数据另受第 6 条「Google API 服务用户数据政策与有限使用」约束。</p>
+        </div>
 
-        <h2 id="zh-6">6. 数据安全</h2>
+        <h2 id="zh-6">6. Google API 服务用户数据政策与有限使用</h2>
+        <div class="privacy-note">
+            <p><strong>有限使用声明：</strong>MS-ToDo Hub 对通过 Google API 获取的信息的使用，以及向任何其他应用传输该等信息的行为，均将遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API 服务用户数据政策</a>（Google API Services User Data Policy），包括其中的有限使用（Limited Use）要求。</p>
+        </div>
+        <p>具体而言，我们对 Google 用户数据作出以下承诺：</p>
         <ul>
-            <li>OAuth 令牌（Access Token、Refresh Token）存储在您的浏览器本地，除 Microsoft 认证端点和我们的 OAuth 代理 Worker 外，不会传输到任何其他服务器。</li>
+            <li>仅将 Google 用户数据用于提供或改进本政策中明确说明、且用户可见的功能（任务管理、跨设备同步、账户资料展示）；</li>
+            <li>不将 Google 用户数据出售给第三方；</li>
+            <li>不将 Google 用户数据用于广告目的，包括个性化广告、再营销或受众定向；</li>
+            <li>不将 Google 用户数据用于训练或改进通用/基础人工智能或机器学习模型；</li>
+            <li>不将 Google 用户数据用于确定信用度、放贷目的或与之相关的用途；</li>
+            <li>不允许人工读取 Google 用户数据，除非：您对特定数据作出明确同意、出于安全目的（如调查滥用行为）确有必要，或法律强制要求。</li>
+        </ul>
+        <p>我们仅在本政策明确说明的范围内与我们的后端服务器共享 Google 用户数据（电子邮箱地址、显示名称、扩展版本号，见第 2.4 条），该等共享同样受上述有限使用要求约束。更多关于 Google 如何处理数据的信息，请参阅 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隐私权政策</a>。</p>
+
+        <h2 id="zh-7">7. 数据安全</h2>
+        <ul>
+            <li>OAuth 令牌（Google 与 Microsoft 的 Access Token、Refresh Token）存储在您的浏览器本地，除对应的官方认证端点及用于完成授权码交换的 OAuth 代理 Worker 外，不会传输到任何其他服务器。</li>
             <li>所有 API 通信均使用 HTTPS 加密。</li>
+            <li>我们的后端服务器（<code>api.mstodo.dpdns.org</code>）使用 HMAC-SHA256 签名验证来确保请求完整性。</li>
         </ul>
 
-        <h2 id="zh-7">7. 数据保留与删除</h2>
+        <h2 id="zh-8">8. 数据保留与删除</h2>
         <p>所有本地存储的数据（任务、令牌、设置、统计）均存储在您的浏览器中，您可以随时通过以下方式删除：</p>
         <ul>
             <li>卸载本扩展</li>
-            <li>使用扩展内的"退出登录"功能（将清除所有本地数据）</li>
+            <li>使用扩展内的"退出登录"功能（将清除本地令牌与账户信息）</li>
             <li>清除该扩展的浏览器数据</li>
         </ul>
-        <p>服务器端的用户记录可通过联系我们申请删除（见第 9 条）。</p>
+        <p>您也可以随时撤销本扩展对账户的访问授权：</p>
+        <ul>
+            <li>Google：前往 <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google 账号第三方访问权限</a>，移除 MS-ToDo Hub 的访问权限；撤销后我们将无法继续访问您的 Google 用户数据。</li>
+            <li>Microsoft：前往 <a href="https://account.live.com/consent/Manage" target="_blank" rel="noopener">Microsoft 应用与服务的授权管理</a> 移除授权。</li>
+        </ul>
+        <p>服务器端的用户记录（电子邮箱地址、显示名称、扩展版本号）可通过联系我们申请删除（见第 10 条），我们将在核实后及时删除。</p>
 
-        <h2 id="zh-8">8. 政策变更</h2>
-        <p>我们可能会不时更新本隐私权政策。更新后的版本将在扩展商店页面和/或我们的项目仓库中发布。</p>
+        <h2 id="zh-9">9. 政策变更</h2>
+        <p>我们可能会不时更新本隐私权政策。更新后的版本将在扩展商店页面和/或我们的项目仓库中发布，并同步更新页首的生效日期与最后更新日期。若变更涉及 Google 用户数据的使用方式，我们会在生效前通过扩展内提示或商店页面公告予以说明。</p>
 
-        <h2 id="zh-9">9. 联系方式</h2>
+        <h2 id="zh-10">10. 联系方式</h2>
         <p>如果您对本隐私权政策有任何疑问，或希望申请删除您的数据，请通过以下方式联系我们：</p>
         <div class="privacy-contact-box">
             <p><i class="fa-brands fa-github"></i> GitHub Issues: <a href="https://github.com/cuifuq7/ms-todo-page/issues" target="_blank">https://github.com/cuifuq7/ms-todo-page/issues</a></p>
@@ -447,45 +482,50 @@
     <!-- ==================== English Content ==================== -->
     <div class="privacy-section" id="privacy-en">
         <h2 id="en-1">1. Introduction</h2>
-        <p>MS-ToDo Hub ("the Extension") is a browser extension that provides Microsoft To-Do task management, desktop new tab page with website bookmarks, RSS feed reader, mind map, data dashboard, pomodoro timer, sticky notes, and weather widget. This Privacy Policy explains what data we collect, how we use it, and how we protect your privacy.</p>
+        <p>MS-ToDo Hub ("the Extension") is a browser extension that provides task management for Google Tasks and Microsoft To Do, a desktop new tab page with website bookmarks, an RSS feed reader, mind map, data dashboard, pomodoro timer, sticky notes, and weather widget. This Privacy Policy explains what data we collect, how we use it, and how we protect your privacy.</p>
+        <p>Because Microsoft has announced that Microsoft To Do will be discontinued on June 30, 2027, the Extension now supports Google Tasks, with Google accounts as the primary sign-in method; Microsoft accounts remain available until Microsoft's service is shut down. When you sign in with a Google account, the Extension's use of Google APIs complies with the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements (see Section 6).</p>
 
         <h2 id="en-2">2. Data We Collect</h2>
 
-        <h3>2.1 Microsoft Account Information (User-Initiated, Optional)</h3>
-        <p>When you choose to log in with your Microsoft account, we access the following information through the Microsoft Graph API:</p>
+        <h3>2.1 Google Account Information (User-Initiated, Optional)</h3>
+        <p>When you choose to log in with your Google account, we access the following information through Google OAuth 2.0 authorization and Google's user info endpoints, using the <code>userinfo.email</code> and <code>userinfo.profile</code> scopes:</p>
         <ul>
-            <li><strong>Email address</strong> (mail)</li>
-            <li><strong>Display name</strong> (displayName)</li>
-            <li><strong>Mobile phone number</strong> (mobilePhone)</li>
+            <li><strong>Email address</strong></li>
+            <li><strong>Name</strong></li>
+            <li><strong>Profile picture</strong></li>
         </ul>
         <p><strong>Purpose:</strong> To authenticate your identity and display your user profile within the extension.</p>
         <p><strong>Storage:</strong> This information is cached locally in your browser (IndexedDB and chrome.storage.local) for offline access.</p>
 
-        <h3>2.2 Microsoft To-Do Task Data (User-Initiated, Optional)</h3>
-        <p>When logged in, the extension synchronizes your Microsoft To-Do data, including:</p>
+        <h3>2.2 Google Tasks Data (User-Initiated, Optional)</h3>
+        <p>When logged in, the extension reads and writes your Google Tasks data through the Google Tasks API (scope <code>https://www.googleapis.com/auth/tasks</code>), including:</p>
         <ul>
-            <li>Todo lists, tasks, and subtasks (titles, statuses, due dates, etc.)</li>
+            <li>Task lists</li>
+            <li>Tasks (titles, notes, completion status, due dates, ordering, and parent/child hierarchy)</li>
         </ul>
         <p><strong>Purpose:</strong> To provide task management functionality with cloud synchronization.</p>
-        <p><strong>Storage:</strong> Task data is stored locally in IndexedDB for offline access and synchronized bidirectionally with Microsoft Graph API servers.</p>
+        <p><strong>Storage:</strong> Task data is stored locally in IndexedDB for offline access and synchronized bidirectionally with Google Tasks API servers.</p>
 
-        <h3>2.3 User Information Sync (User-Initiated, Optional)</h3>
+        <h3>2.3 Microsoft Account & To-Do Data (Transitional, User-Initiated, Optional)</h3>
+        <p>Until Microsoft To Do is discontinued, you may still sign in with a Microsoft account. In that case we access your email address, display name, and profile picture through the Microsoft Graph API; if a mobile phone number is returned by the authorization result, it is used only for local profile display. The extension then synchronizes your Microsoft To Do data (todo lists, tasks, and subtasks). The purposes and storage practices are the same as in Sections 2.1 and 2.2.</p>
+        <p><strong>Storage:</strong> Cached locally in IndexedDB and chrome.storage.local, and synchronized bidirectionally with Microsoft Graph API servers.</p>
+
+        <h3>2.4 User Information Sync (User-Initiated, Optional)</h3>
         <p>(upon login, or when opening the extension's new tab / desktop pages while logged in), the following user information is synced to our backend server (<code>api.mstodo.dpdns.org</code>):</p>
         <ul>
             <li>Email address</li>
             <li>Display name</li>
-            <li>Mobile phone number</li>
             <li>Extension version number</li>
         </ul>
         <p><strong>Purpose:</strong> To maintain user records and provide version-specific support. This sync occurs at most once per day and only when you are logged in.</p>
         <div class="privacy-note">
-            <p><strong>Data Controller:</strong> The backend server is operated by the extension developer. Data is stored securely and is not shared with third parties.</p>
+            <p><strong>Data Controller:</strong> The backend server is operated by the extension developer. Data is stored securely, is not shared with third parties, and is not used for advertising, sale, or any purpose unrelated to this section.</p>
         </div>
 
-        <h3>2.4 RSS Subscriptions (Local Only, Optional)</h3>
-        <p>RSS feed subscriptions (feed URLs, titles, tags, descriptions) are stored locally in your browser. If you are logged in, they may be synchronized to your Microsoft To-Do account under a dedicated "Todo-RSS" list for cross-device sync.</p>
+        <h3>2.5 RSS Subscriptions (Local Only, Optional)</h3>
+        <p>RSS feed subscriptions (feed URLs, titles, tags, descriptions) are stored locally in your browser. If you are logged in, they may be synchronized to your task account under a dedicated "Todo-RSS" list (Google Tasks or Microsoft To Do, depending on your sign-in method) for cross-device sync.</p>
 
-        <h3>2.5 Usage Statistics (Local Only)</h3>
+        <h3>2.6 Usage Statistics (Local Only)</h3>
         <p>The extension tracks anonymous usage statistics locally, including:</p>
         <ul>
             <li>Counts of operations (list/task/subtask creation, editing, deletion, completion)</li>
@@ -497,12 +537,12 @@
             <p><strong>Storage:</strong> All statistics are stored exclusively in your local browser storage (chrome.storage.local). <strong>No usage statistics are transmitted to any server.</strong></p>
         </div>
 
-        <h3>2.6 Weather Data (Optional)</h3>
+        <h3>2.7 Weather Data (Optional)</h3>
         <p>If you enable the desktop weather widget, the extension requests weather forecast data directly from the Open-Meteo API (a free, open weather service) using your approximate geographic coordinates (latitude/longitude). City name lookup uses the BigDataCloud reverse-geocode API.</p>
         <p><strong>Purpose:</strong> To display local weather forecasts in the desktop mode top bar.</p>
         <p><strong>Note:</strong> Location coordinates are sent directly to the Open-Meteo and BigDataCloud APIs. We do not collect, store, or process your location data on our servers. Weather data is cached locally in your browser for up to 2 hours to reduce API calls.</p>
 
-        <h3>2.7 Desktop Mode Data (Local Only, Optional)</h3>
+        <h3>2.8 Desktop Mode Data (Local Only, Optional)</h3>
         <p>Desktop mode stores the following data locally in your browser:</p>
         <ul>
             <li>Bookmark websites (names, URLs, tags, icons, sort order)</li>
@@ -511,21 +551,21 @@
             <li>Widget display preferences (weather, clock, daily quote, pomodoro, sticky notes)</li>
             <li>Idle effect settings (snow, rain, cherry blossom, firefly)</li>
         </ul>
-        <p><strong>Storage:</strong> If you are logged in, bookmark websites are synchronized to your Microsoft To-Do account under a dedicated "Todo-Desktop" list for cross-device sync. All other desktop settings are stored exclusively in your local browser storage.</p>
+        <p><strong>Storage:</strong> If you are logged in, bookmark websites are synchronized to your task account under a dedicated "Todo-Desktop" list (Google Tasks or Microsoft To Do, depending on your sign-in method) for cross-device sync. All other desktop settings are stored exclusively in your local browser storage.</p>
 
-        <h3>2.8 Sticky Notes (Local Only, Optional)</h3>
+        <h3>2.9 Sticky Notes (Local Only, Optional)</h3>
         <p>Sticky notes (text content and images) are stored locally in your browser using a dedicated IndexedDB database (<code>StickyNotesDB</code>). Images are stored as Blob data separately from text.</p>
         <p><strong>Storage:</strong> Sticky notes data never leaves your browser and is not synchronized to any server.</p>
 
-        <h3>2.9 Pomodoro Timer (Local Only, Optional)</h3>
+        <h3>2.10 Pomodoro Timer (Local Only, Optional)</h3>
         <p>Pomodoro timer state (running status, remaining time, daily completion count) is stored locally in your browser's localStorage.</p>
         <p><strong>Storage:</strong> Pomodoro data never leaves your browser.</p>
 
-        <h3>2.10 Data Dashboard (Local Only)</h3>
+        <h3>2.11 Data Dashboard (Local Only)</h3>
         <p>The data dashboard displays productivity insights based on your task data. All statistics (overview counts, completion trends, status distribution, list distribution) are computed locally from your IndexedDB data.</p>
         <p><strong>Storage:</strong> Dashboard statistics are computed in real-time from local data and are never transmitted to any server. Task completion logs are stored locally in IndexedDB for trend chart accuracy.</p>
 
-        <h3>2.11 Version Check (Optional)</h3>
+        <h3>2.12 Version Check (Optional)</h3>
         <p>When you open the Desktop Settings panel, the desktop mode page sends the current extension version number to our backend server (<code>api.mstodo.dpdns.org</code>) to check whether the installed version is still supported (multi-version whitelist comparison). No user identifiers, account information, or other personal data are sent.</p>
         <p><strong>Purpose:</strong> To notify you when a newer version is available so you can update the extension.</p>
         <p><strong>Note:</strong> The version number is not stored on the server for this check. The check is only performed when you open Desktop Settings; no automatic background checks are performed.</p>
@@ -534,8 +574,9 @@
         <ul>
             <li>We do <strong>not</strong> collect your browsing history</li>
             <li>We do <strong>not</strong> read or transmit the content of web pages you visit (the content script only scans for RSS feed <code>&lt;link&gt;</code> tags)</li>
+            <li>We do <strong>not</strong> access your data in other Google services such as Gmail, Google Calendar, or Google Drive; the extension only requests the Tasks and basic profile scopes described above</li>
             <li>We do <strong>not</strong> collect personal data from children under 13</li>
-            <li>We do <strong>not</strong> sell or share your data with third parties for advertising</li>
+            <li>We do <strong>not</strong> sell or share your data with third parties for advertising, and we do <strong>not</strong> use Google user data to train artificial intelligence or machine learning models</li>
             <li>We do <strong>not</strong> use your data for any purpose other than those described in this policy</li>
         </ul>
 
@@ -543,7 +584,7 @@
         <table class="privacy-table">
             <thead><tr><th>Permission</th><th>Purpose</th></tr></thead>
             <tbody>
-                <tr><td><code>identity</code></td><td>Microsoft OAuth 2.0 login</td></tr>
+                <tr><td><code>identity</code></td><td>Google and Microsoft OAuth 2.0 login</td></tr>
                 <tr><td><code>storage</code></td><td>Store tasks, settings, and tokens locally</td></tr>
                 <tr><td><code>alarms</code></td><td>Schedule task due reminders</td></tr>
                 <tr><td><code>notifications</code></td><td>Display task reminder notifications</td></tr>
@@ -556,33 +597,60 @@
         <table class="privacy-table">
             <thead><tr><th>Service</th><th>When</th><th>Data Shared</th></tr></thead>
             <tbody>
-                <tr><td>Microsoft Graph API</td><td>Login & task sync</td><td>OAuth tokens, task data</td></tr>
-                <tr><td>Microsoft Login (login.microsoftonline.com)</td><td>Login</td><td>OAuth authorization</td></tr>
+                <tr><td>Google Tasks API (tasks.googleapis.com)</td><td>Task sync after Google sign-in</td><td>OAuth tokens, task data</td></tr>
+                <tr><td>Google Identity Services (accounts.google.com)</td><td>Google login & authorization</td><td>OAuth authorization</td></tr>
+                <tr><td>Google user info endpoint</td><td>Basic profile retrieval after login</td><td>OAuth token (returns email, name, picture)</td></tr>
+                <tr><td>Microsoft Graph API</td><td>Microsoft sign-in & task sync (transitional)</td><td>OAuth tokens, task data</td></tr>
+                <tr><td>Microsoft Login (login.microsoftonline.com)</td><td>Microsoft sign-in</td><td>OAuth authorization</td></tr>
                 <tr><td>Open-Meteo API</td><td>Weather widget (direct, no proxy)</td><td>Geographic coordinates</td></tr>
                 <tr><td>BigDataCloud API</td><td>Reverse geocoding (city name lookup)</td><td>Geographic coordinates</td></tr>
                 <tr><td>Google Favicon Service</td><td>Website icons (via our proxy)</td><td>Website domain names</td></tr>
             </tbody>
         </table>
+        <div class="privacy-note">
+            <p><strong>Note:</strong> User data obtained through Google APIs is additionally governed by Section 6, "Google API Services User Data Policy & Limited Use".</p>
+        </div>
 
-        <h2 id="en-6">6. Data Security</h2>
+        <h2 id="en-6">6. Google API Services User Data Policy & Limited Use</h2>
+        <div class="privacy-note">
+            <p><strong>Limited Use disclosure:</strong> MS-ToDo Hub's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+        </div>
+        <p>Specifically, we commit to the following with respect to Google user data:</p>
         <ul>
-            <li>OAuth tokens (Access Token, Refresh Token) are stored locally in your browser and are never transmitted to any server other than Microsoft's authentication endpoints and our OAuth proxy worker.</li>
+            <li>We use Google user data only to provide or improve user-facing features that are prominently described in this policy (task management, cross-device sync, and account profile display);</li>
+            <li>We do not sell Google user data to third parties;</li>
+            <li>We do not use Google user data for advertising purposes, including personalized advertising, retargeting, or audience targeting;</li>
+            <li>We do not use Google user data to train or improve generalized/foundational artificial intelligence or machine learning models;</li>
+            <li>We do not use Google user data to determine creditworthiness or for lending purposes or related uses;</li>
+            <li>We do not allow humans to read Google user data unless: you have given your affirmative consent for specific data, it is necessary for security purposes such as investigating abuse, or it is required by applicable law.</li>
+        </ul>
+        <p>We share Google user data with our backend server only to the extent described in this policy (email address, display name, and extension version number, see Section 2.4), and such sharing is subject to the same Limited Use requirements. For more information on how Google handles data, please refer to the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+
+        <h2 id="en-7">7. Data Security</h2>
+        <ul>
+            <li>OAuth tokens (Google and Microsoft Access Tokens and Refresh Tokens) are stored locally in your browser and are never transmitted to any server other than the corresponding official authentication endpoints and the OAuth proxy worker used to complete the authorization code exchange.</li>
             <li>All API communications use HTTPS encryption.</li>
+            <li>Our backend server (<code>api.mstodo.dpdns.org</code>) uses HMAC-SHA256 signature verification to ensure request integrity.</li>
         </ul>
 
-        <h2 id="en-7">7. Data Retention & Deletion</h2>
+        <h2 id="en-8">8. Data Retention & Deletion</h2>
         <p>All locally stored data (tasks, tokens, settings, statistics) is stored in your browser and can be deleted at any time by:</p>
         <ul>
             <li>Uninstalling the extension</li>
-            <li>Using the "Logout" function within the extension (clears all local data)</li>
+            <li>Using the "Logout" function within the extension (clears local tokens and account information)</li>
             <li>Clearing browser data for the extension</li>
         </ul>
-        <p>Server-side user records can be deleted by contacting us (see Section 9).</p>
+        <p>You may also revoke the extension's access to your account at any time:</p>
+        <ul>
+            <li>Google: visit <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Third-party apps &amp; services</a> in your Google Account and remove MS-ToDo Hub's access; once revoked, we can no longer access your Google user data.</li>
+            <li>Microsoft: visit <a href="https://account.live.com/consent/Manage" target="_blank" rel="noopener">Apps and services that can access your data</a> and remove the authorization.</li>
+        </ul>
+        <p>Server-side user records (email address, display name, and extension version number) can be deleted by contacting us (see Section 10); we will delete them promptly after verification.</p>
 
-        <h2 id="en-8">8. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Updated versions will be published on the extension's store listing and/or our project repository.</p>
+        <h2 id="en-9">9. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Updated versions will be published on the extension's store listing and/or our project repository, together with an updated effective date and last-updated date at the top of this page. If a change affects how Google user data is used, we will provide notice through an in-extension prompt or a store listing announcement before it takes effect.</p>
 
-        <h2 id="en-9">9. Contact</h2>
+        <h2 id="en-10">10. Contact</h2>
         <p>If you have questions about this Privacy Policy or wish to request deletion of your data, please contact us:</p>
         <div class="privacy-contact-box">
             <p><i class="fa-brands fa-github"></i> GitHub Issues: <a href="https://github.com/cuifuq7/ms-todo-page/issues" target="_blank">https://github.com/cuifuq7/ms-todo-page/issues</a></p>
@@ -597,13 +665,13 @@
     extendI18n({
         'zh': {
             'privacy-page-title': '隐私权政策',
-            'privacy-page-effective': '生效日期：2026年9月18日',
-            'privacy-page-updated': '最后更新：2026年9月18日'
+            'privacy-page-effective': '生效日期：2026年11月25日',
+            'privacy-page-updated': '最后更新：2026年11月25日'
         },
         'en': {
             'privacy-page-title': 'Privacy Policy',
-            'privacy-page-effective': 'Effective Date: September 18, 2026',
-            'privacy-page-updated': 'Last Updated: September 18, 2026'
+            'privacy-page-effective': 'Effective Date: November 25, 2026',
+            'privacy-page-updated': 'Last Updated: November 25, 2026'
         }
     });
 
