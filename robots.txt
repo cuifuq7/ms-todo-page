@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mstodo.dpdns.org/sitemap.xml

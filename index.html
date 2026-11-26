@@ -44,6 +44,11 @@
 
 <section class="hero">
     <span class="version-badge" data-i18n="version-badge"><i class="fa-solid fa-check-double"></i> 新标签页 · 多合一效率工具</span>
+    <h1 class="hero-title">
+        <span class="hero-brand">MS-ToDo Hub</span>
+        <span class="hero-title-divider">·</span>
+        <span data-i18n="hero-title">新标签页待办与效率平台</span>
+    </h1>
     <div id="dynamic-slogan"></div>
     <div class="tagline-row">
         <span class="tagline"><i class="fa-regular fa-star"></i> <span data-i18n="tagline-simple">新标签，新起点，新世界</span></span>
@@ -104,6 +109,31 @@
         <div class="waterfall-item"><i class="fa-solid fa-brain"></i> <span data-i18n="waterfall4">待办变导图，思路更清晰</span></div>
         <div class="waterfall-item"><i class="fa-solid fa-lock"></i> <span data-i18n="waterfall5">二级密码保护敏感列表</span></div>
         <div class="waterfall-item"><i class="fa-solid fa-mobile-screen-button"></i> <span data-i18n="waterfall6">Google Tasks App 无缝同步</span></div>
+    </div>
+</section>
+
+<!-- ========== 应用说明（静态中英双语，供用户与平台审核方直接阅读，不依赖 JS） ========== -->
+<section class="app-about" id="about">
+    <h2 class="section-title" data-i18n="about-title">关于本应用</h2>
+    <div class="app-about-grid">
+        <div class="app-about-block" lang="zh-CN">
+            <h3>MS-ToDo Hub 是什么？</h3>
+            <p>MS-ToDo Hub 是一款面向 Chrome、Edge 与 Firefox 的浏览器扩展。它把浏览器新标签页变成待办与效率工作台：与 <strong>Google Tasks</strong> 双向同步任务（微软待办停服前同样支持 Microsoft To Do），并提供桌面模式、RSS 阅读器、思维导图、数据看板，以及天气、时钟、番茄钟、便签、白板等桌面小组件。</p>
+            <p><strong>Google 用户数据的用途：</strong>只有在您主动使用 Google 账号登录后，扩展才会通过 OAuth 2.0 申请最小授权范围——<code>.../auth/tasks</code>（读写您自己的任务列表）与基本资料（邮箱、姓名、头像，用于显示当前登录账号）。任务数据保存在您的 Google 账号与浏览器本地，不会出售、不会用于广告，也不会用于训练或改进 AI / 机器学习模型。</p>
+            <p><strong>有限使用声明：</strong>MS-ToDo Hub 对通过 Google API 获取的信息的使用，以及向任何其他应用传输该等信息的行为，均将遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API 服务用户数据政策</a>，包括其中的有限使用（Limited Use）要求。</p>
+            <p><strong>AI 相关：</strong>本应用不具备任何图像生成能力，不会使用 Google API 用户数据生成、创建或传播 AI 生成的未经当事人同意的私密图像（NCII）。</p>
+            <p><strong>无需登录：</strong>本网站（包括隐私权政策）无需注册或登录即可完整浏览，扩展也仅在您主动点击登录时才请求授权。</p>
+            <p class="app-about-links"><a href="privacy.html">隐私权政策</a> · <a href="price-tracker.html">价格跟踪</a> · <a href="https://chromewebstore.google.com/detail/icmnmeceeheemlmbmolfendmiieabiac" target="_blank" rel="noopener">Chrome 应用商店</a></p>
+        </div>
+        <div class="app-about-block" lang="en">
+            <h3>What is MS-ToDo Hub?</h3>
+            <p>MS-ToDo Hub is a browser extension for Chrome, Edge and Firefox. It turns your new tab page into a to-do and productivity workspace: it syncs your tasks with <strong>Google Tasks</strong> (Microsoft To Do remains supported until Microsoft retires it) and adds desktop mode, an RSS reader, a mind map, a productivity dashboard, and weather, clock, pomodoro, sticky note and whiteboard widgets.</p>
+            <p><strong>How Google user data is used:</strong> only after you choose to sign in with Google does the extension request OAuth 2.0 with the minimum scopes — <code>.../auth/tasks</code> (read and write your own task lists) and basic profile (email, name, avatar, shown as the signed-in account). Task data stays in your Google account and in your browser's local storage; it is never sold, never used for advertising, and never used to train or improve AI / machine-learning models.</p>
+            <p><strong>Limited Use:</strong> MS-ToDo Hub's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+            <p><strong>AI:</strong> the extension has no image-generation capability and does not use Google API data to create, generate or distribute AI-generated non-consensual intimate imagery (NCII).</p>
+            <p><strong>No sign-in required:</strong> this entire website, including the Privacy Policy, is publicly viewable without registering or signing in; the extension only requests authorization when you actively click sign-in.</p>
+            <p class="app-about-links"><a href="privacy.html">Privacy Policy</a> · <a href="price-tracker.html">Price Tracker</a> · <a href="https://chromewebstore.google.com/detail/icmnmeceeheemlmbmolfendmiieabiac" target="_blank" rel="noopener">Chrome Web Store</a></p>
+        </div>
     </div>
 </section>
 
@@ -614,6 +644,8 @@
             'nav-sponsor': '资助作者',
             'tagline-simple': '新标签，新起点，新世界',
             'tagline-emotional': '待办 · 桌面 · RSS · 导图 · 看板，一个都不少',
+            'hero-title': '新标签页待办与效率平台',
+            'about-title': '关于本应用',
             'hero-desc': '基于 Chrome MV3 的一站式效率平台：Google Tasks 云端同步（微软待办停服过渡支持） · 精美桌面新标签页 · RSS 信息聚合 · 思维导图 · 数据看板 · 天气/时钟/番茄钟/便签/白板小组件 · Local-First 离线优先',
             'btn-chrome': 'Chrome 商店',
             'btn-edge': 'Edge 商店',
@@ -787,6 +819,8 @@
             'nav-sponsor': 'Sponsor',
             'tagline-simple': 'New Tab, New Start, New World',
             'tagline-emotional': 'To-Do · Desktop · RSS · Mind Map · Dashboard, all in one',
+            'hero-title': 'New Tab To-do & Productivity Platform',
+            'about-title': 'About This App',
             'hero-desc': 'All-in-one productivity platform based on Chrome MV3: Google Tasks cloud sync (Microsoft To Do supported during its shutdown transition) · Beautiful desktop new tab · RSS aggregator · Mind map · Data dashboard · Weather/Clock/Pomodoro/Notes/Whiteboard widgets · Local-First offline',
             'btn-chrome': 'Chrome Store',
             'btn-edge': 'Edge Store',

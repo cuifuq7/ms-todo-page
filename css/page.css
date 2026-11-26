@@ -1159,3 +1159,104 @@ footer {
         padding: 1.25rem;
     }
 }
+
+/* ========== Hero 标题（h1，静态可见，供搜索引擎与平台审核识别应用名与用途） ========== */
+.hero-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    margin: 0 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title .hero-brand {
+    color: var(--primary-color);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.hero-title .hero-title-divider {
+    margin: 0 0.4rem;
+    opacity: 0.5;
+}
+
+/* ========== 应用说明（中英双语静态区块） ========== */
+.app-about {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 8% 1rem;
+}
+
+.app-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.app-about-block {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.app-about-block h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.app-about-block p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 0.9rem;
+}
+
+.app-about-block strong {
+    color: var(--text-dark);
+}
+
+.app-about-block code {
+    background: var(--gray-100);
+    padding: 1px 6px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: var(--primary-color);
+}
+
+.app-about-block a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.app-about-block a:hover {
+    text-decoration: underline;
+}
+
+.app-about-links {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--gray-200);
+}
+
+@media (max-width: 900px) {
+    .app-about {
+        padding: 3rem 1.2rem 1rem;
+    }
+
+    .app-about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .app-about-block {
+        padding: 1.4rem;
+    }
+}

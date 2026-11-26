@@ -102,8 +102,14 @@
         .privacy-lang-tab:hover:not(.active) {
             color: var(--primary-color);
         }
+        /* 中英文版本同时渲染（避免因切换标签导致审核抓取不到正文） */
         .privacy-section {
-            display: none;
+            display: block;
+        }
+        .privacy-section + .privacy-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px dashed var(--gray-200);
         }
         .privacy-section.active {
             display: block;
@@ -306,6 +312,7 @@
         <h2 id="zh-1">1. 引言</h2>
         <p>MS-ToDo Hub（以下简称"本扩展"）是一款浏览器扩展，提供 Google Tasks 与 Microsoft To Do 任务管理、桌面新标签页（含网站书签导航）、RSS 信息聚合阅读、思维导图、数据看板、番茄钟计时器、便签和天气小组件功能。本隐私权政策说明我们收集哪些数据、如何使用这些数据，以及我们如何保护您的隐私。</p>
         <p>由于 Microsoft 已宣布 Microsoft To Do 将于 2027 年 6 月 30 日停止服务，本扩展已完成 Google Tasks 对接，Google 账户为主推登录方式；在微软服务正式关闭前，Microsoft 账户仍可继续使用。当您使用 Google 账户登录时，本扩展对 Google API 的访问遵循 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API 服务用户数据政策</a>（含有限使用要求），详见第 6 条。</p>
+        <p>本页面与本站其他页面均可在<strong>无需注册、无需登录</strong>的情况下公开访问；扩展本身也仅在您主动点击登录时才会请求 Google 账号授权，未登录状态下浏览网站不会触发任何 Google 账号数据访问。</p>
 
         <h2 id="zh-2">2. 我们收集的数据</h2>
 
@@ -399,6 +406,7 @@
             <li>我们<strong>不</strong>访问您在 Gmail、Google 日历、Google 云端硬盘等其他 Google 服务中的数据，本扩展仅申请 Tasks 与基本资料授权</li>
             <li>我们<strong>不</strong>收集 13 岁以下儿童的个人数据</li>
             <li>我们<strong>不</strong>将您的数据出售或分享给第三方用于广告，也不会将 Google 用户数据用于训练人工智能或机器学习模型</li>
+            <li>我们<strong>不</strong>使用 Google API 用户数据生成、创建或传播 AI 生成的未经当事人同意的私密图像（NCII）；本扩展不具备任何图像生成能力</li>
             <li>我们<strong>不</strong>将您的数据用于本政策所述以外的任何目的</li>
         </ul>
 
@@ -443,6 +451,7 @@
             <li>不将 Google 用户数据出售给第三方；</li>
             <li>不将 Google 用户数据用于广告目的，包括个性化广告、再营销或受众定向；</li>
             <li>不将 Google 用户数据用于训练或改进通用/基础人工智能或机器学习模型；</li>
+            <li>不将 Google 用户数据用于生成、创建或传播 AI 生成的未经当事人同意的私密图像（NCII），本扩展不具备图像生成能力；</li>
             <li>不将 Google 用户数据用于确定信用度、放贷目的或与之相关的用途；</li>
             <li>不允许人工读取 Google 用户数据，除非：您对特定数据作出明确同意、出于安全目的（如调查滥用行为）确有必要，或法律强制要求。</li>
         </ul>
@@ -484,6 +493,7 @@
         <h2 id="en-1">1. Introduction</h2>
         <p>MS-ToDo Hub ("the Extension") is a browser extension that provides task management for Google Tasks and Microsoft To Do, a desktop new tab page with website bookmarks, an RSS feed reader, mind map, data dashboard, pomodoro timer, sticky notes, and weather widget. This Privacy Policy explains what data we collect, how we use it, and how we protect your privacy.</p>
         <p>Because Microsoft has announced that Microsoft To Do will be discontinued on June 30, 2027, the Extension now supports Google Tasks, with Google accounts as the primary sign-in method; Microsoft accounts remain available until Microsoft's service is shut down. When you sign in with a Google account, the Extension's use of Google APIs complies with the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements (see Section 6).</p>
+        <p>This page, like the rest of this website, is publicly accessible <strong>without registration or sign-in</strong>. The Extension only requests Google authorization when you actively click sign-in; simply browsing this website never triggers access to your Google account data.</p>
 
         <h2 id="en-2">2. Data We Collect</h2>
 
@@ -577,6 +587,7 @@
             <li>We do <strong>not</strong> access your data in other Google services such as Gmail, Google Calendar, or Google Drive; the extension only requests the Tasks and basic profile scopes described above</li>
             <li>We do <strong>not</strong> collect personal data from children under 13</li>
             <li>We do <strong>not</strong> sell or share your data with third parties for advertising, and we do <strong>not</strong> use Google user data to train artificial intelligence or machine learning models</li>
+            <li>We do <strong>not</strong> use Google API user data to create, generate or distribute AI-generated non-consensual intimate imagery (NCII); the extension has no image-generation capability at all</li>
             <li>We do <strong>not</strong> use your data for any purpose other than those described in this policy</li>
         </ul>
 
@@ -621,6 +632,7 @@
             <li>We do not sell Google user data to third parties;</li>
             <li>We do not use Google user data for advertising purposes, including personalized advertising, retargeting, or audience targeting;</li>
             <li>We do not use Google user data to train or improve generalized/foundational artificial intelligence or machine learning models;</li>
+            <li>We do not use Google user data to create, generate or distribute AI-generated non-consensual intimate imagery (NCII); the extension has no image-generation capability;</li>
             <li>We do not use Google user data to determine creditworthiness or for lending purposes or related uses;</li>
             <li>We do not allow humans to read Google user data unless: you have given your affirmative consent for specific data, it is necessary for security purposes such as investigating abuse, or it is required by applicable law.</li>
         </ul>
@@ -675,14 +687,21 @@
         }
     });
 
-    function switchPrivacyLang(lang, skipUpdate) {
-        document.getElementById('privacy-zh').classList.toggle('active', lang === 'zh');
-        document.getElementById('privacy-en').classList.toggle('active', lang === 'en');
-        document.getElementById('toc-zh').style.display = lang === 'zh' ? 'block' : 'none';
-        document.getElementById('toc-en').style.display = lang === 'en' ? 'block' : 'none';
+    function highlightPrivacyTabs(lang) {
         document.querySelectorAll('.privacy-lang-tab').forEach(function(tab) {
             tab.classList.toggle('active', tab.textContent.trim() === (lang === 'zh' ? '中文' : 'English'));
         });
+        document.getElementById('toc-zh').style.display = lang === 'zh' ? 'block' : 'none';
+        document.getElementById('toc-en').style.display = lang === 'en' ? 'block' : 'none';
+    }
+
+    /* 中英文正文固定同时展示，标签仅做定位跳转 */
+    function switchPrivacyLang(lang, skipUpdate) {
+        var target = document.getElementById('privacy-' + lang);
+        if (target && !skipUpdate) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        highlightPrivacyTabs(lang);
         var langBtn = document.getElementById('lang-btn-text');
         if (langBtn) langBtn.innerText = lang === 'zh' ? 'English' : '中文';
         if (!skipUpdate) {
@@ -693,13 +712,7 @@
     window.switchPrivacyLang = switchPrivacyLang;
 
     window.afterUpdate = function() {
-        document.querySelectorAll('.privacy-lang-tab').forEach(function(tab) {
-            tab.classList.toggle('active', tab.textContent.trim() === (window.currentLang === 'zh' ? '中文' : 'English'));
-        });
-        document.getElementById('privacy-zh').classList.toggle('active', window.currentLang === 'zh');
-        document.getElementById('privacy-en').classList.toggle('active', window.currentLang === 'en');
-        document.getElementById('toc-zh').style.display = window.currentLang === 'zh' ? 'block' : 'none';
-        document.getElementById('toc-en').style.display = window.currentLang === 'en' ? 'block' : 'none';
+        highlightPrivacyTabs(window.currentLang);
     };
 </script>
 </body>
