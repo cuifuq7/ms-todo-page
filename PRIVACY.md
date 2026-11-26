@@ -1,6 +1,6 @@
 # Privacy Policy / 隐私权政策
 
-**MS-ToDo Hub**  
+**ToDo Hub**  
 **Effective Date: November 25, 2026**  
 **Last Updated: November 25, 2026**
 
@@ -10,7 +10,7 @@
 
 ### 1. Introduction
 
-MS-ToDo Hub ("the Extension") is a browser extension that provides task management for Google Tasks and Microsoft To Do, a desktop new tab page with website bookmarks, an RSS feed reader, mind map, data dashboard, pomodoro timer, sticky notes, and weather widget. This Privacy Policy explains what data we collect, how we use it, and how we protect your privacy.
+ToDo Hub ("the Extension") is a browser extension that provides task management for Google Tasks and Microsoft To Do, a desktop new tab page with website bookmarks, an RSS feed reader, mind map, data dashboard, pomodoro timer, sticky notes, and weather widget. This Privacy Policy explains what data we collect, how we use it, and how we protect your privacy.
 
 Because Microsoft has announced that Microsoft To Do will be discontinued on June 30, 2027, the Extension now supports Google Tasks, with Google accounts as the primary sign-in method; Microsoft accounts remain available until Microsoft's service is shut down. When you sign in with a Google account, the Extension's use of Google APIs complies with the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements (see Section 6).
 
@@ -157,7 +157,7 @@ The extension interacts with the following third-party services only when you us
 
 ### 6. Google API Services User Data Policy & Limited Use
 
-**Limited Use disclosure:** MS-ToDo Hub's use and transfer to any other app of information received from Google APIs will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
+**Limited Use disclosure:** ToDo Hub's use and transfer to any other app of information received from Google APIs will adhere to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
 
 Specifically, we commit to the following with respect to Google user data:
 
@@ -183,7 +183,7 @@ We share Google user data with our backend server only to the extent described i
   - Using the "Logout" function within the extension (clears local tokens and account information)
   - Clearing browser data for the extension
 - You may also revoke the extension's access to your account at any time:
-  - Google: visit [Third-party apps & services](https://myaccount.google.com/permissions) in your Google Account and remove MS-ToDo Hub's access; once revoked, we can no longer access your Google user data.
+  - Google: visit [Third-party apps & services](https://myaccount.google.com/permissions) in your Google Account and remove ToDo Hub's access; once revoked, we can no longer access your Google user data.
   - Microsoft: visit [Apps and services that can access your data](https://account.live.com/consent/Manage) and remove the authorization.
 - Server-side user records (email address, display name, and extension version number) can be deleted by contacting us (see Section 10); we will delete them promptly after verification.
 
@@ -203,7 +203,7 @@ If you have questions about this Privacy Policy or wish to request deletion of y
 
 ### 1. 引言
 
-MS-ToDo Hub（以下简称"本扩展"）是一款浏览器扩展，提供 Google Tasks 与 Microsoft To Do 任务管理、桌面新标签页（含网站书签导航）、RSS 信息聚合阅读、思维导图、数据看板、番茄钟计时器、便签和天气小组件功能。本隐私权政策说明我们收集哪些数据、如何使用这些数据，以及我们如何保护您的隐私。
+ToDo Hub（以下简称"本扩展"）是一款浏览器扩展，提供 Google Tasks 与 Microsoft To Do 任务管理、桌面新标签页（含网站书签导航）、RSS 信息聚合阅读、思维导图、数据看板、番茄钟计时器、便签和天气小组件功能。本隐私权政策说明我们收集哪些数据、如何使用这些数据，以及我们如何保护您的隐私。
 
 由于 Microsoft 已宣布 Microsoft To Do 将于 2027 年 6 月 30 日停止服务，本扩展已完成 Google Tasks 对接，Google 账户为主推登录方式；在微软服务正式关闭前，Microsoft 账户仍可继续使用。当您使用 Google 账户登录时，本扩展对 Google API 的访问遵循 [Google API 服务用户数据政策](https://developers.google.com/terms/api-services-user-data-policy)（含有限使用要求），详见第 6 条。
 
@@ -350,7 +350,7 @@ RSS 订阅数据（订阅源 URL、标题、标签、描述）存储在您的浏
 
 ### 6. Google API 服务用户数据政策与有限使用
 
-**有限使用声明：** MS-ToDo Hub 对通过 Google API 获取的信息的使用，以及向任何其他应用传输该等信息的行为，均将遵守 [Google API 服务用户数据政策](https://developers.google.com/terms/api-services-user-data-policy)（Google API Services User Data Policy），包括其中的有限使用（Limited Use）要求。
+**有限使用声明：** ToDo Hub 对通过 Google API 获取的信息的使用，以及向任何其他应用传输该等信息的行为，均将遵守 [Google API 服务用户数据政策](https://developers.google.com/terms/api-services-user-data-policy)（Google API Services User Data Policy），包括其中的有限使用（Limited Use）要求。
 
 具体而言，我们对 Google 用户数据作出以下承诺：
 
@@ -376,7 +376,7 @@ RSS 订阅数据（订阅源 URL、标题、标签、描述）存储在您的浏
   - 使用扩展内的"退出登录"功能（将清除本地令牌与账户信息）
   - 清除该扩展的浏览器数据
 - 您也可以随时撤销本扩展对账户的访问授权：
-  - Google：前往 [Google 账号第三方访问权限](https://myaccount.google.com/permissions)，移除 MS-ToDo Hub 的访问权限；撤销后我们将无法继续访问您的 Google 用户数据。
+  - Google：前往 [Google 账号第三方访问权限](https://myaccount.google.com/permissions)，移除 ToDo Hub 的访问权限；撤销后我们将无法继续访问您的 Google 用户数据。
   - Microsoft：前往 [Microsoft 应用与服务的授权管理](https://account.live.com/consent/Manage) 移除授权。
 - 服务器端的用户记录（电子邮箱地址、显示名称、扩展版本号）可通过联系我们申请删除（见第 10 条），我们将在核实后及时删除。
 

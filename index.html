@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>MS-ToDo Hub · 新标签，新起点，新世界</title>
-    <meta name="description" content="MS-ToDo Hub — 基于 Chrome MV3 的一站式效率平台：Google Tasks 云端同步（微软待办停服过渡支持） · 精美桌面新标签页 · RSS 信息聚合 · 思维导图 · 数据看板，辅以天气、时钟、番茄钟、便签、白板等桌面小组件。Local-First 离线优先，双向实时同步。">
+    <title>ToDo Hub · 新标签，新起点，新世界</title>
+    <meta name="description" content="ToDo Hub — 基于 Chrome MV3 的一站式效率平台：Google Tasks 云端同步（微软待办停服过渡支持） · 精美桌面新标签页 · RSS 信息聚合 · 思维导图 · 数据看板，辅以天气、时钟、番茄钟、便签、白板等桌面小组件。Local-First 离线优先，双向实时同步。">
     <meta name="keywords" content="Google Tasks, 谷歌任务, 微软待办, Microsoft To Do, 新标签页, RSS阅读器, 桌面模式, 离线同步, 思维导图, 番茄钟, 数据看板, 每日一言, 白板">
-    <meta property="og:title" content="MS-ToDo Hub · 新标签，新起点，新世界">
+    <meta property="og:title" content="ToDo Hub · 新标签，新起点，新世界">
     <meta property="og:description" content="一站式效率平台：Google Tasks 云端同步（微软待办停服过渡支持） · 精美桌面新标签页 · RSS 信息聚合 · 思维导图 · 数据看板 · 天气/时钟/番茄钟/便签/白板小组件 · Local-First 离线优先">
     <meta property="og:image" content="img/logo/logo.png">
     <!--    <meta name="google-adsense-account" content="ca-pub-5532146792919781">-->
@@ -21,8 +21,8 @@
 <nav>
     <div class="logo">
         <a href="/">
-            <img src="img/logo/logo.png" alt="MS-ToDo Hub Logo">
-            MS-ToDo Hub
+            <img src="img/logo/logo.png" alt="ToDo Hub Logo">
+            ToDo Hub
         </a>
     </div>
     <div class="nav-links">
@@ -45,9 +45,8 @@
 <section class="hero">
     <span class="version-badge" data-i18n="version-badge"><i class="fa-solid fa-check-double"></i> 新标签页 · 多合一效率工具</span>
     <h1 class="hero-title">
-        <span class="hero-brand">MS-ToDo Hub</span>
-        <span class="hero-title-divider">·</span>
-        <span data-i18n="hero-title">新标签页待办与效率平台</span>
+        <span class="hero-brand">ToDo Hub</span>
+        <span class="hero-title-sub" data-i18n="hero-title">新标签页待办与效率平台</span>
     </h1>
     <div id="dynamic-slogan"></div>
     <div class="tagline-row">
@@ -61,9 +60,6 @@
         </a>
         <a href="https://microsoftedge.microsoft.com/addons/detail/mstodo/aoodkfaickihogbaooannechhccggnbp" class="btn-download btn-edge" target="_blank">
             <i class="fa-brands fa-edge"></i> <span data-i18n="btn-edge">Edge 商店</span>
-        </a>
-        <a href="https://addons.mozilla.org/zh-CN/firefox/addon/ms-todo" class="btn-download btn-firefox" target="_blank">
-            <i class="fa-brands fa-firefox"></i> <span data-i18n="btn-firefox">Firefox 商店</span>
         </a>
         <a href="/files/MS-ToDo_Hub.crx" class="btn-download btn-crx" download>
             <i class="fa-solid fa-download"></i> <span data-i18n="btn-crx">离线版</span>
@@ -89,7 +85,7 @@
     </div>
     <div class="hero-image" onclick="toggleVideoModal(true)" style="cursor:pointer;">
         <div class="hero-play-btn"><i class="fa-solid fa-circle-play"></i></div>
-        <img src="img/xiaoT/xiaoT-info.webp" alt="MS-ToDo Hub xiaoT">
+        <img src="img/xiaoT/xiaoT-info.webp" alt="ToDo Hub xiaoT">
     </div>
 </section>
 
@@ -114,26 +110,42 @@
 
 <!-- ========== 应用说明（静态中英双语，供用户与平台审核方直接阅读，不依赖 JS） ========== -->
 <section class="app-about" id="about">
-    <h2 class="section-title" data-i18n="about-title">关于本应用</h2>
-    <div class="app-about-grid">
-        <div class="app-about-block" lang="zh-CN">
-            <h3>MS-ToDo Hub 是什么？</h3>
-            <p>MS-ToDo Hub 是一款面向 Chrome、Edge 与 Firefox 的浏览器扩展。它把浏览器新标签页变成待办与效率工作台：与 <strong>Google Tasks</strong> 双向同步任务（微软待办停服前同样支持 Microsoft To Do），并提供桌面模式、RSS 阅读器、思维导图、数据看板，以及天气、时钟、番茄钟、便签、白板等桌面小组件。</p>
-            <p><strong>Google 用户数据的用途：</strong>只有在您主动使用 Google 账号登录后，扩展才会通过 OAuth 2.0 申请最小授权范围——<code>.../auth/tasks</code>（读写您自己的任务列表）与基本资料（邮箱、姓名、头像，用于显示当前登录账号）。任务数据保存在您的 Google 账号与浏览器本地，不会出售、不会用于广告，也不会用于训练或改进 AI / 机器学习模型。</p>
-            <p><strong>有限使用声明：</strong>MS-ToDo Hub 对通过 Google API 获取的信息的使用，以及向任何其他应用传输该等信息的行为，均将遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API 服务用户数据政策</a>，包括其中的有限使用（Limited Use）要求。</p>
-            <p><strong>AI 相关：</strong>本应用不具备任何图像生成能力，不会使用 Google API 用户数据生成、创建或传播 AI 生成的未经当事人同意的私密图像（NCII）。</p>
-            <p><strong>无需登录：</strong>本网站（包括隐私权政策）无需注册或登录即可完整浏览，扩展也仅在您主动点击登录时才请求授权。</p>
-            <p class="app-about-links"><a href="privacy.html">隐私权政策</a> · <a href="price-tracker.html">价格跟踪</a> · <a href="https://chromewebstore.google.com/detail/icmnmeceeheemlmbmolfendmiieabiac" target="_blank" rel="noopener">Chrome 应用商店</a></p>
+    <div class="app-about-inner">
+        <div class="app-about-head">
+            <span class="app-about-badge"><i class="fa-solid fa-shield-halved"></i> Google API 合规说明</span>
+            <h2 data-i18n="about-title">关于本应用</h2>
+            <p class="app-about-lead">Chrome / Edge 新标签页待办扩展：与 <strong>Google Tasks</strong> 双向同步任务，并集成桌面模式、RSS 阅读器、思维导图、数据看板与桌面小组件。<strong>本站无需登录即可浏览。</strong></p>
+            <p class="app-about-lead app-about-lead-en">A Chrome / Edge new-tab to-do extension: two-way <strong>Google Tasks</strong> sync, plus desktop mode, an RSS reader, a mind map, a dashboard and desktop widgets. <strong>This site needs no sign-in.</strong></p>
         </div>
-        <div class="app-about-block" lang="en">
-            <h3>What is MS-ToDo Hub?</h3>
-            <p>MS-ToDo Hub is a browser extension for Chrome, Edge and Firefox. It turns your new tab page into a to-do and productivity workspace: it syncs your tasks with <strong>Google Tasks</strong> (Microsoft To Do remains supported until Microsoft retires it) and adds desktop mode, an RSS reader, a mind map, a productivity dashboard, and weather, clock, pomodoro, sticky note and whiteboard widgets.</p>
-            <p><strong>How Google user data is used:</strong> only after you choose to sign in with Google does the extension request OAuth 2.0 with the minimum scopes — <code>.../auth/tasks</code> (read and write your own task lists) and basic profile (email, name, avatar, shown as the signed-in account). Task data stays in your Google account and in your browser's local storage; it is never sold, never used for advertising, and never used to train or improve AI / machine-learning models.</p>
-            <p><strong>Limited Use:</strong> MS-ToDo Hub's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
-            <p><strong>AI:</strong> the extension has no image-generation capability and does not use Google API data to create, generate or distribute AI-generated non-consensual intimate imagery (NCII).</p>
-            <p><strong>No sign-in required:</strong> this entire website, including the Privacy Policy, is publicly viewable without registering or signing in; the extension only requests authorization when you actively click sign-in.</p>
-            <p class="app-about-links"><a href="privacy.html">Privacy Policy</a> · <a href="price-tracker.html">Price Tracker</a> · <a href="https://chromewebstore.google.com/detail/icmnmeceeheemlmbmolfendmiieabiac" target="_blank" rel="noopener">Chrome Web Store</a></p>
+        <div class="app-about-grid">
+            <div class="app-about-block" lang="zh-CN">
+                <h3><i class="fa-solid fa-list-check"></i> 中文说明</h3>
+                <ul>
+                    <li><strong>用途：</strong>把浏览器新标签页变成待办与效率工作台，与 Google Tasks 双向同步任务（微软待办停服前同样支持）。</li>
+                    <li><strong>Google 数据：</strong>仅在您主动登录后，经 OAuth 2.0 读写您自己的任务列表（<code>.../auth/tasks</code>），并显示账号基本资料（邮箱、姓名、头像）。</li>
+                    <li><strong>数据流向：</strong>任务保存在您的 Google 账号与浏览器本地，不出售、不投放广告、不用于训练 AI / 机器学习模型。</li>
+                    <li><strong>有限使用：</strong>遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API 服务用户数据政策</a>，包括其中的 Limited Use 要求。</li>
+                    <li><strong>AI / NCII：</strong>无任何图像生成能力，不使用 Google 数据生成、创建或传播 AI 生成的未经同意的私密图像。</li>
+                    <li><strong>无需登录：</strong>本网站（含隐私权政策）无需注册或登录即可完整浏览。</li>
+                </ul>
+            </div>
+            <div class="app-about-block" lang="en">
+                <h3><i class="fa-solid fa-list-check"></i> English</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> turns your new tab page into a to-do and productivity workspace, with two-way Google Tasks sync (Microsoft To Do is supported until it is retired).</li>
+                    <li><strong>Google data:</strong> only after you actively sign in does the extension read/write your own task lists via OAuth 2.0 (<code>.../auth/tasks</code>) and show basic profile info (email, name, avatar).</li>
+                    <li><strong>Data flow:</strong> tasks stay in your Google account and in local browser storage — never sold, never used for ads, never used to train AI / ML models.</li>
+                    <li><strong>Limited Use:</strong> adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</li>
+                    <li><strong>AI / NCII:</strong> no image-generation capability; Google data is never used to create, generate or distribute AI-generated non-consensual intimate imagery.</li>
+                    <li><strong>No sign-in:</strong> this entire website, including the Privacy Policy, is publicly viewable without an account.</li>
+                </ul>
+            </div>
         </div>
+        <p class="app-about-links">
+            <a href="privacy.html"><i class="fa-solid fa-lock"></i> 隐私权政策 / Privacy Policy</a>
+            <a href="price-tracker.html"><i class="fa-solid fa-tags"></i> 价格跟踪 / Price Tracker</a>
+            <a href="https://chromewebstore.google.com/detail/icmnmeceeheemlmbmolfendmiieabiac" target="_blank" rel="noopener"><i class="fa-brands fa-chrome"></i> Chrome 应用商店 / Web Store</a>
+        </p>
     </div>
 </section>
 
@@ -210,11 +222,11 @@
     <div class="showcase-grid">
         <div class="carousel-container" id="carousel1">
             <div class="carousel-slides" id="slides1">
-                <div class="carousel-slide"><img src="img/page/family-pc.png" alt="MS-ToDo Hub 主界面"></div>
-                <!--                <div class="carousel-slide"><img src="img/page/desktop.png" alt="MS-ToDo 桌面"></div>-->
-                <!--                <div class="carousel-slide"><img src="img/page/rss.jpg" alt="MS-ToDo rss"></div>-->
-                <div class="carousel-slide"><img src="img/page/Universities-list-zh.png" alt="MS-ToDo Hub 待办列表中文"></div>
-                <div class="carousel-slide"><img src="img/page/Universities-list-en.png" alt="MS-ToDo Hub 待办列表英文"></div>
+                <div class="carousel-slide"><img src="img/page/family-pc.png" alt="ToDo Hub 主界面"></div>
+                <!--                <div class="carousel-slide"><img src="img/page/desktop.png" alt="ToDo Hub 桌面"></div>-->
+                <!--                <div class="carousel-slide"><img src="img/page/rss.jpg" alt="ToDo Hub rss"></div>-->
+                <div class="carousel-slide"><img src="img/page/Universities-list-zh.png" alt="ToDo Hub 待办列表中文"></div>
+                <div class="carousel-slide"><img src="img/page/Universities-list-en.png" alt="ToDo Hub 待办列表英文"></div>
             </div>
             <button class="carousel-btn btn-prev" onclick="prevSlide('carousel1')">‹</button>
             <button class="carousel-btn btn-next" onclick="nextSlide('carousel1')">›</button>
@@ -260,9 +272,9 @@
         </div>
         <div class="carousel-container" id="carousel2">
             <div class="carousel-slides" id="slides2">
-                <div class="carousel-slide"><img src="img/page/Universities-mind-en.png" alt="MS-ToDo Hub 思维导图英文" style="height: 450px;"></div>
-                <div class="carousel-slide"><img src="img/page/Universities-mind-zh.png" alt="MS-ToDo Hub 思维导图中文" style="height: 450px;"></div>
-                <div class="carousel-slide"><img src="img/page/family-pc-mind.png" alt="MS-ToDo Hub 思维导图总览" style="height: 450px;"></div>
+                <div class="carousel-slide"><img src="img/page/Universities-mind-en.png" alt="ToDo Hub 思维导图英文" style="height: 450px;"></div>
+                <div class="carousel-slide"><img src="img/page/Universities-mind-zh.png" alt="ToDo Hub 思维导图中文" style="height: 450px;"></div>
+                <div class="carousel-slide"><img src="img/page/family-pc-mind.png" alt="ToDo Hub 思维导图总览" style="height: 450px;"></div>
             </div>
             <button class="carousel-btn btn-prev" onclick="prevSlide('carousel2')">‹</button>
             <button class="carousel-btn btn-next" onclick="nextSlide('carousel2')">›</button>
@@ -517,7 +529,7 @@
 <section class="highlight" id="privacy">
     <div class="highlight-content">
         <h2 data-i18n="p-title">隐私与安全，我们的核心原则</h2>
-        <p class="desc" data-i18n="p-desc">我们深知待办事项往往包含个人敏感信息。MS-ToDo Hub 采用以下技术保障您的数据安全：</p>
+        <p class="desc" data-i18n="p-desc">我们深知待办事项往往包含个人敏感信息。ToDo Hub 采用以下技术保障您的数据安全：</p>
         <div class="privacy-list">
             <div class="privacy-item"><i class="fa-solid fa-circle-check"></i>
                 <div><strong data-i18n="p1-t">数据自主控制：</strong><span data-i18n="p1-d">所有敏感数据存储在本地 IndexedDB，不上传任何第三方服务器存储。</span></div>
@@ -558,12 +570,12 @@
     <h2 class="section-title" data-i18n="faq-title">常见问题</h2>
     <p class="section-subtitle" data-i18n="faq-subtitle">你可能想了解的</p>
     <div class="faq-grid">
-        <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq1-q">MS-ToDo Hub 是免费的吗？</span></h4>
+        <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq1-q">ToDo Hub 是免费的吗？</span></h4>
             <p data-i18n="faq1-a">完全免费开源，所有核心功能均可永久免费使用。打赏仅用于支持作者维护域名和持续开发，完全自愿。</p></div>
         <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq2-q">需要注册 Google 账号吗？</span></h4>
-            <p data-i18n="faq2-a">是的，MS-ToDo Hub 以 Google Tasks 云端同步为主，需要登录 Google 账号同步任务数据。微软待办将于 2027 年 6 月 30 日停止服务，在此之前仍可使用微软账号登录；所有数据仍归属于您的账户。</p></div>
+            <p data-i18n="faq2-a">是的，ToDo Hub 以 Google Tasks 云端同步为主，需要登录 Google 账号同步任务数据。微软待办将于 2027 年 6 月 30 日停止服务，在此之前仍可使用微软账号登录；所有数据仍归属于您的账户。</p></div>
         <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq3-q">离线时能正常使用吗？</span></h4>
-            <p data-i18n="faq3-a">完全可以！MS-ToDo Hub 采用 Local-First 架构，离线时所有操作（增删改查）均正常工作，联网后自动同步到云端。</p></div>
+            <p data-i18n="faq3-a">完全可以！ToDo Hub 采用 Local-First 架构，离线时所有操作（增删改查）均正常工作，联网后自动同步到云端。</p></div>
         <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq4-q">如何切换中英文？</span></h4>
             <p data-i18n="faq4-a">点击页面右下角的语言切换按钮即可在中文和英文之间切换。插件内的语言设置可在设置菜单中调整。</p></div>
         <div class="faq-item"><h4><i class="fa-regular fa-circle-question"></i> <span data-i18n="faq5-q">数据会同步到官方 App 吗？</span></h4>
@@ -608,7 +620,7 @@
     <div class="modal-content">
         <button class="modal-close" onclick="toggleSponsorModal(false)">&times;</button>
         <h2 style="margin-bottom: 1rem;" data-i18n="s-title">资助作者</h2>
-        <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 2rem;" data-i18n="s-desc">如果你觉得 MS-ToDo Hub 提升了你的效率，欢迎请作者喝杯咖啡 ☕️ 所有打赏将用于域名维护和持续开发。</p>
+        <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 2rem;" data-i18n="s-desc">如果你觉得 ToDo Hub 提升了你的效率，欢迎请作者喝杯咖啡 ☕️ 所有打赏将用于域名维护和持续开发。</p>
         <div class="qr-container">
             <div class="qr-item"><img src="img/pay/wechat-qrcode.png" alt="微信支付">
                 <p style="color:#07c160"><i class="fa-brands fa-weixin"></i> WeChat Pay</p></div>
@@ -630,7 +642,7 @@
         <a href="price-tracker.html"><i class="fa-solid fa-tags"></i> <span data-i18n="footer-pricetracker">价格跟踪</span></a>
         <a href="https://github.com/cuifuq7" target="_blank"><i class="fa-solid fa-user"></i> <span data-i18n="footer-contact">联系作者</span></a>
     </div>
-    <p class="footer-copyright">&copy; 2026 MS-ToDo Hub. <span data-i18n="footer-copy">基于 Google Tasks 与 Microsoft To Do 官方 API 构建，与 Google LLC 及微软公司均无附属关系。</span></p>
+    <p class="footer-copyright">&copy; 2026 ToDo Hub. <span data-i18n="footer-copy">基于 Google Tasks 与 Microsoft To Do 官方 API 构建，与 Google LLC 及微软公司均无附属关系。</span></p>
     <p class="footer-copyright" style="margin-top: 0.5rem;" data-i18n="footer-version">当前版本 v5.5.2.42 | 更新于 2026-10-23</p>
 </footer>
 
@@ -649,7 +661,6 @@
             'hero-desc': '基于 Chrome MV3 的一站式效率平台：Google Tasks 云端同步（微软待办停服过渡支持） · 精美桌面新标签页 · RSS 信息聚合 · 思维导图 · 数据看板 · 天气/时钟/番茄钟/便签/白板小组件 · Local-First 离线优先',
             'btn-chrome': 'Chrome 商店',
             'btn-edge': 'Edge 商店',
-            'btn-firefox': 'Firefox 商店',
             'btn-crx': '离线版下载',
             'btn-github-source': '查看源码',
             'stat-themes': '颜色主题',
@@ -723,7 +734,7 @@
             'mobile-sub': '电脑上随手记，手机端实时同步，移动办公效率倍增（微软待办停服过渡期同样支持）',
             'mobile-footnote': '所有数据均通过 Google 官方 API 与手机 App 无缝打通，无第三方存储；微软待办停服前同样支持',
             'p-title': '隐私与安全，我们的核心原则',
-            'p-desc': '我们深知待办事项往往包含个人敏感信息。MS-ToDo Hub 采用以下技术保障您的数据安全：',
+            'p-desc': '我们深知待办事项往往包含个人敏感信息。ToDo Hub 采用以下技术保障您的数据安全：',
             'p1-t': '数据自主控制：',
             'p1-d': '所有敏感数据存储在本地 IndexedDB，不上传任何第三方服务器存储。',
             'p2-t': '透明同步流向：',
@@ -742,12 +753,12 @@
             'tech-5': '安全认证',
             'faq-title': '常见问题',
             'faq-subtitle': '你可能想了解的',
-            'faq1-q': 'MS-ToDo Hub 是免费的吗？',
+            'faq1-q': 'ToDo Hub 是免费的吗？',
             'faq1-a': '完全免费开源，所有核心功能均可永久免费使用。打赏仅用于支持作者维护域名和持续开发，完全自愿。',
             'faq2-q': '需要注册 Google 账号吗？',
-            'faq2-a': '是的，MS-ToDo Hub 以 Google Tasks 云端同步为主，需要登录 Google 账号同步任务数据。微软待办将于 2027 年 6 月 30 日停止服务，在此之前仍可使用微软账号登录；所有数据仍归属于您的账户。',
+            'faq2-a': '是的，ToDo Hub 以 Google Tasks 云端同步为主，需要登录 Google 账号同步任务数据。微软待办将于 2027 年 6 月 30 日停止服务，在此之前仍可使用微软账号登录；所有数据仍归属于您的账户。',
             'faq3-q': '离线时能正常使用吗？',
-            'faq3-a': '完全可以！MS-ToDo Hub 采用 Local-First 架构，离线时所有操作（增删改查）均正常工作，联网后自动同步到云端。',
+            'faq3-a': '完全可以！ToDo Hub 采用 Local-First 架构，离线时所有操作（增删改查）均正常工作，联网后自动同步到云端。',
             'faq4-q': '如何切换中英文？',
             'faq4-a': '点击页面右下角的语言切换按钮即可在中文和英文之间切换。插件内的语言设置可在设置菜单中调整。',
             'faq5-q': '数据会同步到官方 App 吗？',
@@ -758,7 +769,7 @@
             'cta-title': '你的新标签页，不止于待办',
             'cta-desc': 'Google Tasks 云端同步（微软待办停服过渡支持） · 精美桌面新标签页 · RSS 信息聚合 · 思维导图 · 数据看板 · 天气/时钟/番茄钟/便签/白板小组件，一个插件全搞定。让每次打开浏览器都成为效率与灵感的起点。',
             's-title': '资助作者',
-            's-desc': '如果你觉得 MS-ToDo Hub 提升了你的效率，欢迎请作者喝杯咖啡 ☕️ 所有打赏将用于域名维护和持续开发。',
+            's-desc': '如果你觉得 ToDo Hub 提升了你的效率，欢迎请作者喝杯咖啡 ☕️ 所有打赏将用于域名维护和持续开发。',
             's-footer': '感谢每一位支持者的付出 🙏',
             'footer-copy': '基于 Google Tasks 与 Microsoft To Do 官方 API 构建，与 Google LLC 及微软公司均无附属关系。',
             'footer-version': '当前版本 v5.5.2.42 | 更新于 2026-10-23',
@@ -824,7 +835,6 @@
             'hero-desc': 'All-in-one productivity platform based on Chrome MV3: Google Tasks cloud sync (Microsoft To Do supported during its shutdown transition) · Beautiful desktop new tab · RSS aggregator · Mind map · Data dashboard · Weather/Clock/Pomodoro/Notes/Whiteboard widgets · Local-First offline',
             'btn-chrome': 'Chrome Store',
             'btn-edge': 'Edge Store',
-            'btn-firefox': 'Firefox Add-ons',
             'btn-crx': 'Offline (CRX)',
             'btn-github-source': 'Source Code',
             'stat-themes': 'Color Themes',
@@ -898,7 +908,7 @@
             'mobile-sub': 'Jot down on PC, sync instantly on mobile — double your mobile office efficiency (Microsoft To Do also supported until its shutdown)',
             'mobile-footnote': 'All data flows through the official Google API to your phone app. No third-party storage. Microsoft To Do is also supported until its retirement.',
             'p-title': 'Privacy & Security, Our Core Principles',
-            'p-desc': 'We know to-dos often contain personal info. MS-ToDo Hub uses these technologies to protect your data:',
+            'p-desc': 'We know to-dos often contain personal info. ToDo Hub uses these technologies to protect your data:',
             'p1-t': 'Local Control: ',
             'p1-d': 'All sensitive data stored in local IndexedDB, never uploaded to any third-party server.',
             'p2-t': 'Transparent Sync: ',
@@ -917,10 +927,10 @@
             'tech-5': 'OAuth 2.0',
             'faq-title': 'Frequently Asked Questions',
             'faq-subtitle': 'You might want to know',
-            'faq1-q': 'Is MS-ToDo Hub free?',
+            'faq1-q': 'Is ToDo Hub free?',
             'faq1-a': 'Completely free and open-source. All core features are free forever. Donations only support maintenance and development, entirely voluntary.',
             'faq2-q': 'Do I need a Google account?',
-            'faq2-a': 'Yes, MS-ToDo Hub is built around Google Tasks cloud sync, so you need to sign in with your Google account to sync your task data. Microsoft To Do will be discontinued on June 30, 2027; until then you can still sign in with a Microsoft account. All data remains in your account.',
+            'faq2-a': 'Yes, ToDo Hub is built around Google Tasks cloud sync, so you need to sign in with your Google account to sync your task data. Microsoft To Do will be discontinued on June 30, 2027; until then you can still sign in with a Microsoft account. All data remains in your account.',
             'faq3-q': 'Does it work offline?',
             'faq3-a': 'Absolutely! With Local-First architecture, all operations work normally offline. Changes sync automatically when back online.',
             'faq4-q': 'How to switch between Chinese and English?',
@@ -933,7 +943,7 @@
             'cta-title': 'Your New Tab, More Than Just To-Do',
             'cta-desc': 'Google Tasks cloud sync (Microsoft To Do supported during its shutdown transition) · Beautiful desktop new tab · RSS aggregator · Mind map · Data dashboard · Weather/Clock/Pomodoro/Notes/Whiteboard widgets — all in one extension. Make every browser open a boost of productivity and inspiration.',
             's-title': 'Sponsor the Author',
-            's-desc': 'If MS-ToDo Hub boosts your efficiency, feel free to buy the author a coffee ☕️ All donations support server maintenance and ongoing development.',
+            's-desc': 'If ToDo Hub boosts your efficiency, feel free to buy the author a coffee ☕️ All donations support server maintenance and ongoing development.',
             's-footer': 'Thanks to every supporter 🙏',
             'footer-copy': 'Built on the official Google Tasks and Microsoft To Do APIs. Not affiliated with Google LLC or Microsoft.',
             'footer-version': 'Version v5.5.2.42 | Updated 2026-10-23',
@@ -1103,8 +1113,8 @@
 
     // 动态slogan打字效果
     const sloganList = currentLang === 'zh'
-        ? ['新标签，新起点，新世界', '待办 · 桌面 · RSS · 导图 · 看板，一站式效率平台', '离线编辑，联网自动同步，数据永不丢失', '必应每日一图 + 空闲特效，桌面焕然一新', 'RSS 一键订阅 · OPML 导入 · 全文搜索', '番茄钟 · 便签 · 白板 · 每日一言，桌面小组件一应俱全', '手机App同步，移动办公无缝接力']
-        : ['New Tab, New Start, New World', 'To-Do · Desktop · RSS · Mind Map · Dashboard, all-in-one platform', 'Edit offline, auto-sync online, data never lost', 'Bing daily wallpaper + idle effects, fresh desktop', 'RSS subscribe · OPML import · Full-text search', 'Pomodoro · Notes · Whiteboard · Daily Quote, desktop widgets', 'Mobile app sync, seamless mobile office'];
+        ? ['新标签，新起点，新世界', '离线编辑，联网自动同步，数据永不丢失', '必应每日一图 + 空闲特效，桌面焕然一新', 'RSS 一键订阅 · OPML 导入 · 全文搜索', '番茄钟 · 便签 · 白板 · 每日一言，桌面小组件一应俱全', '手机App同步，移动办公无缝接力']
+        : ['New Tab, New Start, New World', 'Edit offline, auto-sync online, data never lost', 'Bing daily wallpaper + idle effects, fresh desktop', 'RSS subscribe · OPML import · Full-text search', 'Pomodoro · Notes · Whiteboard · Daily Quote, desktop widgets', 'Mobile app sync, seamless mobile office'];
     let sloganIndex = 0, charIndex = 0, isDeleting = false;
     const dynamicElement = document.getElementById('dynamic-slogan');
 

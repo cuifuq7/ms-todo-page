@@ -10,7 +10,6 @@
     --primary-dark: #1d4ed8;
     --chrome-color: #4285f4;
     --edge-color: #0078d7;
-    --firefox-color: #ff7139;
     --text-dark: #1e293b;
     --text-light: #64748b;
     --bg-light: #f8fafc;
@@ -154,21 +153,24 @@ nav {
 }
 
 #dynamic-slogan {
-    font-size: 3.2rem;
-    font-weight: 800;
-    min-height: 6rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    min-height: 2.2rem;
+    margin-bottom: 0.5rem;
     background: linear-gradient(135deg, #1e40af, var(--primary-color), #3b82f6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: -1px;
-    line-height: 1.3;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    opacity: 0.85;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
 }
 
 .tagline-row {
@@ -236,10 +238,6 @@ nav {
 
 .btn-edge {
     background: var(--edge-color);
-}
-
-.btn-firefox {
-    background: var(--firefox-color);
 }
 
 .btn-crx {
@@ -1162,77 +1160,164 @@ footer {
 
 /* ========== Hero 标题（h1，静态可见，供搜索引擎与平台审核识别应用名与用途） ========== */
 .hero-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: var(--text-light);
-    margin: 0 0 1rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 0 0 0.8rem;
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.2;
     position: relative;
     z-index: 1;
 }
 
 .hero-title .hero-brand {
-    color: var(--primary-color);
-    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #1e40af, var(--primary-color), #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-title .hero-title-sub {
+    font-size: 1.3rem;
+    font-weight: 600;
     letter-spacing: 1px;
+    color: var(--text-light);
 }
 
-.hero-title .hero-title-divider {
-    margin: 0 0.4rem;
-    opacity: 0.5;
-}
-
-/* ========== 应用说明（中英双语静态区块） ========== */
+/* ========== 应用说明（Google API 合规说明，中英双语静态区块） ========== */
 .app-about {
-    max-width: 1200px;
+    padding: 4rem 10% 3rem;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    border-top: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.app-about-inner {
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 4rem 8% 1rem;
 }
 
-.app-about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 2.5rem;
+.app-about-head {
+    text-align: center;
+    margin-bottom: 2.2rem;
 }
 
-.app-about-block {
-    background: #fff;
-    border: 1px solid var(--gray-200);
-    border-radius: 16px;
-    padding: 1.8rem 2rem;
-    box-shadow: var(--shadow-sm);
+.app-about-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    margin-bottom: 1rem;
+    border-radius: 40px;
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-.app-about-block h3 {
-    font-size: 1.25rem;
+.app-about-head h2 {
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--text-dark);
     margin-bottom: 1rem;
 }
 
-.app-about-block p {
-    font-size: 0.95rem;
+.app-about-lead {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1rem;
     line-height: 1.8;
     color: var(--text-light);
-    margin-bottom: 0.9rem;
+}
+
+.app-about-lead strong {
+    color: var(--text-dark);
+}
+
+.app-about-lead-en {
+    margin-top: 0.5rem;
+    font-size: 0.88rem;
+    opacity: 0.85;
+}
+
+.app-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.app-about-block {
+    height: 100%;
+    padding: 1.5rem 1.75rem;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+}
+
+.app-about-block h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+}
+
+.app-about-block ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.app-about-block li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.7rem;
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--text-light);
+}
+
+.app-about-block li:last-child {
+    margin-bottom: 0;
+}
+
+.app-about-block li::before {
+    content: '';
+    position: absolute;
+    top: 0.65rem;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    opacity: 0.55;
 }
 
 .app-about-block strong {
     color: var(--text-dark);
+    font-weight: 600;
 }
 
 .app-about-block code {
-    background: var(--gray-100);
     padding: 1px 6px;
     border-radius: 6px;
-    font-size: 0.9em;
+    background: var(--gray-100);
     color: var(--primary-color);
+    font-size: 0.85em;
 }
 
 .app-about-block a {
     color: var(--primary-color);
-    font-weight: 600;
     text-decoration: none;
 }
 
@@ -1241,14 +1326,32 @@ footer {
 }
 
 .app-about-links {
-    margin-top: 1.2rem;
-    padding-top: 1rem;
-    border-top: 1px dashed var(--gray-200);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.8rem;
+    font-size: 0.9rem;
+}
+
+.app-about-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.app-about-links a:hover {
+    color: var(--primary-color);
+}
+
+.app-about-links i {
+    margin-right: 0.35rem;
+    color: var(--primary-color);
 }
 
 @media (max-width: 900px) {
     .app-about {
-        padding: 3rem 1.2rem 1rem;
+        padding: 3rem 1.2rem;
     }
 
     .app-about-grid {
@@ -1257,6 +1360,136 @@ footer {
     }
 
     .app-about-block {
-        padding: 1.4rem;
+        padding: 1.25rem 1.35rem;
+    }
+
+    .app-about-head h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ========== 移动端布局修复（导航换行、Hero 缩放、避免横向溢出） ========== */
+@media (max-width: 992px) {
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+        padding: 0.9rem 5%;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.35rem 1.1rem;
+        width: 100%;
+    }
+
+    .nav-links a,
+    .nav-links span {
+        font-size: 0.88rem;
+        padding: 3px 0;
+    }
+
+    .nav-lang {
+        margin-left: 0;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech-item {
+        padding: 1.25rem 1rem;
+    }
+
+    .faq-item {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 3rem 6% 3rem;
+    }
+
+    .hero-title {
+        font-size: 1.9rem;
+        gap: 0.45rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .hero-title .hero-title-sub {
+        font-size: 0.95rem;
+        letter-spacing: 0;
+    }
+
+    #dynamic-slogan {
+        font-size: 1.05rem;
+        min-height: 1.7rem;
+        letter-spacing: 0;
+    }
+
+    .hero .version-badge {
+        font-size: 0.9rem;
+        padding: 6px 18px;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero .subhead {
+        font-size: 1rem;
+    }
+
+    .tagline-row {
+        gap: 0.75rem;
+        margin: 1.1rem 0;
+    }
+
+    .tagline {
+        font-size: 0.95rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .download-container {
+        gap: 0.8rem;
+    }
+
+    .btn-download {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .stats-bar {
+        flex-wrap: wrap;
+        gap: 1.5rem 2.5rem;
+        padding: 1.5rem 1rem;
+        border-radius: 28px;
+        margin-top: 2.5rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .footer-links {
+        gap: 1rem;
+        font-size: 0.9rem;
     }
 }

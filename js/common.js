@@ -1,5 +1,5 @@
 /**
- * MS-ToDo Hub 官网共享模块
+ * ToDo Hub 官网共享模块
  * 提供子页面（privacy.html / price-tracker.html 等）共用的：
  *   - 导航栏 HTML
  *   - 页脚 HTML
@@ -28,7 +28,7 @@ window.GOATCOUNTER_CODE = 'mstodohub';
 
 /* ========== 共享导航栏 HTML ========== */
 window.NAV_HTML = '<nav>' +
-    '<div class="logo"><a href="/"><img src="img/logo/logo.png" alt="MS-ToDo Hub Logo"> MS-ToDo Hub</a></div>' +
+    '<div class="logo"><a href="/"><img src="img/logo/logo.png" alt="ToDo Hub Logo"> ToDo Hub</a></div>' +
     '<div class="nav-links">' +
         '<a href="/#features"><i class="fa-solid fa-star"></i> <span data-i18n="nav-features">功能</span></a>' +
         '<a href="/#showcase"><i class="fa-solid fa-eye"></i> <span data-i18n="nav-showcase">预览</span></a>' +
@@ -47,7 +47,7 @@ window.FOOTER_HTML = '<footer>' +
         '<a href="price-tracker.html"><i class="fa-solid fa-tags"></i> <span data-i18n="footer-pricetracker">价格跟踪</span></a>' +
         '<a href="https://github.com/cuifuq7" target="_blank"><i class="fa-solid fa-user"></i> <span data-i18n="footer-contact">联系作者</span></a>' +
     '</div>' +
-    '<p class="footer-copyright">&copy; 2026 MS-ToDo Hub. <span data-i18n="footer-copy">基于 Google Tasks 与 Microsoft To Do 官方 API 构建，与 Google LLC 及微软公司均无附属关系。</span></p>' +
+    '<p class="footer-copyright">&copy; 2026 ToDo Hub. <span data-i18n="footer-copy">基于 Google Tasks 与 Microsoft To Do 官方 API 构建，与 Google LLC 及微软公司均无附属关系。</span></p>' +
     '<p class="footer-copyright" style="margin-top: 0.5rem;" data-i18n="footer-version">当前版本 v5.5.2.42 | 更新于 2026-10-23</p>' +
 '</footer>';
 
